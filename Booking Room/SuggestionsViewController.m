@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Grupo Sellcom. All rights reserved.
 //
 
-#import "SugerenciasViewController.h"
+#import "SuggestionsViewController.h"
 
-@interface SugerenciasViewController ()
+@interface SuggestionsViewController ()
 
 @end
 
-@implementation SugerenciasViewController
+@implementation SuggestionsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

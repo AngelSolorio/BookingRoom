@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReservacionesViewController : UIViewController
+@interface MyBookingsViewController : UIViewController
 
 @end

@@ -1,5 +1,5 @@
 //
-//  SugerenciasViewController.h
+//  SalasViewController.h
 //  Booking Room
 //
 //  Created by Sandra Guzman on 23/07/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SugerenciasViewController : UIViewController
+@interface BookingRoomsViewController : UIViewController
 
 @end

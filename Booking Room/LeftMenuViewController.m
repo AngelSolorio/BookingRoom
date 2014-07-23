@@ -22,11 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Creates the menu items
-    MenuItem *itemOne = [[MenuItem alloc] initWithTitle:@"Home" andIcon:[UIImage imageNamed:@"Home"]];
-    MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:@"Mis Reservaciones" andIcon:[UIImage imageNamed:@"Reservaciones"]];
-    MenuItem *itemThree = [[MenuItem alloc] initWithTitle:@"Salas" andIcon:[UIImage imageNamed:@"Salas"]];
-    MenuItem *itemFour = [[MenuItem alloc] initWithTitle:@"Sugerencias" andIcon:[UIImage imageNamed:@"Comentarios"]];
-    MenuItem *itemFive = [[MenuItem alloc] initWithTitle:@"Cerrar Sesión" andIcon:[UIImage imageNamed:@"Logout"]];
+    MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Home", @"") andIcon:[UIImage imageNamed:@"Home"]];
+    MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MyBookings", @"") andIcon:[UIImage imageNamed:@"Reservaciones"]];
+    MenuItem *itemThree = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MeetingBookingRooms", @"") andIcon:[UIImage imageNamed:@"Salas"]];
+    MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Suggestions", @"")andIcon:[UIImage imageNamed:@"Comentarios"]];
+    MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"LogOut", @"") andIcon:[UIImage imageNamed:@"Logout"]];
     menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, nil];
     
     _tableView.frame =  CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5);
@@ -50,17 +50,17 @@
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"reservacionesController"]]
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myBookingsController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"salasController"]]
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"bookingRoomsController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 3:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"sugerenciasController"]]
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"suggestionsController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;

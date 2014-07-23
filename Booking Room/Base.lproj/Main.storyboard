@@ -7,7 +7,6 @@
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -20,8 +19,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="OkT-dN-npg"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="-87"/>
+            <point key="canvasLocation" x="659" y="-95"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="i4a-4N-Mo1">
@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-Pz-fBt">
-                                <rect key="frame" x="0.0" y="139" width="228" height="372"/>
+                                <rect key="frame" x="0.0" y="139" width="235" height="372"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -49,21 +49,21 @@
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MenuCell" id="d6A-sm-aAh" customClass="MenuTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="228" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="235" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d6A-sm-aAh" id="ciB-Au-zRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="228" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="235" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NW2-gf-SuY">
-                                                    <rect key="frame" x="20" y="7" width="32" height="32"/>
+                                                    <rect key="frame" x="13" y="6" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcS-YU-zbZ">
-                                                    <rect key="frame" x="60" y="11" width="208" height="21"/>
+                                                    <rect key="frame" x="53" y="11" width="172" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -86,7 +86,7 @@
                                 <rect key="frame" x="64" y="11" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Default" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zny-8Y-8zx">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zny-8Y-8zx">
                                 <rect key="frame" x="0.0" y="110" width="228" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
@@ -106,7 +106,6 @@
         <!--Root View Controller-->
         <scene sceneID="Xbz-Tz-iUM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t8K-Dw-I5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="rootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T9k-0h-BWL" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8ZR-t9-fHj"/>
@@ -119,13 +118,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="9d5-aZ-baq"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8K-Dw-I5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="213" y="-101"/>
         </scene>
-        <!--Reservaciones View Controller - Reservaciones-->
+        <!--My Bookings View Controller - Mis Reservaciones-->
         <scene sceneID="GrV-8w-fIk">
             <objects>
-                <viewController storyboardIdentifier="reservacionesController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RAr-Xh-Agr" customClass="ReservacionesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myBookingsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RAr-Xh-Agr" customClass="MyBookingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Udd-Cv-ktU"/>
                         <viewControllerLayoutGuide type="bottom" id="kCX-6G-7YZ"/>
@@ -135,8 +135,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reservaciones" id="zBo-lp-eOY">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="xSd-mv-6dB">
+                    <navigationItem key="navigationItem" title="Mis Reservaciones" id="zBo-lp-eOY">
+                        <barButtonItem key="leftBarButtonItem" title="Menú" id="xSd-mv-6dB">
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="RAr-Xh-Agr" id="yRa-ci-o6p"/>
                             </connections>
@@ -148,7 +148,7 @@
             </objects>
             <point key="canvasLocation" x="1633" y="-639"/>
         </scene>
-        <!--Home View Controller - Home-->
+        <!--Home View Controller - Reservaciones-->
         <scene sceneID="8yb-6n-g84">
             <objects>
                 <viewController storyboardIdentifier="homeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2pB-5B-eWw" customClass="HomeViewController" sceneMemberID="viewController">
@@ -161,8 +161,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="Ouz-MK-Dls">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="6lG-6i-f1H">
+                    <navigationItem key="navigationItem" title="Reservaciones" id="Ouz-MK-Dls">
+                        <barButtonItem key="leftBarButtonItem" title="Menú" id="6lG-6i-f1H">
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="2pB-5B-eWw" id="4ul-6R-YPb"/>
                             </connections>
@@ -177,7 +177,6 @@
         <!--Navigation Controller-->
         <scene sceneID="OR3-4A-E00">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G6X-Bb-Mth" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mFe-Px-e3f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="j1R-Fr-TZU"/>
@@ -190,13 +189,14 @@
                         <segue destination="2pB-5B-eWw" kind="relationship" relationship="rootViewController" id="WY0-kZ-LVE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6X-Bb-Mth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1093" y="-87"/>
         </scene>
-        <!--Salas View Controller - Salas-->
+        <!--Booking Rooms View Controller - Salas-->
         <scene sceneID="LLJ-0x-ItK">
             <objects>
-                <viewController storyboardIdentifier="salasController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DSF-6p-yjw" customClass="SalasViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookingRoomsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DSF-6p-yjw" customClass="BookingRoomsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nnM-SR-OKF"/>
                         <viewControllerLayoutGuide type="bottom" id="GV2-OJ-9Z8"/>
@@ -207,7 +207,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Salas" id="twU-SB-T2w">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="zZO-yo-ydf">
+                        <barButtonItem key="leftBarButtonItem" title="Menú" id="zZO-yo-ydf">
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="DSF-6p-yjw" id="bVo-Zs-6pc"/>
                             </connections>
@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="1633" y="71"/>
         </scene>
-        <!--Sugerencias View Controller - Sugerencias-->
+        <!--Suggestions View Controller - Sugerencias-->
         <scene sceneID="XC8-xx-w07">
             <objects>
-                <viewController storyboardIdentifier="sugerenciasController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hwX-qE-Xge" customClass="SugerenciasViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suggestionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hwX-qE-Xge" customClass="SuggestionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xbq-fb-Qwa"/>
                         <viewControllerLayoutGuide type="bottom" id="0s4-SF-S7k"/>
@@ -233,7 +233,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sugerencias" id="hbD-Wu-KtT">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Xpj-QN-tcQ">
+                        <barButtonItem key="leftBarButtonItem" title="Menú" id="Xpj-QN-tcQ">
                             <connections>
                                 <action selector="presentLeftMenuViewController:" destination="hwX-qE-Xge" id="n9K-bp-0BJ"/>
                             </connections>

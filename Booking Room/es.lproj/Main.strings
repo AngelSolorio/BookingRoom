@@ -1,0 +1,30 @@
+
+/* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "6lG-6i-f1H"; */
+"6lG-6i-f1H.title" = "Menú";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "GcS-YU-zbZ"; */
+"GcS-YU-zbZ.text" = "Label";
+
+/* Class = "IBUINavigationItem"; title = "Home"; ObjectID = "Ouz-MK-Dls"; */
+"Ouz-MK-Dls.title" = "Reservaciones";
+
+/* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "Xpj-QN-tcQ"; */
+"Xpj-QN-tcQ.title" = "Menú";
+
+/* Class = "IBUILabel"; text = "User Default"; ObjectID = "Zny-8Y-8zx"; */
+"Zny-8Y-8zx.text" = "Usuario";
+
+/* Class = "IBUINavigationItem"; title = "Sugerencias"; ObjectID = "hbD-Wu-KtT"; */
+"hbD-Wu-KtT.title" = "Sugerencias";
+
+/* Class = "IBUINavigationItem"; title = "Salas"; ObjectID = "twU-SB-T2w"; */
+"twU-SB-T2w.title" = "Salas";
+
+/* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "xSd-mv-6dB"; */
+"xSd-mv-6dB.title" = "Menú";
+
+/* Class = "IBUINavigationItem"; title = "Reservaciones"; ObjectID = "zBo-lp-eOY"; */
+"zBo-lp-eOY.title" = "Mis Reservaciones";
+
+/* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "zZO-yo-ydf"; */
+"zZO-yo-ydf.title" = "Menú";

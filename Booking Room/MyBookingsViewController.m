@@ -1,18 +1,18 @@
 //
-//  SalasViewController.m
+//  ReservacionesViewController.m
 //  Booking Room
 //
 //  Created by Sandra Guzman on 23/07/14.
 //  Copyright (c) 2014 Grupo Sellcom. All rights reserved.
 //
 
-#import "SalasViewController.h"
+#import "MyBookingsViewController.h"
 
-@interface SalasViewController ()
+@interface MyBookingsViewController ()
 
 @end
 
-@implementation SalasViewController
+@implementation MyBookingsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

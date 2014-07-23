@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Booking Room
+
+  Created by Sandra Guzman on 23/07/14.
+  Copyright (c) 2014 Grupo Sellcom. All rights reserved.
+*/
+
+// LeftMenu
+
+"Home" = "Reservaciones";
+"MyBookings" = "Mis Reservaciones";
+"MeetingBookingRooms" = "Salas";
+"Suggestions" = "Sugerencias";
+"LogOut" = "Cerrar Sesión";
