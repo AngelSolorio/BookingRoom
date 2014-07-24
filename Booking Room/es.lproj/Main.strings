@@ -35,3 +35,7 @@
 
 /* Class = "IBUIButton"; text = "Enviar"; ObjectID = "W39-rH-TAZ"; */
 "W39-rH-TAZ.normalTitle" = "Enviar";
+
+// BookingroomsViewController
+/* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "5Lf-7p-cpw"; */
+"5Lf-7p-cpw.placeholder" = "Buscar";

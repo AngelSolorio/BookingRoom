@@ -10,10 +10,15 @@
 #import "BookingRoomTableViewCell.h"
 #import "MeetingRoom.h"
 
-@interface BookingRoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface BookingRoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
     NSArray *meetingRoomItems;
+    BOOL searching;
+    NSMutableArray *copyListOfItems;
+    __weak IBOutlet UILabel *emptyLabel;
 }
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *bookingRoomTable;
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 @end

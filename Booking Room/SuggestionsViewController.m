@@ -51,4 +51,26 @@
     }
 }
 
+
+#pragma mark - UIInterfaceOrientation Methods
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) { // LANSCAPE
+        [self.navigationController setNavigationBarHidden:NO];
+    } else { //  PORTRAIT
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+    
+}
+
 @end

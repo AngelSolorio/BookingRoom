@@ -20,4 +20,9 @@
 "MeetingRoom2" = "Sala de juntas 2";
 "MeetingRoom3" = "Sala de juntas 3";
 "MeetingRoom4" = "Sala de juntas 4";
+"Floor1" = "Primmer piso";
+"Floor2" = "Segundo piso";
+"Floor3" = "Tercer piso";
+"Floor4" = "Cuarto piso";
 "DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";
+"RoomEmptySearch" = "No hay salas registradas aún";

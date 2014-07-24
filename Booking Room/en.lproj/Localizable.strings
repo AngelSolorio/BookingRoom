@@ -20,4 +20,9 @@
 "MeetingRoom2" = "Meeting Room 2";
 "MeetingRoom3" = "Meeting Room 3";
 "MeetingRoom4" = "Meeting Room 4";
+"Floor1" = "First floor";
+"Floor2" = "Second floor";
+"Floor3" = "Third floor";
+"Floor4" = "Fourth floor";
 "DetailsMeetingRoom" = "Select just the right venue for your agenda";
+"RoomEmptySearch" = "There are not meeting rooms registered yet";
