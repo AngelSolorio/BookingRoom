@@ -67,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OkT-dN-npg"/>
                     <connections>
+                        <outlet property="loginButton" destination="WcC-Rn-sJo" id="h1y-AI-Nnp"/>
                         <outlet property="passwordTextField" destination="Ucv-yc-IE3" id="i9R-cT-bz9"/>
                         <outlet property="userTextField" destination="o4G-z5-ZAT" id="rnQ-ch-pdh"/>
                     </connections>

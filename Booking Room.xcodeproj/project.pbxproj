@@ -11,14 +11,14 @@
 		4F5E43901981866400E807ED /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E438C1981866400E807ED /* UIColor+Hex.m */; };
 		4F5E43911981866400E807ED /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E438E1981866400E807ED /* Utility.m */; };
 		4F7E0F321981AE8D00B793FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D3197F010C00173E66 /* InfoPlist.strings */; };
-		4F7E0F351981B1FC00B793FD /* PPPinCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F341981B1FC00B793FD /* PPPinCircleView.m */; };
 		4F7E0F381981B2D100B793FD /* RoomDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F371981B2D100B793FD /* RoomDetailsTableViewCell.m */; };
 		4F7E0F3C1981B2E000B793FD /* room1front.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E0F391981B2E000B793FD /* room1front.png */; };
 		4F7E0F3D1981B2E000B793FD /* room2front.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E0F3A1981B2E000B793FD /* room2front.png */; };
 		4F7E0F3E1981B2E000B793FD /* room3front.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E0F3B1981B2E000B793FD /* room3front.png */; };
-		4F7E0F421981B69E00B793FD /* PPPinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F411981B69E00B793FD /* PPPinPadViewController.m */; };
-		4F7E0F451981B71000B793FD /* PPCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F441981B71000B793FD /* PPCircleButton.m */; };
-		4F7E0F471981B73600B793FD /* PPPinPadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E0F461981B73600B793FD /* PPPinPadViewController.xib */; };
+		4F7E0F531981C7E200B793FD /* PPCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F4D1981C7E200B793FD /* PPCircleButton.m */; };
+		4F7E0F541981C7E200B793FD /* PPPinCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F4F1981C7E200B793FD /* PPPinCircleView.m */; };
+		4F7E0F551981C7E200B793FD /* PPPinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F511981C7E200B793FD /* PPPinPadViewController.m */; };
+		4F7E0F561981C7E200B793FD /* PPPinPadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7E0F521981C7E200B793FD /* PPPinPadViewController.xib */; };
 		4F8AB3AC197F010C00173E66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AB197F010C00173E66 /* Foundation.framework */; };
 		4F8AB3AE197F010C00173E66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AD197F010C00173E66 /* CoreGraphics.framework */; };
 		4F8AB3B0197F010C00173E66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AF197F010C00173E66 /* UIKit.framework */; };
@@ -59,9 +59,6 @@
 
 /* Begin PBXFileReference section */
 		37D475F605364C69A3EFF6F1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		4F5E437B1981852F00E807ED /* PPCircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPCircleButton.h; path = "Booking Room/Vendor/PinPad/PPCircleButton.h"; sourceTree = "<group>"; };
-		4F5E437D1981852F00E807ED /* PPPinCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPinCircleView.h; path = "Booking Room/Vendor/PinPad/PPPinCircleView.h"; sourceTree = "<group>"; };
-		4F5E437F1981852F00E807ED /* PPPinPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPPinPadViewController.h; path = "Booking Room/Vendor/PinPad/PPPinPadViewController.h"; sourceTree = "<group>"; };
 		4F5E43881981866400E807ED /* FeedUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedUserDefaults.h; sourceTree = "<group>"; };
 		4F5E43891981866400E807ED /* FeedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedUserDefaults.m; sourceTree = "<group>"; };
 		4F5E438A1981866400E807ED /* TypeDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
@@ -70,15 +67,18 @@
 		4F5E438D1981866400E807ED /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		4F5E438E1981866400E807ED /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		4F7E0F311981A4AC00B793FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4F7E0F341981B1FC00B793FD /* PPPinCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPinCircleView.m; path = "Booking Room/Vendor/PinPad/PPPinCircleView.m"; sourceTree = SOURCE_ROOT; };
 		4F7E0F361981B2D100B793FD /* RoomDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailsTableViewCell.h; path = ViewControllers/RoomDetailsTableViewCell.h; sourceTree = "<group>"; };
 		4F7E0F371981B2D100B793FD /* RoomDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailsTableViewCell.m; path = ViewControllers/RoomDetailsTableViewCell.m; sourceTree = "<group>"; };
 		4F7E0F391981B2E000B793FD /* room1front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room1front.png; sourceTree = "<group>"; };
 		4F7E0F3A1981B2E000B793FD /* room2front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room2front.png; sourceTree = "<group>"; };
 		4F7E0F3B1981B2E000B793FD /* room3front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = room3front.png; sourceTree = "<group>"; };
-		4F7E0F411981B69E00B793FD /* PPPinPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPPinPadViewController.m; path = "Booking Room/Vendor/PinPad/PPPinPadViewController.m"; sourceTree = SOURCE_ROOT; };
-		4F7E0F441981B71000B793FD /* PPCircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPCircleButton.m; path = "Booking Room/Vendor/PinPad/PPCircleButton.m"; sourceTree = SOURCE_ROOT; };
-		4F7E0F461981B73600B793FD /* PPPinPadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PPPinPadViewController.xib; path = "Booking Room/Vendor/PinPad/PPPinPadViewController.xib"; sourceTree = SOURCE_ROOT; };
+		4F7E0F4C1981C7E200B793FD /* PPCircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPCircleButton.h; sourceTree = "<group>"; };
+		4F7E0F4D1981C7E200B793FD /* PPCircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPCircleButton.m; sourceTree = "<group>"; };
+		4F7E0F4E1981C7E200B793FD /* PPPinCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPinCircleView.h; sourceTree = "<group>"; };
+		4F7E0F4F1981C7E200B793FD /* PPPinCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPinCircleView.m; sourceTree = "<group>"; };
+		4F7E0F501981C7E200B793FD /* PPPinPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPinPadViewController.h; sourceTree = "<group>"; };
+		4F7E0F511981C7E200B793FD /* PPPinPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPinPadViewController.m; sourceTree = "<group>"; };
+		4F7E0F521981C7E200B793FD /* PPPinPadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPPinPadViewController.xib; sourceTree = "<group>"; };
 		4F8AB3A8197F010C00173E66 /* Booking Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booking Room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8AB3AB197F010C00173E66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F8AB3AD197F010C00173E66 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,20 +153,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F5E437A1981852E00E807ED /* PinPad */ = {
-			isa = PBXGroup;
-			children = (
-				4F5E437B1981852F00E807ED /* PPCircleButton.h */,
-				4F7E0F441981B71000B793FD /* PPCircleButton.m */,
-				4F5E437D1981852F00E807ED /* PPPinCircleView.h */,
-				4F7E0F341981B1FC00B793FD /* PPPinCircleView.m */,
-				4F5E437F1981852F00E807ED /* PPPinPadViewController.h */,
-				4F7E0F411981B69E00B793FD /* PPPinPadViewController.m */,
-				4F7E0F461981B73600B793FD /* PPPinPadViewController.xib */,
-			);
-			path = PinPad;
-			sourceTree = "<group>";
-		};
 		4F5E43861981854500E807ED /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,9 +179,24 @@
 		4F5E439219818E3F00E807ED /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				4F5E437A1981852E00E807ED /* PinPad */,
+				4F7E0F4B1981C7E200B793FD /* PinPad */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		4F7E0F4B1981C7E200B793FD /* PinPad */ = {
+			isa = PBXGroup;
+			children = (
+				4F7E0F4C1981C7E200B793FD /* PPCircleButton.h */,
+				4F7E0F4D1981C7E200B793FD /* PPCircleButton.m */,
+				4F7E0F4E1981C7E200B793FD /* PPPinCircleView.h */,
+				4F7E0F4F1981C7E200B793FD /* PPPinCircleView.m */,
+				4F7E0F501981C7E200B793FD /* PPPinPadViewController.h */,
+				4F7E0F511981C7E200B793FD /* PPPinPadViewController.m */,
+				4F7E0F521981C7E200B793FD /* PPPinPadViewController.xib */,
+			);
+			name = PinPad;
+			path = Vendor/PinPad;
 			sourceTree = "<group>";
 		};
 		4F8AB39F197F010C00173E66 = {
@@ -438,8 +439,8 @@
 				4F8AB3C4197F010C00173E66 /* Images.xcassets in Resources */,
 				8D7EE9B319802889000878FD /* Localizable.strings in Resources */,
 				4F8AB3BF197F010C00173E66 /* Main.storyboard in Resources */,
+				4F7E0F561981C7E200B793FD /* PPPinPadViewController.xib in Resources */,
 				4F7E0F3C1981B2E000B793FD /* room1front.png in Resources */,
-				4F7E0F471981B73600B793FD /* PPPinPadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +495,8 @@
 				4F5E43901981866400E807ED /* UIColor+Hex.m in Sources */,
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				4F5E438F1981866400E807ED /* FeedUserDefaults.m in Sources */,
-				4F7E0F421981B69E00B793FD /* PPPinPadViewController.m in Sources */,
+				4F7E0F551981C7E200B793FD /* PPPinPadViewController.m in Sources */,
+				4F7E0F531981C7E200B793FD /* PPCircleButton.m in Sources */,
 				4F8AB3C2197F010C00173E66 /* LoginViewController.m in Sources */,
 				8D7EE9A1198005C4000878FD /* SuggestionsViewController.m in Sources */,
 				4F8AB3BC197F010C00173E66 /* AppDelegate.m in Sources */,
@@ -506,9 +508,8 @@
 				8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */,
 				4F8AB3B8197F010C00173E66 /* main.m in Sources */,
 				8D7EE9981980054E000878FD /* HomeViewController.m in Sources */,
-				4F7E0F351981B1FC00B793FD /* PPPinCircleView.m in Sources */,
-				4F7E0F451981B71000B793FD /* PPCircleButton.m in Sources */,
 				8D7EE99B19800585000878FD /* MyBookingsViewController.m in Sources */,
+				4F7E0F541981C7E200B793FD /* PPPinCircleView.m in Sources */,
 				8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */,
 				8D7EE99E1980059E000878FD /* BookingRoomsViewController.m in Sources */,
 				4F7E0F381981B2D100B793FD /* RoomDetailsTableViewCell.m in Sources */,

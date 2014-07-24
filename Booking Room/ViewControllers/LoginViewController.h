@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeedUserDefaults.h"
+#import "PPPinPadViewController.h"
+#import "MRProgressView.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <PinPadPasswordProtocol, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 - (IBAction)loginUser:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
