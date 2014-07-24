@@ -28,4 +28,4 @@
 "MeetingRoom2" = "Sala de Juntas 2";
 "MeetingRoom3" = "Sala de Juntas 3";
 "MeetingRoom4" = "Sala de Juntas 4";
-"DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";
+"RoomEmptySearch" = "No hay salas registradas aún";"DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";
