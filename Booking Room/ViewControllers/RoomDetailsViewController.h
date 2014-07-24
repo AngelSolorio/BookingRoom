@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoomDetailsTableViewCell.h"
+#import "MenuItem.h"
 
-@interface RoomDetailsViewController : UIViewController
+
+@interface RoomDetailsViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate> {
+    NSArray *roomDetailsItems;
+}
 
 @property (nonatomic, retain) NSString *titleView;
+@property (weak, nonatomic) IBOutlet UIScrollView *roomImageScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
+@property (weak, nonatomic) IBOutlet UITableView *roomDetailsTable;
 
 - (id)initWithTitleName:(NSString *)title;
 

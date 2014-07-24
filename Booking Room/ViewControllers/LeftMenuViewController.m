@@ -93,4 +93,16 @@
 	return cell;
 }
 
+
+#pragma mark -
+#pragma mark - UIInterfaceOrientation Methods
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end
