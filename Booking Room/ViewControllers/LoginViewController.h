@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
-- (IBAction)logup:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *userTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+- (IBAction)loginUser:(id)sender;
+- (IBAction)hideKeyboard:(id)sender;
 
 @end

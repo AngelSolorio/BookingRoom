@@ -14,19 +14,27 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)logup:(id)sender {
-    
+
+#pragma mark - IBAction Methods
+
+- (IBAction)hideKeyboard:(id)sender {
+    [_userTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
 }
+
+- (IBAction)loginUser:(id)sender {
+
+}
+
+
 @end
