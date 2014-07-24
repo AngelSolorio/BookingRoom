@@ -1,6 +1,6 @@
 //
 //  MenuItem.m
-//  Palacio De Hierro
+//  Booking Room
 //
 //  Created by Angel Solorio on 5/29/14.
 //  Copyright (c) 2014 Grupo Sellcom. All rights reserved.
