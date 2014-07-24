@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Booking Room
 
@@ -6,18 +6,26 @@
   Copyright (c) 2014 Grupo Sellcom. All rights reserved.
 */
 
-// LeftMenu
+// PIN
+"Pin_Cancel" = "Cancelar";
+"Pin_Reset" = "Borrar";
+"Pin_EnterPIN" = "Ingresar PIN";
+"Pin_CreatePIN" = "Crear PIN";
+"Pin_ConfirmPIN" = "Confirmar PIN";
+"Pin_IncorrectPIN" = "¡PIN Incorreto!";
+"Pin_NotMatchPin" = "¡El PIN NO coincide!";
+"Pin_NotValid" = "¡PIN con combinación inválida!";
 
+// MAIN MENU
 "Home" = "Reservaciones";
 "MyBookings" = "Mis Reservaciones";
 "MeetingBookingRooms" = "Salas";
 "Suggestions" = "Sugerencias";
 "LogOut" = "Cerrar Sesión";
 
-// BookingRoom
-
-"MeetingRoom1" = "Sala de juntas 1";
-"MeetingRoom2" = "Sala de juntas 2";
-"MeetingRoom3" = "Sala de juntas 3";
-"MeetingRoom4" = "Sala de juntas 4";
+// BOOKING ROOM
+"MeetingRoom1" = "Sala de Juntas 1";
+"MeetingRoom2" = "Sala de Juntas 2";
+"MeetingRoom3" = "Sala de Juntas 3";
+"MeetingRoom4" = "Sala de Juntas 4";
 "DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";

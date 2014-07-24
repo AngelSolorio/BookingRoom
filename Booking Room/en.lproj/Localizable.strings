@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Booking Room
 
@@ -6,18 +6,26 @@
   Copyright (c) 2014 Grupo Sellcom. All rights reserved.
 */
 
-// LeftMenu
+// PIN
+"Pin_Cancel" = "Cancel";
+"Pin_Reset" = "Reset";
+"Pin_EnterPIN" = "Enter PIN";
+"Pin_CreatePIN" = "Create PIN";
+"Pin_ConfirmPIN" = "Confirm PIN";
+"Pin_IncorrectPIN" = "Incorrect PIN!";
+"Pin_NotMatchPin" = "PIN doesn't match!";
+"Pin_NotValid" = "PIN with invalid combination!";
 
-"Home" = "Home";
+// MAIN MENU
+"Home" = "Books";
 "MyBookings" = "My Bookings";
-"MeetingBookingRooms" = "Meeting Booking Rooms";
-"Suggestions" = "Suggestions";
-"LogOut" = "Logout";
+"MeetingBookingRooms" = "Meeting Rooms";
+"Suggestions" = "Comments";
+"LogOut" = "Log Out";
 
-// BookingRoom
-
+// BOOKING ROOM
 "MeetingRoom1" = "Meeting Room 1";
 "MeetingRoom2" = "Meeting Room 2";
 "MeetingRoom3" = "Meeting Room 3";
 "MeetingRoom4" = "Meeting Room 4";
-"DetailsMeetingRoom" = "Select just the right venue for your agenda";
+"DetailsMeetingRoom" = "Select a meeting room";
