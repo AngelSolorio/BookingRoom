@@ -22,6 +22,7 @@
 		4F8AB3D5197F010C00173E66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D3197F010C00173E66 /* InfoPlist.strings */; };
 		4F8AB3D7197F010C00173E66 /* Booking_RoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D6197F010C00173E66 /* Booking_RoomTests.m */; };
 		7EC95BE63E2D4A1691A65A83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16CA358B45747B49D6952BE /* libPods.a */; };
+		8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */; };
 		8D7EE98A197F169E000878FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE989197F169E000878FD /* RootViewController.m */; };
 		8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE98C197F1804000878FD /* LeftMenuViewController.m */; };
 		8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE990197F25E5000878FD /* MenuTableViewCell.m */; };
@@ -31,6 +32,8 @@
 		8D7EE99E1980059E000878FD /* BookingRoomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE99D1980059E000878FD /* BookingRoomsViewController.m */; };
 		8D7EE9A1198005C4000878FD /* SuggestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9A0198005C4000878FD /* SuggestionsViewController.m */; };
 		8D7EE9B319802889000878FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7EE9B519802889000878FD /* Localizable.strings */; };
+		8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */; };
+		8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BE19805D6D000878FD /* MeetingRoom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,8 @@
 		4F8AB3D2197F010C00173E66 /* Booking RoomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Booking RoomTests-Info.plist"; sourceTree = "<group>"; };
 		4F8AB3D4197F010C00173E66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F8AB3D6197F010C00173E66 /* Booking_RoomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Booking_RoomTests.m; sourceTree = "<group>"; };
+		8D316C7419807F9200E4C21C /* RoomDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDetailsViewController.h; sourceTree = "<group>"; };
+		8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDetailsViewController.m; sourceTree = "<group>"; };
 		8D7EE988197F169E000878FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		8D7EE989197F169E000878FD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		8D7EE98B197F1804000878FD /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
@@ -78,7 +83,6 @@
 		8D7EE99A19800585000878FD /* MyBookingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookingsViewController.m; sourceTree = "<group>"; };
 		8D7EE99C1980059E000878FD /* BookingRoomsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingRoomsViewController.h; sourceTree = "<group>"; };
 		8D7EE99D1980059E000878FD /* BookingRoomsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingRoomsViewController.m; sourceTree = "<group>"; };
-		8D7EE99F198005C4000878FD /* SuggestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsViewController.h; sourceTree = "<group>"; };
 		8D7EE9A0198005C4000878FD /* SuggestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsViewController.m; sourceTree = "<group>"; };
 		8D7EE9AC198025D7000878FD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		8D7EE9AD198025D7000878FD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -87,6 +91,11 @@
 		8D7EE9B419802889000878FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D7EE9B61980288E000878FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D7EE9B719802890000878FD /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8D7EE9B8198052D0000878FD /* SuggestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsViewController.h; sourceTree = "<group>"; };
+		8D7EE9BA19805C59000878FD /* BookingRoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingRoomTableViewCell.h; sourceTree = "<group>"; };
+		8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingRoomTableViewCell.m; sourceTree = "<group>"; };
+		8D7EE9BD19805D6D000878FD /* MeetingRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingRoom.h; sourceTree = "<group>"; };
+		8D7EE9BE19805D6D000878FD /* MeetingRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingRoom.m; sourceTree = "<group>"; };
 		D16CA358B45747B49D6952BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,10 +208,9 @@
 				8D7EE9971980054E000878FD /* HomeViewController.m */,
 				8D7EE99919800585000878FD /* MyBookingsViewController.h */,
 				8D7EE99A19800585000878FD /* MyBookingsViewController.m */,
-				8D7EE99C1980059E000878FD /* BookingRoomsViewController.h */,
-				8D7EE99D1980059E000878FD /* BookingRoomsViewController.m */,
-				8D7EE99F198005C4000878FD /* SuggestionsViewController.h */,
+				8D7EE9B8198052D0000878FD /* SuggestionsViewController.h */,
 				8D7EE9A0198005C4000878FD /* SuggestionsViewController.m */,
+				8D7EE9B919805BEE000878FD /* BookingRooms */,
 				8D7EE98E197F1E66000878FD /* Assets */,
 				8D7EE987197F163F000878FD /* Menu */,
 			);
@@ -235,8 +243,23 @@
 			children = (
 				8D7EE993197F2631000878FD /* MenuItem.h */,
 				8D7EE994197F2631000878FD /* MenuItem.m */,
+				8D7EE9BD19805D6D000878FD /* MeetingRoom.h */,
+				8D7EE9BE19805D6D000878FD /* MeetingRoom.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		8D7EE9B919805BEE000878FD /* BookingRooms */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EE99C1980059E000878FD /* BookingRoomsViewController.h */,
+				8D7EE99D1980059E000878FD /* BookingRoomsViewController.m */,
+				8D7EE9BA19805C59000878FD /* BookingRoomTableViewCell.h */,
+				8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */,
+				8D316C7419807F9200E4C21C /* RoomDetailsViewController.h */,
+				8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */,
+			);
+			name = BookingRooms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,16 +399,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				4F8AB3C2197F010C00173E66 /* LoginViewController.m in Sources */,
 				8D7EE9A1198005C4000878FD /* SuggestionsViewController.m in Sources */,
 				4F8AB3BC197F010C00173E66 /* AppDelegate.m in Sources */,
 				8D7EE98A197F169E000878FD /* RootViewController.m in Sources */,
 				8D7EE995197F2631000878FD /* MenuItem.m in Sources */,
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
+				8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */,
 				8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */,
 				4F8AB3B8197F010C00173E66 /* main.m in Sources */,
 				8D7EE9981980054E000878FD /* HomeViewController.m in Sources */,
 				8D7EE99B19800585000878FD /* MyBookingsViewController.m in Sources */,
+				8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */,
 				8D7EE99E1980059E000878FD /* BookingRoomsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

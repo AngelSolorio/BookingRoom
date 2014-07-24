@@ -28,3 +28,10 @@
 
 /* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "zZO-yo-ydf"; */
 "zZO-yo-ydf.title" = "Menu";
+
+// SuggestionsViewController
+/* Class "IBUILabel"; text = "Send Message"; ObjectID = "aMC-Xc-yip"; */
+"aMC-Xc-yip.text" = "Send us your suggestions and comments";
+
+/* Class = "IBUIButton"; text = "Enviar"; ObjectID = "W39-rH-TAZ"; */
+"W39-rH-TAZ.normalTitle" = "Send";

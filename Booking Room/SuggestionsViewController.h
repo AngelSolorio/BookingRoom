@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SuggestionsViewController : UIViewController
+@interface SuggestionsViewController : UIViewController <UITextViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
 @end

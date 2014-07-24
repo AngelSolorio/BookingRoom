@@ -13,3 +13,11 @@
 "MeetingBookingRooms" = "Salas";
 "Suggestions" = "Sugerencias";
 "LogOut" = "Cerrar Sesión";
+
+// BookingRoom
+
+"MeetingRoom1" = "Sala de juntas 1";
+"MeetingRoom2" = "Sala de juntas 2";
+"MeetingRoom3" = "Sala de juntas 3";
+"MeetingRoom4" = "Sala de juntas 4";
+"DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";

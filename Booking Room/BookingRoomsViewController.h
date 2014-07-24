@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BookingRoomTableViewCell.h"
+#import "MeetingRoom.h"
 
-@interface BookingRoomsViewController : UIViewController
+@interface BookingRoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    NSArray *meetingRoomItems;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *bookingRoomTable;
 
 @end
