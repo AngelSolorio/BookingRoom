@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "FeedUserDefaults.h"
 #import "PPPinPadViewController.h"
-#import "MRProgressView.h"
+#import <MRProgress/MRProgress.h>
 
-@interface LoginViewController : UIViewController <PinPadPasswordProtocol, UITextFieldDelegate>
+@interface LoginViewController : UIViewController <PinPadPasswordProtocol, UITextFieldDelegate> {
+    MRProgressOverlayView *progressView;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *userTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;

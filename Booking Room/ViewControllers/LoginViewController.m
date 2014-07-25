@@ -70,11 +70,32 @@
     [_passwordTextField resignFirstResponder];
 }
 
+
 - (IBAction)loginUser:(id)sender {
     _loginButton.enabled = NO;
 
     // Hides the keyboard
     [self hideKeyboard:self];
+
+    // Creates a progress control
+    progressView = [MRProgressOverlayView showOverlayAddedTo:self.view
+                                                       title:NSLocalizedString(@"RefreshControl_Connecting", nil)
+                                                        mode:MRProgressOverlayViewModeIndeterminate
+                                                    animated:NO];
+
+    // ---- Requests the login to the Web Service using the AFNetworking Framework ----
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    /*[[WebService sharedClient] logingUser:_userTextField.text
+                                 password:_passwordTextField.text
+                               completion:^(NSDictionary *results, NSError *error) {
+                                   // Dismiss the progress indicator
+                                   [progressView dismiss:YES];
+
+                                   // Stops the activity network indicator
+                                   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+                                   [self getLoginResults:results error:error];
+                               }];*/
 }
 
 
@@ -143,7 +164,6 @@
         _userTextField.frame = CGRectMake(_userTextField.frame.origin.x, _userTextField.frame.origin.y - OFFSET, _userTextField.frame.size.width, _userTextField.frame.size.height);
         _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, _passwordTextField.frame.origin.y - OFFSET, _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
         _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, _loginButton.frame.origin.y - OFFSET, _loginButton.frame.size.width, _loginButton.frame.size.height);
-        //_logoView.frame = CGRectMake(_logoView.frame.origin.x, _logoView.frame.origin.y - 25, _logoView.frame.size.width, _logoView.frame.size.height);
     }
 }
 
@@ -161,7 +181,55 @@
         _userTextField.frame = CGRectMake(_userTextField.frame.origin.x, _userTextField.frame.origin.y + OFFSET, _userTextField.frame.size.width, _userTextField.frame.size.height);
         _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, _passwordTextField.frame.origin.y + OFFSET, _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
         _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, _loginButton.frame.origin.y + OFFSET, _loginButton.frame.size.width, _loginButton.frame.size.height);
-        //_logoView.frame = CGRectMake(_logoView.frame.origin.x, _logoView.frame.origin.y + 25, _logoView.frame.size.width, _logoView.frame.size.height);
+    }
+}
+
+
+#pragma mark - Web Service Response
+
+- (void)getLoginResults:(NSDictionary *)results error:(NSError *)error {
+    if (error == NULL) { // Success
+        // Validates the user and password
+        if ([[results objectForKey:@"success"] boolValue]) {
+            // Saves the user data
+            [FeedUserDefaults setToken:[results valueForKey:@"token"]];
+            [FeedUserDefaults setPassword:_passwordTextField.text];
+            [FeedUserDefaults setUser:_userTextField.text];
+
+            // Get the logged user's picture and name
+            //[self performSelectorInBackground:@selector(getUserInfoFromWebService) withObject:nil];
+
+            // Redirects to enter a new PIN
+            PPPinPadViewController * pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
+            [self presentViewController:pinViewController animated:YES completion:NULL];
+            pinViewController.delegate = self;
+
+            NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
+        } else {
+            // Shows the error message
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login_Title", nil)
+                                                            message:NSLocalizedString(@"Login_InvalidCredentials", nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
+                                                  otherButtonTitles:nil];
+            [alert show];
+
+            // Clean password field and set the focus in the user field
+            _passwordTextField.text = @"";
+            [_passwordTextField becomeFirstResponder];
+
+            NSLog(@"EVENT: %@", NSLocalizedString(@"Login_InvalidCredentials", nil));
+        }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login_Title", nil)
+                                                        message:NSLocalizedString(@"Connection_Error", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
+                                              otherButtonTitles: nil];
+        [alert show];
+
+        [_loginButton setEnabled:YES];
+        NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Error", nil));
     }
 }
 
