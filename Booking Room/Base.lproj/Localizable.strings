@@ -6,6 +6,20 @@
   Copyright (c) 2014 Grupo Sellcom. All rights reserved.
 */
 
+// GENERAL
+"RefreshControl_Connecting" = "Conectando...";
+"OkButton" = "Aceptar";
+"Connection_Error" = "No se pudo realizar la conexión con el Servidor";
+"Connection_Successful" = "Conexión correcta con el servidor";
+"TokenInvalid" = "Token inválido";
+
+// LOGIN
+"Login_UserField" = "Correo";
+"Login_PasswordField" = "Contraseña";
+"Login_LoginButton" = "Entrar";
+"Login_Title" = "Inicio de Sesión";
+"Login_InvalidCredentials" = "¡Usuario y/o contraseña inválidos!";
+
 // PIN
 "Pin_Cancel" = "Cancelar";
 "Pin_Reset" = "Borrar";

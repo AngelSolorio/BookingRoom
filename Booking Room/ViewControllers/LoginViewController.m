@@ -41,11 +41,10 @@
     [self.navigationController setNavigationBarHidden:YES];
 
     // Set the title's controls
-    _userTextField.placeholder = NSLocalizedString(@"Logup_UserField", nil);
-    _passwordTextField.placeholder = NSLocalizedString(@"Logup_PasswordField", nil);
+    _userTextField.placeholder = NSLocalizedString(@"Login_UserField", nil);
+    _passwordTextField.placeholder = NSLocalizedString(@"Login_PasswordField", nil);
     _userTextField.text = ([FeedUserDefaults user].length > 0)? [FeedUserDefaults user] :@"";
-
-    [_loginButton setTitle:NSLocalizedString(@"Logup_LoginButton", nil) forState:UIControlStateNormal];
+    [_loginButton setTitle:NSLocalizedString(@"Login_LoginButton", nil) forState:UIControlStateNormal];
 }
 
 
@@ -60,6 +59,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - UIInterfaceOrientation Methods
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 
@@ -85,7 +95,8 @@
 
     // ---- Requests the login to the Web Service using the AFNetworking Framework ----
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    /*[[WebService sharedClient] logingUser:_userTextField.text
+
+    [[WebService sharedClient] logingUser:_userTextField.text
                                  password:_passwordTextField.text
                                completion:^(NSDictionary *results, NSError *error) {
                                    // Dismiss the progress indicator
@@ -95,7 +106,7 @@
                                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
                                    [self getLoginResults:results error:error];
-                               }];*/
+                               }];
 }
 
 
@@ -120,7 +131,9 @@
     // Dismiss the PIN View Controller and show the home view
     [pvc dismissViewControllerAnimated:NO completion:^{
         // Shows the home view
-        //[self performSegueWithIdentifier:@"loginToHome" sender:self];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"rootController"];
+        [self presentViewController:rootViewController animated:YES completion:nil];
     }];
 
     // Stores the new PIN set and USER
@@ -199,8 +212,15 @@
             // Get the logged user's picture and name
             //[self performSelectorInBackground:@selector(getUserInfoFromWebService) withObject:nil];
 
+            // Get an screenshot
+            UIGraphicsBeginImageContext(self.view.frame.size);
+            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+
             // Redirects to enter a new PIN
             PPPinPadViewController * pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
+            [pinViewController setBackgroundImage:viewImage];
             [self presentViewController:pinViewController animated:YES completion:NULL];
             pinViewController.delegate = self;
 

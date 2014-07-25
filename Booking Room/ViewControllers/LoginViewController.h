@@ -10,6 +10,7 @@
 #import "FeedUserDefaults.h"
 #import "PPPinPadViewController.h"
 #import <MRProgress/MRProgress.h>
+#import "WebService.h"
 
 @interface LoginViewController : UIViewController <PinPadPasswordProtocol, UITextFieldDelegate> {
     MRProgressOverlayView *progressView;

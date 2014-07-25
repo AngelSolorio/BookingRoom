@@ -22,6 +22,8 @@
 		4F7E0F581981CDB900B793FD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7E0F571981CDB900B793FD /* QuartzCore.framework */; };
 		4F7E0F5A1981CDD500B793FD /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7E0F591981CDD500B793FD /* Accelerate.framework */; };
 		4F7E0F5E1981D58400B793FD /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F5D1981D58400B793FD /* WebService.m */; };
+		4F7E0F611982B9D900B793FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F601982B9D900B793FD /* User.m */; };
+		4F7E0F641982E33A00B793FD /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F631982E33A00B793FD /* UIImage+ImageEffects.m */; };
 		4F8AB3AC197F010C00173E66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AB197F010C00173E66 /* Foundation.framework */; };
 		4F8AB3AE197F010C00173E66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AD197F010C00173E66 /* CoreGraphics.framework */; };
 		4F8AB3B0197F010C00173E66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AF197F010C00173E66 /* UIKit.framework */; };
@@ -86,6 +88,10 @@
 		4F7E0F591981CDD500B793FD /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		4F7E0F5C1981D58400B793FD /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
 		4F7E0F5D1981D58400B793FD /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
+		4F7E0F5F1982B9D900B793FD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
+		4F7E0F601982B9D900B793FD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
+		4F7E0F621982E33A00B793FD /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		4F7E0F631982E33A00B793FD /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		4F8AB3A8197F010C00173E66 /* Booking Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booking Room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8AB3AB197F010C00173E66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F8AB3AD197F010C00173E66 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,11 +180,13 @@
 		4F5E43871981866400E807ED /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4F7E0F621982E33A00B793FD /* UIImage+ImageEffects.h */,
+				4F7E0F631982E33A00B793FD /* UIImage+ImageEffects.m */,
+				4F5E438B1981866400E807ED /* UIColor+Hex.h */,
+				4F5E438C1981866400E807ED /* UIColor+Hex.m */,
 				4F5E43881981866400E807ED /* FeedUserDefaults.h */,
 				4F5E43891981866400E807ED /* FeedUserDefaults.m */,
 				4F5E438A1981866400E807ED /* TypeDefs.h */,
-				4F5E438B1981866400E807ED /* UIColor+Hex.h */,
-				4F5E438C1981866400E807ED /* UIColor+Hex.m */,
 				4F5E438D1981866400E807ED /* Utility.h */,
 				4F5E438E1981866400E807ED /* Utility.m */,
 			);
@@ -353,6 +361,8 @@
 				8D7EE994197F2631000878FD /* MenuItem.m */,
 				8D7EE9BD19805D6D000878FD /* MeetingRoom.h */,
 				8D7EE9BE19805D6D000878FD /* MeetingRoom.m */,
+				4F7E0F5F1982B9D900B793FD /* User.h */,
+				4F7E0F601982B9D900B793FD /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -521,10 +531,12 @@
 				4F8AB3C2197F010C00173E66 /* LoginViewController.m in Sources */,
 				8D7EE9A1198005C4000878FD /* SuggestionsViewController.m in Sources */,
 				4F8AB3BC197F010C00173E66 /* AppDelegate.m in Sources */,
+				4F7E0F641982E33A00B793FD /* UIImage+ImageEffects.m in Sources */,
 				8D7EE98A197F169E000878FD /* RootViewController.m in Sources */,
 				8D7EE995197F2631000878FD /* MenuItem.m in Sources */,
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
 				4F5E43911981866400E807ED /* Utility.m in Sources */,
+				4F7E0F611982B9D900B793FD /* User.m in Sources */,
 				4F7E0F5E1981D58400B793FD /* WebService.m in Sources */,
 				8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */,
 				8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */,

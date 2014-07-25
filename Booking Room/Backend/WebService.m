@@ -49,7 +49,7 @@
                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
                                         if (httpResponse.statusCode == 200) {
                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                completion(responseObject, nil);
+                                                completion([self parseUser:responseObject], nil);
                                             });
                                         } else {
                                             dispatch_async(dispatch_get_main_queue(), ^{
@@ -63,50 +63,6 @@
                                             completion(nil, error);
                                         });
                                     }];
-    return task;
-}
-
-
-- (NSURLSessionDataTask *)getLoggedUserInfo_completion:(void (^)(NSDictionary *results, NSError *error))completion {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    [parameters setValue:@"get_users" forKey:@"request"];
-    [parameters setValue:[FeedUserDefaults user] forKey:@"user"];
-    [parameters setValue:[FeedUserDefaults token] forKey:@"token"];
-    [parameters setValue:[NSNumber numberWithInteger:1] forKey:@"image"];
-    [parameters setValue:[FeedUserDefaults user] forKey:@"username"];
-
-    NSURLSessionDataTask *task = [self GET:kBASE_URL
-                                parameters:parameters
-                                   success:^(NSURLSessionDataTask *task, id responseObject) {
-                                       NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
-                                       if (httpResponse.statusCode == 200) {
-                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                               if ([[responseObject valueForKey:@"success"] boolValue]) {
-                                                   NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Successful", nil));
-                                                   //completion([self parseEmployees:responseObject], nil);
-                                               } else {
-                                                   NSError *error = [NSError errorWithDomain:@"Invalid User Token" code:99 userInfo:nil];
-                                                   if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
-                                                       NSLog(@"ERROR: %@", NSLocalizedString(@"TokenInvalid", nil));
-                                                       completion(responseObject, error);
-                                                   } else {
-                                                       NSLog(@"ERROR: %@", [responseObject valueForKey:@"error"]);
-                                                       completion(responseObject, nil);
-                                                   }
-                                               }
-                                           });
-                                       } else {
-                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                               NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
-                                               completion(nil, nil);
-                                           });
-                                       }
-                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                           NSLog(@"ERROR: %@", NSLocalizedString(@"Connection_Error", nil));
-                                           completion(nil, error);
-                                       });
-                                   }];
     return task;
 }
 
@@ -182,6 +138,27 @@
 
 
 #pragma mark - Parsing Methods
+
+
+- (NSDictionary *)parseUser:(id)response {
+    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+
+    // Gets all the Staff from an specific team
+    if (![[response objectForKey:@"user"] isKindOfClass:[NSNull class]]) {
+        NSDictionary *userInfo = [response objectForKey:@"user"];
+        User *user = [[User alloc] init];
+        user.identifier = [[userInfo valueForKey:@"id"] integerValue];
+        user.name = [userInfo valueForKey:@"name"];
+        user.email = [userInfo valueForKey:@"email"];
+        [results setValue:user forKey:@"user"];
+    }
+
+    [results setValue:[response valueForKey:@"token"] forKey:@"token"];
+    [results setValue:[response valueForKey:@"success"] forKey:@"success"];
+
+    return results;
+}
+
 
 
 //- (NSDictionary *)parseEmployees:(id)response {

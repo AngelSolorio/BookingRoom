@@ -10,6 +10,7 @@
                 <outlet property="_errorMessageLabel" destination="H0h-cW-3Em" id="yQd-xg-roR"/>
                 <outlet property="_errorView" destination="W6s-FL-Wlt" id="hc8-Gp-bqS"/>
                 <outlet property="_pinCirclesView" destination="4Yk-SY-2mC" id="gML-ui-4mc"/>
+                <outlet property="background" destination="DOH-Ll-zdT" id="zjf-ye-eWF"/>
                 <outlet property="leftButton" destination="kc3-v6-c4F" id="fqv-E3-von"/>
                 <outlet property="rightButton" destination="oEN-t6-Qmh" id="kfd-wR-FdW"/>
                 <outlet property="titleLabel" destination="w5c-2k-tj7" id="Rfg-XK-JEE"/>
@@ -21,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundBlured" id="DOH-Ll-zdT">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="DOH-Ll-zdT">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -262,7 +263,4 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="BackgroundBlured" width="320" height="480"/>
-    </resources>
 </document>
