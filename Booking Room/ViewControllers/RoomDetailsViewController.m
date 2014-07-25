@@ -46,6 +46,8 @@
     }
     
     //set the scroll view content size
+    
+
     _roomImageScrollView.contentSize = CGSizeMake(_roomImageScrollView.frame.size.width * 3, _roomImageScrollView.frame.size.height);
     
     MenuItem *itemOne = [[MenuItem alloc] initWithTitle:@"Screen 42 inch 16x9 display" andIcon:[UIImage imageNamed:@"Screen"]];
@@ -53,7 +55,7 @@
     MenuItem *itemThree = [[MenuItem alloc] initWithTitle:@"Stationery" andIcon:[UIImage imageNamed:@"Stationery"]];
     
     roomDetailsItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, nil];
-    
+    _imagePageControl.numberOfPages = roomDetailsItems.count;
 }
 
 - (void)didReceiveMemoryWarning {
