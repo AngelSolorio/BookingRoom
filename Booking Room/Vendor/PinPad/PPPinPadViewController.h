@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "Utility.h"
+#import "UIImage+ImageEffects.h"
 
 
 @protocol PinPadPasswordProtocol <NSObject>
@@ -34,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (nonatomic, strong) UIImage *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
 
 - (id)initWithMode:(NSInteger)mode;
 

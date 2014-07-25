@@ -44,6 +44,9 @@ static  CGFloat kVTPinPadViewControllerCircleRadius = 6.0f;
     [self addCircles];
     _pinToConfirm = [[NSString alloc] init];
 
+    // Applies the blur effect to the background image
+    _background.image = [_backgroundImage applyDarkEffect];
+
     // Set the title's controls
     [_leftButton setTitle:NSLocalizedString(@"Pin_Cancel", nil) forState:UIControlStateNormal];
     [_rightButton setTitle:NSLocalizedString(@"Pin_Reset", nil) forState:UIControlStateNormal];
