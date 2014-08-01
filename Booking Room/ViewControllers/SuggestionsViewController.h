@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
 
+- (IBAction)sendSuggestions:(id)sender;
+
 @end
