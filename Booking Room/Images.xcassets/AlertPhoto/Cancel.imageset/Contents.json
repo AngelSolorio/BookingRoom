@@ -1,17 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "salas.png"
+      "filename" : "cross1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "salas2.png"
+      "filename" : "cross2.png"
     }
   ],
   "info" : {
