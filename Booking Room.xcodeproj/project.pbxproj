@@ -37,6 +37,7 @@
 		4F8AB3CD197F010C00173E66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AF197F010C00173E66 /* UIKit.framework */; };
 		4F8AB3D5197F010C00173E66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D3197F010C00173E66 /* InfoPlist.strings */; };
 		4F8AB3D7197F010C00173E66 /* Booking_RoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D6197F010C00173E66 /* Booking_RoomTests.m */; };
+		4F9C4552199025D8006ABC19 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C4551199025D8006ABC19 /* MainNavigationController.m */; };
 		7EC95BE63E2D4A1691A65A83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16CA358B45747B49D6952BE /* libPods.a */; };
 		8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */; };
 		8D7EE98A197F169E000878FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE989197F169E000878FD /* RootViewController.m */; };
@@ -110,6 +111,8 @@
 		4F8AB3D2197F010C00173E66 /* Booking RoomTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Booking RoomTests-Info.plist"; sourceTree = "<group>"; };
 		4F8AB3D4197F010C00173E66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4F8AB3D6197F010C00173E66 /* Booking_RoomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Booking_RoomTests.m; sourceTree = "<group>"; };
+		4F9C4550199025D8006ABC19 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNavigationController.h; path = ViewControllers/MainNavigationController.h; sourceTree = "<group>"; };
+		4F9C4551199025D8006ABC19 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigationController.m; path = ViewControllers/MainNavigationController.m; sourceTree = "<group>"; };
 		8D316C7419807F9200E4C21C /* RoomDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailsViewController.h; path = ViewControllers/RoomDetailsViewController.h; sourceTree = "<group>"; };
 		8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailsViewController.m; path = ViewControllers/RoomDetailsViewController.m; sourceTree = "<group>"; };
 		8D7EE988197F169E000878FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ViewControllers/RootViewController.h; sourceTree = "<group>"; };
@@ -281,9 +284,9 @@
 			children = (
 				4F8AB3B3197F010C00173E66 /* Booking Room-Info.plist */,
 				4F8AB3B4197F010C00173E66 /* InfoPlist.strings */,
+				8D7EE9B519802889000878FD /* Localizable.strings */,
 				4F8AB3B7197F010C00173E66 /* main.m */,
 				4F8AB3B9197F010C00173E66 /* Booking Room-Prefix.pch */,
-				8D7EE9B519802889000878FD /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,6 +309,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4F9C4553199025DD006ABC19 /* Main Navigation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F9C4550199025D8006ABC19 /* MainNavigationController.h */,
+				4F9C4551199025D8006ABC19 /* MainNavigationController.m */,
+			);
+			name = "Main Navigation Controller";
+			sourceTree = "<group>";
+		};
 		8D316C7B19816F2C00E4C21C /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +331,7 @@
 		8D7EE986197F161D000878FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4F9C4553199025DD006ABC19 /* Main Navigation Controller */,
 				4F5E43861981854500E807ED /* Login */,
 				8D7EE9961980054E000878FD /* HomeViewController.h */,
 				8D7EE9971980054E000878FD /* HomeViewController.m */,
@@ -537,6 +550,7 @@
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
 				4F5E43911981866400E807ED /* Utility.m in Sources */,
 				4F7E0F611982B9D900B793FD /* User.m in Sources */,
+				4F9C4552199025D8006ABC19 /* MainNavigationController.m in Sources */,
 				4F7E0F5E1981D58400B793FD /* WebService.m in Sources */,
 				8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */,
 				8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */,

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -39,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginUser:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GVp-V1-H86"/>
-                                    <action selector="logup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PWY-eT-FAH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" minimumFontSize="17" clearButtonMode="always" id="o4G-z5-ZAT">
@@ -132,11 +132,11 @@
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageContact" id="g3T-q9-dra">
                                 <rect key="frame" x="64" y="11" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zny-8Y-8zx">
                                 <rect key="frame" x="0.0" y="110" width="228" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -166,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="697" y="-87"/>
         </scene>
-        <!--My Bookings View Controller - Mis Reservaciones-->
+        <!--Mis Reservaciones-->
         <scene sceneID="GrV-8w-fIk">
             <objects>
                 <viewController storyboardIdentifier="myBookingsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RAr-Xh-Agr" customClass="MyBookingsViewController" sceneMemberID="viewController">
@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="1633" y="-639"/>
         </scene>
-        <!--Home View Controller - Reservaciones-->
+        <!--Reservaciones-->
         <scene sceneID="8yb-6n-g84">
             <objects>
                 <viewController storyboardIdentifier="homeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2pB-5B-eWw" customClass="HomeViewController" sceneMemberID="viewController">
@@ -222,10 +222,10 @@
             </objects>
             <point key="canvasLocation" x="1633" y="-1353"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="OR3-4A-E00">
             <objects>
-                <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mFe-Px-e3f" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mFe-Px-e3f" customClass="MainNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="j1R-Fr-TZU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hX8-K7-msj">
@@ -241,7 +241,7 @@
             </objects>
             <point key="canvasLocation" x="1093" y="-87"/>
         </scene>
-        <!--Booking Rooms View Controller - Salas-->
+        <!--Salas-->
         <scene sceneID="LLJ-0x-ItK">
             <objects>
                 <viewController storyboardIdentifier="bookingRoomsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DSF-6p-yjw" customClass="BookingRoomsViewController" sceneMemberID="viewController">
@@ -336,7 +336,7 @@
             </objects>
             <point key="canvasLocation" x="1633" y="71"/>
         </scene>
-        <!--Room Details View Controller - Detalles Sala-->
+        <!--Detalles Sala-->
         <scene sceneID="T7x-3D-4Wy">
             <objects>
                 <viewController id="aEO-kC-4Gd" customClass="RoomDetailsViewController" sceneMemberID="viewController">
@@ -350,19 +350,19 @@
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" id="xIW-zi-eR0">
                                 <rect key="frame" x="0.0" y="59" width="320" height="170"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="aEO-kC-4Gd" id="PD4-ZM-8ms"/>
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="RTQ-gG-za6">
-                                <rect key="frame" x="0.0" y="227" width="320" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="200" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.1215686275" green="0.69803921570000005" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Psa-B8-Ccq">
-                                <rect key="frame" x="0.0" y="264" width="320" height="304"/>
+                                <rect key="frame" x="0.0" y="237" width="320" height="331"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -412,7 +412,7 @@
             </objects>
             <point key="canvasLocation" x="2072" y="76"/>
         </scene>
-        <!--Suggestions View Controller - Sugerencias-->
+        <!--Sugerencias-->
         <scene sceneID="XC8-xx-w07">
             <objects>
                 <viewController storyboardIdentifier="suggestionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hwX-qE-Xge" customClass="SuggestionsViewController" sceneMemberID="viewController">
@@ -478,10 +478,13 @@
         <image name="Background" width="320" height="480"/>
         <image name="ImageContact" width="100" height="100"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

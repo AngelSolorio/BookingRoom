@@ -70,11 +70,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
     if (searching) {
-        emptyLabel.text = ([copyListOfItems count] == 0) ? NSLocalizedString(@"RoomEmptySearch", @"") : @"";
+        emptyLabel.text = ([copyListOfItems count] == 0) ? NSLocalizedString(@"EmptySearch", @"") : @"";
         emptyLabel.hidden = ([copyListOfItems count] == 0) ? NO : YES;
         return copyListOfItems.count;
     } else {
-        emptyLabel.text = ([meetingRoomItems count] == 0) ? NSLocalizedString(@"RoomEmptySearch", @"") : @"";
+        emptyLabel.text = ([meetingRoomItems count] == 0) ? NSLocalizedString(@"EmptySearch", @"") : @"";
         emptyLabel.hidden = ([meetingRoomItems count] == 0) ? NO : YES;
         return meetingRoomItems.count;
     }

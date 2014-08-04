@@ -12,6 +12,7 @@
 "Connection_Error" = "Could not connect to the server";
 "Connection_Successful" = "Successful connection to the server";
 "TokenInvalid" = "Invalid User Token";
+"EmptySearch" = "Empty search";
 
 // LOGIN
 "Login_UserField" = "Email";
@@ -31,7 +32,7 @@
 "Pin_NotValid" = "PIN with invalid combination!";
 
 // MAIN MENU
-"Home" = "Books";
+"Home" = "Home";
 "MyBookings" = "My Bookings";
 "MeetingBookingRooms" = "Meeting Rooms";
 "Suggestions" = "Comments";
