@@ -44,3 +44,7 @@
 "MeetingRoom3" = "Meeting Room 3";
 "MeetingRoom4" = "Meeting Room 4";
 "DetailsMeetingRoom" = "Select a meeting room";
+
+// SUGGESTION
+"Suggestion_TitleLabel" = "Suggestions";
+"Suggestion_Message" = "Thank you for your comments!";

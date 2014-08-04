@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utility.h"
 
 @interface SuggestionsViewController : UIViewController <UITextViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *suggestionsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
+
+- (IBAction)sendSuggestions:(id)sender;
+
 @end
