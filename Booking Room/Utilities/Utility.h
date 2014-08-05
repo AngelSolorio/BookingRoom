@@ -19,6 +19,8 @@
 + (UIImage *)getImageFromURLString:(NSString *)stringURL;
 + (UIImage *)getImageFrom64EncodedString:(NSString *)encodedString;
 + (UIImage *)getImageFromFileSystem:(NSString *)fileName;
++ (UIImage *)getImageFromFileSystem:(NSString *)fileName inFolder:(NSString *)directory;
++ (void)saveImageToFileSystem:(UIImage *)photo withFileName:(NSString *)fileName inFolder:(NSString*)directory;
 + (void)saveImageToFileSystem:(UIImage *)photo withFileName:(NSString *)fileName;
 + (BOOL)deleteFileFromFileSystemWithName:(NSString *)fileName;
 

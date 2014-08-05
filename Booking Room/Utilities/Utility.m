@@ -80,6 +80,31 @@
     return [manager removeItemAtPath:[basePath stringByAppendingPathComponent:fileName] error:&error];
 }
 
+// Saves an image to the File System
++ (UIImage *)getImageFromFileSystem:(NSString *)fileName inFolder:(NSString *)directory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *dataPath = [basePath stringByAppendingPathComponent:directory];
+
+    return [UIImage imageWithContentsOfFile:[dataPath stringByAppendingPathComponent:fileName]];
+}
+
+// Saves an image to the File System
++ (void)saveImageToFileSystem:(UIImage *)photo withFileName:(NSString *)fileName inFolder:(NSString*)directory {
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths firstObject] : nil;
+    NSString *dataPath = [basePath stringByAppendingPathComponent:directory];
+    if (![filemgr fileExistsAtPath:dataPath]){
+        [filemgr createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+
+    UIImage *imageToSave = photo;
+    NSData *binaryImageData = UIImagePNGRepresentation(imageToSave);
+
+    [binaryImageData writeToFile:[dataPath stringByAppendingPathComponent:fileName] atomically:YES];
+}
+
 // Gets a NSDate value from a NSString
 + (NSDate *)getDateFromString:(NSString *)stringDate withFormat:(NSString *)format {
     if (![stringDate isKindOfClass:[NSNull class]] && stringDate != nil) {
