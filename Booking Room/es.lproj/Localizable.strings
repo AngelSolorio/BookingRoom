@@ -9,6 +9,8 @@
 // GENERAL
 "RefreshControl_Connecting" = "Conectando...";
 "OkButton" = "Aceptar";
+"CancelButton" = "Cancelar";
+"ContinueButton" = "Continuar";
 "Connection_Error" = "No se pudo realizar la conexión con el Servidor";
 "Connection_Successful" = "Conexión correcta con el servidor";
 "TokenInvalid" = "Token inválido";
@@ -20,6 +22,14 @@
 "Login_LoginButton" = "Entrar";
 "Login_Title" = "Inicio de Sesión";
 "Login_InvalidCredentials" = "¡Usuario y/o contraseña inválidos!";
+"Login_EnterButton" = "Entrar";
+"Login_SwithUserButton" = "¿No eres tu?";
+"Login_ResetPin" = "Olvidé mi PIN";
+"Login_Password" = "Clave";
+"Login_Message" = "Favor, de ingresar su clave.";
+"Login_IncorrectPassword" = "Clave Incorrecta";
+"Login_MessageAgain" = "Favor, de ingresar su clave nuevamente";
+"Login_Success" = "Inicio de sesion exitoso";
 
 // PIN
 "Pin_Cancel" = "Cancelar";
@@ -38,9 +48,16 @@
 "Suggestions" = "Sugerencias";
 "LogOut" = "Cerrar Sesión";
 
+// HOME
+"Home_Title" = "Reservaciones";
+
 // BOOKING ROOM
 "MeetingRoom1" = "Sala de Juntas 1";
 "MeetingRoom2" = "Sala de Juntas 2";
 "MeetingRoom3" = "Sala de Juntas 3";
 "MeetingRoom4" = "Sala de Juntas 4";
-"DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";
+"RoomEmptySearch" = "No hay salas registradas aún";"DetailsMeetingRoom" = "Seleccione sólo el lugar adecuado para su junta";
+
+// SUGGESTION
+"Suggestion_TitleLabel" = "Sugerencias";
+"Suggestion_Message" = "¡Gracias por sus comentarios!";

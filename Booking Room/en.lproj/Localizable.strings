@@ -9,6 +9,8 @@
 // GENERAL
 "RefreshControl_Connecting" = "Connecting...";
 "OkButton" = "OK";
+"CancelButton" = "Cancel";
+"ContinueButton" = "Continue";
 "Connection_Error" = "Could not connect to the server";
 "Connection_Successful" = "Successful connection to the server";
 "TokenInvalid" = "Invalid User Token";
@@ -20,6 +22,14 @@
 "Login_LoginButton" = "Login";
 "Login_Title" = "Log In";
 "Login_InvalidCredentials" = "User and/or password invalid!";
+"Login_EnterButton" = "Enter";
+"Login_SwithUserButton" = "Switch user";
+"Login_ResetPin" = "I forgot my PIN";
+"Login_Password" = "Password";
+"Login_Message" = "Please, enter your password.";
+"Login_IncorrectPassword" = "Incorrect Password";
+"Login_MessageAgain" = "Please, enter your password again.";
+"Login_Success" = "Login Successful";
 
 // PIN
 "Pin_Cancel" = "Cancel";
@@ -37,6 +47,9 @@
 "MeetingBookingRooms" = "Meeting Rooms";
 "Suggestions" = "Comments";
 "LogOut" = "Log Out";
+
+// HOME
+"Home_Title" = "Home";
 
 // BOOKING ROOM
 "MeetingRoom1" = "Meeting Room 1";
