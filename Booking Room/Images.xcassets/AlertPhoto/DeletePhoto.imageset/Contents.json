@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "delete1.png"
+      "filename" : "eliminar50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "delete2.png"
+      "filename" : "eliminar100.png"
     }
   ],
   "info" : {
