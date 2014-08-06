@@ -8,8 +8,11 @@
 
 #import "LeftMenuViewController.h"
 #import "MenuTableViewCell.h"
+#import "Utility.h"
 
-#define FacebookAppIdKey @"1518570525042067"
+#define FacebookAppIdKey        @"1518570525042067"
+#define TwitterAppIdKey         @"1wG8eh4e6GNZXCKCdw9ueyeF1"
+#define TwitterAppIdKeySecret   @"ETl8AAULAGUCOqOwgSyMy9JYPc09JVsktGvhOSEDpL5MOSx0eW"
 
 @implementation LeftMenuViewController
 
@@ -34,14 +37,21 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     longPress.numberOfTapsRequired = 0;
     longPress.numberOfTouchesRequired = 1;
-    longPress.minimumPressDuration = .5;
+    longPress.minimumPressDuration = .2;
     [_userPicture addGestureRecognizer:longPress];
     
     accountStore = [[ACAccountStore alloc] init];
+    [self userLogged];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)userLogged {
+    // Sets the user picture and name
+    UIImage *userImage = [Utility getImageFromFileSystem:@"user.png"];
+    _userPicture.image = (userImage == nil) ? [UIImage imageNamed:@"ImageContact"] : userImage;;
 }
 
 
@@ -52,15 +62,15 @@
         NSArray *items = @[
                            [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Facebook"] title:@"Facebook"],
                            [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Twitter"] title:@"Twitter"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Camera"] title:@"Camara"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Iphone"] title:@"Telefono"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"EditPhoto"] title:@"Editar"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"DeletePhoto"] title:@"Eliminar"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Cancel"] title:@"Cancelar"]
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Camera"] title:NSLocalizedString(@"Camera", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Iphone"] title:NSLocalizedString(@"Device", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"EditPhoto"] title:NSLocalizedString(@"Edit", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"DeletePhoto"] title:NSLocalizedString(@"Delete", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Cancel"] title:NSLocalizedString(@"Cancel", @"")]
                            ];
         UIView *header = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
         UILabel *textHeader = [[UILabel alloc] initWithFrame:header.frame];
-        textHeader.text = @"Obtener imagen de contacto";
+        textHeader.text = NSLocalizedString(@"LoadProfilePhoto", @"");
         textHeader.font = [UIFont boldSystemFontOfSize:17];
         textHeader.textColor = [UIColor whiteColor];
         textHeader.textAlignment = NSTextAlignmentCenter;
@@ -145,50 +155,58 @@
         case 1:// twitter
             [self connectTwitter];
             break;
-        case 2: { // camera
-            UIImagePickerController *imagePickController  = [[UIImagePickerController alloc] init];
-            imagePickController.sourceType = UIImagePickerControllerSourceTypeCamera;
-            imagePickController.allowsEditing = TRUE;
-            imagePickController.delegate = self;
-            
-            CAShapeLayer *circleLayer = [CAShapeLayer layer];
-            UIBezierPath *path2 = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.0f, 45.0f, 320.0f, 320.0f)];
-            [path2 setUsesEvenOddFillRule:YES];
-            [circleLayer setPath:[path2 CGPath]];
-            [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
-            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 320, self.view.frame.size.height) cornerRadius:0];
-            [path appendPath:path2];
-            [path setUsesEvenOddFillRule:YES];
-            
-            CAShapeLayer *fillLayer = [CAShapeLayer layer];
-            fillLayer.path = path.CGPath;
-            fillLayer.fillRule = kCAFillRuleEvenOdd;
-            fillLayer.fillColor = [UIColor blackColor].CGColor;
-            fillLayer.opacity = 0.5;
-            [imagePickController.view.layer addSublayer:fillLayer];
-            
-            if ([UIImagePickerController isCameraDeviceAvailable: UIImagePickerControllerCameraDeviceFront ]) {
-                imagePickController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-            } else {
-                imagePickController.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        case 2: {  // camera
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                _imagePickController  = [[UIImagePickerController alloc] init];
+                _imagePickController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                _imagePickController.delegate = self;
+                _imagePickController.allowsEditing = YES;
+                
+                CAShapeLayer *circleLayer = [CAShapeLayer layer];
+                UIBezierPath *path2 = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.0f, 45.0f, 320.0f, 320.0f)];
+                [path2 setUsesEvenOddFillRule:YES];
+                [circleLayer setPath:[path2 CGPath]];
+                [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
+                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 320, self.view.frame.size.height) cornerRadius:0];
+                [path appendPath:path2];
+                [path setUsesEvenOddFillRule:YES];
+                
+                CAShapeLayer *fillLayer = [CAShapeLayer layer];
+                fillLayer.path = path.CGPath;
+                fillLayer.fillRule = kCAFillRuleEvenOdd;
+                fillLayer.fillColor = [UIColor blackColor].CGColor;
+                fillLayer.opacity = 0.5;
+                [_imagePickController.view.layer addSublayer:fillLayer];
+                
+                if ([UIImagePickerController isCameraDeviceAvailable: UIImagePickerControllerCameraDeviceFront ]) {
+                    _imagePickController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+                } else {
+                    _imagePickController.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+                }
+                
+                if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
+                    [self presentViewController:_imagePickController animated:YES completion:nil];
+                }
             }
-            
-            if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
-                [self presentViewController:imagePickController animated:YES completion:nil];
-            }
-            
             break;
         }
-        case 3:// telefono
-            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
-                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-                imagePicker.delegate = self;
-                imagePicker.SourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum/*UIImagePickerControllerSourceTypePhotoLibrary*/;
-                imagePicker.allowsEditing = YES;
-                [self presentViewController:imagePicker animated:YES completion:nil];
+        case 3: // telefono
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                _imagePickController = [[UIImagePickerController alloc] init];
+                _imagePickController.delegate = self;
+                _imagePickController.SourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                _imagePickController.allowsEditing = YES;
+                [self presentViewController:_imagePickController animated:YES completion:nil];
             }
             break;
         case 4:// editar
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+                _imagePickController = [[UIImagePickerController alloc] init];
+                _imagePickController.delegate = self;
+                _imagePickController.SourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                _imagePickController.allowsEditing = YES;
+                [self presentViewController:_imagePickController animated:YES completion:nil];
+            }
             break;
         case 5:// eliminar
             _userPicture.image = [UIImage imageNamed:@"ImageContact"];
@@ -216,26 +234,27 @@
                     NSArray *accounts = [accountStore accountsWithAccountType:FBaccountType];
                     if ([accounts count] > 0) {
                         ACAccount *facebookAccount = [accounts lastObject];
-                        NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=normal",[[facebookAccount valueForKey:@"properties"]valueForKey:@"uid"]]];
+                        NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[[facebookAccount valueForKey:@"properties"]valueForKey:@"uid"]]];
                         NSData *data = [NSData dataWithContentsOfURL:url];
                         UIImage *imageFacebook = [UIImage imageWithData:data];
                         _userPicture.image = imageFacebook;
-                        CALayer *image = _userPicture.layer;
-                        [image  setCornerRadius:50];
-                        [image  setMasksToBounds:YES];
+                        [self saveUserPicture:imageFacebook];
                     }
                 });
             } else {
                 // Fail gracefully...
                 NSLog(@"FACEBOOK:No se pudo realizar la conexión con el servidor de Facebook%@",error);
+                [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:NSLocalizedString(@"Connection_Error", @"")];
             }
         }];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Facebook Ajustes"
-                                    message:@"No existe una cuenta de Facebook configurada. Tú puedes añadir o crear una cuenta de Twitter en Ajustes del dispositivo."
-                                   delegate:self
-                          cancelButtonTitle:@"Aceptar"
-                          otherButtonTitles:nil] show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SettingsFacebook", @"")
+                                                        message:NSLocalizedString(@"AccountFacebookNotExist", @"")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OkButton", @"")
+                                              otherButtonTitles:nil];
+        alert.tag = 2;
+        [alert show];
     }
 }
 
@@ -274,15 +293,16 @@
                                         NSData *data = [NSData dataWithContentsOfURL:url];
                                         UIImage *imageTwitter = [UIImage imageWithData:data];
                                         _userPicture.image = imageTwitter;
-                                        CALayer *image = _userPicture.layer;
-                                        [image  setCornerRadius:50];
-                                        [image  setMasksToBounds:YES];
+                                        [self saveUserPicture:imageTwitter];
                                     } else {
                                         // Our JSON deserialization went awry
-                                        NSLog(@"TWITTER:JSON Error- %@", [jsonError localizedDescription]);                                    }
+                                        NSLog(@"TWITTER:JSON Error- %@", [jsonError localizedDescription]);
+                                        [self showAlert:NSLocalizedString(@"SettingsTwitter", @"") description:[NSString stringWithFormat:@"%@ -%@",NSLocalizedString(@"Connection_Error", @""), [jsonError localizedDescription]]];
+                                    }
                                 } else {
                                     // The server did not respond ... were we rate-limited?
                                     NSLog(@"TWITTER:No se pudo realizar la conexión, el estatus de la conexión es %ld", (long)urlResponse.statusCode);
+                                    [self showAlert:NSLocalizedString(@"SettingsTwitter", @"") description:[NSString stringWithFormat:@"%@ %ld",NSLocalizedString(@"Connection_Error", @""), (long)urlResponse.statusCode]];
                                 }
                             }
                         });
@@ -291,17 +311,19 @@
                     // Access was not granted, or an error occurred
                     dispatch_async(dispatch_get_main_queue(), ^{
                         NSLog(@"TWITTER:No se pudo realizar la conexión %@",[error localizedDescription]);
-                        
+                        [self showAlert:NSLocalizedString(@"SettingsTwitter", @"") description:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Connection_Error", @""),[error localizedDescription]]];
                     });
                 }
             });
         }];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Twitter Ajustes"
-                                    message:@"No existe una cuenta de Twitter configurada. Tú puedes añadir o crear una cuenta de Twitter en Ajustes del dispositivo."
-                                   delegate:self
-                          cancelButtonTitle:@"Aceptar"
-                          otherButtonTitles:nil] show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SettingsTwitter", @"")
+                                                        message:NSLocalizedString(@"AccountTwitterNotExist", @"")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OkButton", @"")
+                                              otherButtonTitles:nil];
+        alert.tag = 1;
+        [alert show];
     }
 }
 
@@ -309,12 +331,79 @@
 #pragma mark - UIImagePicker Delegate
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage * pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
     _userPicture.image = pickedImage;
-    CALayer *image = _userPicture.layer;
-    [image  setCornerRadius:50];
-    [image  setMasksToBounds:YES];
+    [self saveUserPicture:pickedImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 1) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[FHSTwitterEngine sharedEngine]permanentlySetConsumerKey:TwitterAppIdKey andSecret:TwitterAppIdKeySecret];
+            [[FHSTwitterEngine sharedEngine]loadAccessToken];
+            UIViewController *loginController = [[FHSTwitterEngine sharedEngine]loginControllerWithCompletionHandler:^(BOOL success) {
+                if (success) {
+                    NSLog(@"TWITTWER:incio de sesión exitoso");
+                    // Gets user's data from Twitter
+                    UIImage *imageTwitter = [[FHSTwitterEngine sharedEngine]getProfileImageForUsername:FHSTwitterEngine.sharedEngine.authenticatedUsername andSize:FHSTwitterEngineImageSizeOriginal];
+                    _userPicture.image = imageTwitter;
+                    [self saveUserPicture:imageTwitter];
+                } else {
+                    [self showAlert:NSLocalizedString(@"SettingsTwitter", @"") description:NSLocalizedString(@"Connection_Error", @"")];
+                    NSLog(@"TWITTER:No se pudo realizar la conexión");
+                }
+            }];
+            [self presentViewController:loginController animated:YES completion:nil];
+        });
+    } else if (alertView.tag == 2) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            FBSession *session = [[FBSession alloc] initWithPermissions:@[@"publish_actions", @"email"]];
+            // Set the active session
+            [FBSession setActiveSession:session];
+            // Open the session
+            [session openWithBehavior:FBSessionLoginBehaviorForcingWebView  completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                if(error == nil) {
+                    NSLog(@"FACEBOOK:inicio de sesión exitoso");
+                    if (session.isOpen) {
+                        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+                            if (!error) {
+                                NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[user objectForKey:@"id"]]];
+                                NSData *data = [NSData dataWithContentsOfURL:url];
+                                UIImage *imageFacebook = [UIImage imageWithData:data];
+                                _userPicture.image = imageFacebook;
+                                [self saveUserPicture:imageFacebook];
+                            } else {
+                                // Fail gracefully...
+                                [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:NSLocalizedString(@"Connection_Error", @"")];
+                                NSLog(@"FACEBOOK: Error en la conexión con el servidor %@", error);
+                            }
+                        }];
+                    }
+                } else {
+                    NSLog(@"FACEBOOK:inicio de sesión no exitoso %@", error);
+                    [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Connection_Error", @""),error]];
+                }
+            }];
+        });
+    }
+}
+
+- (void)showAlert:(NSString *)title description:(NSString *)message {
+    [[[UIAlertView alloc] initWithTitle:title
+                                message:message
+                               delegate:self
+                      cancelButtonTitle:NSLocalizedString(@"OkButton", @"")
+                      otherButtonTitles:nil] show];
+}
+
+- (void)saveUserPicture:(UIImage *)picture {
+    // Save user data to the system
+    [Utility saveImageToFileSystem:picture withFileName:@"user.png"];
+    UIImageWriteToSavedPhotosAlbum(picture, nil, nil, nil);
 }
 
 

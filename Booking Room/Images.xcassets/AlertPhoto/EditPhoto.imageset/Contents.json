@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "edit1.png"
+      "filename" : "editar50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "edit2.png"
+      "filename" : "editar100.png"
     }
   ],
   "info" : {

@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "camera1.png"
+      "filename" : "camara50.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "camera2.png"
+      "filename" : "camara100.png"
     }
   ],
   "info" : {

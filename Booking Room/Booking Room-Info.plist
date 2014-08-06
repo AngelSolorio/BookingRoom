@@ -45,5 +45,9 @@
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1518570525042067</string>
+	<key>FacebookDisplayName</key>
+	<string>Booking-Room</string>
 </dict>
 </plist>

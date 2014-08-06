@@ -36,6 +36,16 @@
 "MeetingBookingRooms" = "Meeting Rooms";
 "Suggestions" = "Comments";
 "LogOut" = "Log Out";
+"Camera" = "Camera";
+"Device" = "Device";
+"Edit" = "Edit";
+"Delete" = "Delete";
+"Cancel" = "Cancel";
+"LoadProfilePhoto" = "Load profile photo";
+"SettingsFacebook" = "Settings Facebook";
+"SettingsTwitter" = "Settings Twitter";
+"AccountFacebookNotExist" = "Not exist Facebook account register in device settings.";
+"AccountTwitterNotExist" = "Not exist Twitter account register in device settings.";
 
 // BOOKING ROOM
 "MeetingRoom1" = "Meeting Room 1";

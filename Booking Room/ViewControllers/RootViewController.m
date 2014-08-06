@@ -33,11 +33,11 @@
 #pragma mark RESideMenu Delegate
 
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController {
-    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+    //NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController {
-    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+    //NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 

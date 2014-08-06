@@ -36,6 +36,16 @@
 "MeetingBookingRooms" = "Salas";
 "Suggestions" = "Sugerencias";
 "LogOut" = "Cerrar Sesión";
+"Camera" = "Cámara";
+"Device" = "Teléfono";
+"Edit" = "Editar";
+"Delete" = "Eliminar";
+"Cancel" = "Cancelar";
+"LoadProfilePhoto" = "Cargar foto de perfil";
+"SettingsFacebook" = "Ajustes de Facebook";
+"SettingsTwitter" = "Ajustes de Twitter";
+"AccountFacebookNotExist" = "No existe una cuenta de Facebook configurada. Tú puedes añadir o crear una cuenta de Facebook en Ajustes del dispositivo.";
+"AccountTwitterNotExist" = "No existe una cuenta de Twitter configurada. Tú puedes añadir o crear una cuenta de Twitter en Ajustes del dispositivo.";
 
 // BOOKING ROOM
 "MeetingRoom1" = "Sala de Juntas 1";
