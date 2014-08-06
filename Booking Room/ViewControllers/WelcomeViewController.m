@@ -27,9 +27,9 @@
     [_enterButton setTitle:NSLocalizedString(@"Login_EnterButton", nil) forState:UIControlStateNormal];
     [_switchUserButton setTitle:NSLocalizedString(@"Login_SwithUserButton", nil) forState:UIControlStateNormal];
     [_resetPinButton setTitle:NSLocalizedString(@"Login_ResetPin", nil) forState:UIControlStateNormal];
-
+    
     // Loads the logged user's info
-    _userLabel.text = [FeedUserDefaults name] != nil ? [FeedUserDefaults name] : [FeedUserDefaults user];
+    _userLabel.text = [[FeedUserDefaults name] length] != 0 ? [FeedUserDefaults name] : [FeedUserDefaults user];
     UIImage *picture = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
                                               inFolder:@"People"];
     _userPictureView.image = picture ? picture : [UIImage imageNamed:@"ImageContact"];

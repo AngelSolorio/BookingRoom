@@ -42,6 +42,7 @@
 		4FDB1AC819915133001601C6 /* RoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB1AC719915133001601C6 /* RoundImageView.m */; };
 		4FDB1ACB199170FD001601C6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB1ACA199170FD001601C6 /* HomeViewController.m */; };
 		7EC95BE63E2D4A1691A65A83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16CA358B45747B49D6952BE /* libPods.a */; };
+		8D19DF941992B1D900F75F75 /* MyBookingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D19DF931992B1D900F75F75 /* MyBookingsTableViewCell.m */; };
 		8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */; };
 		8D7EE98A197F169E000878FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE989197F169E000878FD /* RootViewController.m */; };
 		8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE98C197F1804000878FD /* LeftMenuViewController.m */; };
@@ -53,13 +54,13 @@
 		8D7EE9B319802889000878FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7EE9B519802889000878FD /* Localizable.strings */; };
 		8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */; };
 		8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BE19805D6D000878FD /* MeetingRoom.m */; };
+		8DA4867D1992CBFF00C350F1 /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4867C1992CBFF00C350F1 /* Booking.m */; };
 		8DA4F592199023E70082A5C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F591199023E70082A5C7 /* Social.framework */; };
 		8DA4F594199023ED0082A5C7 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F593199023ED0082A5C7 /* Twitter.framework */; };
 		8DA4F596199024B40082A5C7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F595199024B40082A5C7 /* Accounts.framework */; };
 		8DD128C61991608900B0F435 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD128C51991608900B0F435 /* FacebookSDK.framework */; };
 		8DD128CF199160A500B0F435 /* FHSStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128C9199160A500B0F435 /* FHSStream.m */; };
 		8DD128D0199160A500B0F435 /* FHSTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CB199160A500B0F435 /* FHSTwitterEngine.m */; };
-		8DD128D1199160A500B0F435 /* RoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CE199160A500B0F435 /* RoundImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,8 @@
 		4FDB1AC719915133001601C6 /* RoundImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundImageView.m; sourceTree = "<group>"; };
 		4FDB1AC9199170FD001601C6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		4FDB1ACA199170FD001601C6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		8D19DF921992B1D900F75F75 /* MyBookingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBookingsTableViewCell.h; path = ViewControllers/MyBookingsTableViewCell.h; sourceTree = "<group>"; };
+		8D19DF931992B1D900F75F75 /* MyBookingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBookingsTableViewCell.m; path = ViewControllers/MyBookingsTableViewCell.m; sourceTree = "<group>"; };
 		8D316C7419807F9200E4C21C /* RoomDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailsViewController.h; path = ViewControllers/RoomDetailsViewController.h; sourceTree = "<group>"; };
 		8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailsViewController.m; path = ViewControllers/RoomDetailsViewController.m; sourceTree = "<group>"; };
 		8D7EE988197F169E000878FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ViewControllers/RootViewController.h; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 		8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingRoomTableViewCell.m; path = ViewControllers/BookingRoomTableViewCell.m; sourceTree = "<group>"; };
 		8D7EE9BD19805D6D000878FD /* MeetingRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRoom.h; path = Models/MeetingRoom.h; sourceTree = "<group>"; };
 		8D7EE9BE19805D6D000878FD /* MeetingRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRoom.m; path = Models/MeetingRoom.m; sourceTree = "<group>"; };
+		8DA4867B1992CBFF00C350F1 /* Booking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Booking.h; path = Models/Booking.h; sourceTree = "<group>"; };
+		8DA4867C1992CBFF00C350F1 /* Booking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Booking.m; path = Models/Booking.m; sourceTree = "<group>"; };
 		8DA4F591199023E70082A5C7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8DA4F593199023ED0082A5C7 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		8DA4F595199024B40082A5C7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -364,6 +369,17 @@
 			path = "Vendor/Round Image";
 			sourceTree = "<group>";
 		};
+		8D19DF911992B13100F75F75 /* MyBookings */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EE99919800585000878FD /* MyBookingsViewController.h */,
+				8D7EE99A19800585000878FD /* MyBookingsViewController.m */,
+				8D19DF921992B1D900F75F75 /* MyBookingsTableViewCell.h */,
+				8D19DF931992B1D900F75F75 /* MyBookingsTableViewCell.m */,
+			);
+			name = MyBookings;
+			sourceTree = "<group>";
+		};
 		8D316C7B19816F2C00E4C21C /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,14 +396,13 @@
 				4F9C4553199025DD006ABC19 /* Main Navigation Controller */,
 				4F9C455419913101006ABC19 /* WelcomeViewController.h */,
 				4F9C455519913101006ABC19 /* WelcomeViewController.m */,
-				4F5E43861981854500E807ED /* Login */,
-				8D7EE987197F163F000878FD /* Menu */,
 				4FDB1AC9199170FD001601C6 /* HomeViewController.h */,
 				4FDB1ACA199170FD001601C6 /* HomeViewController.m */,
-				8D7EE99919800585000878FD /* MyBookingsViewController.h */,
-				8D7EE99A19800585000878FD /* MyBookingsViewController.m */,
 				8D7EE9B8198052D0000878FD /* SuggestionsViewController.h */,
 				8D7EE9A0198005C4000878FD /* SuggestionsViewController.m */,
+				4F5E43861981854500E807ED /* Login */,
+				8D7EE987197F163F000878FD /* Menu */,
+				8D19DF911992B13100F75F75 /* MyBookings */,
 				8D7EE9B919805BEE000878FD /* BookingRooms */,
 			);
 			name = ViewControllers;
@@ -424,6 +439,8 @@
 				8D7EE9BE19805D6D000878FD /* MeetingRoom.m */,
 				4F7E0F5F1982B9D900B793FD /* User.h */,
 				4F7E0F601982B9D900B793FD /* User.m */,
+				8DA4867B1992CBFF00C350F1 /* Booking.h */,
+				8DA4867C1992CBFF00C350F1 /* Booking.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -617,8 +634,10 @@
 				4F8AB3BC197F010C00173E66 /* AppDelegate.m in Sources */,
 				4F7E0F641982E33A00B793FD /* UIImage+ImageEffects.m in Sources */,
 				8D7EE98A197F169E000878FD /* RootViewController.m in Sources */,
+				8DA4867D1992CBFF00C350F1 /* Booking.m in Sources */,
 				8D7EE995197F2631000878FD /* MenuItem.m in Sources */,
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
+				8D19DF941992B1D900F75F75 /* MyBookingsTableViewCell.m in Sources */,
 				4F5E43911981866400E807ED /* Utility.m in Sources */,
 				4F9C455619913101006ABC19 /* WelcomeViewController.m in Sources */,
 				4F7E0F611982B9D900B793FD /* User.m in Sources */,
@@ -773,8 +792,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (JP2JTXGBEE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Angel Solorio (JP2JTXGBEE)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -796,7 +815,7 @@
 					SystemConfiguration,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "70B1CECD-8317-46E5-994E-414E06BF49CB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -807,8 +826,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (JP2JTXGBEE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Angel Solorio (JP2JTXGBEE)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -830,7 +849,7 @@
 					SystemConfiguration,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "70B1CECD-8317-46E5-994E-414E06BF49CB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

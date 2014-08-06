@@ -15,12 +15,14 @@
 #import "RoundImageView.h"
 #import "FHSTwitterEngine.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "FeedUserDefaults.h"
 
 @interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
      NSArray *menuItems;
      ACAccountStore *accountStore;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet RoundImageView *userPicture;
 @property (nonatomic, retain) UIImagePickerController *imagePickController;
