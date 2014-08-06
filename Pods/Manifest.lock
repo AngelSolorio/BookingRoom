@@ -49,15 +49,18 @@ PODS:
   - MRProgress/Stopable (0.6.0):
     - MRProgress/Helper
   - RESideMenu (4.0.5)
+  - RNGridMenu (0.1.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
   - MRProgress
   - RESideMenu (~> 4.0.4)
+  - RNGridMenu (~> 0.1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   MRProgress: bacc0f2f6c547e4ab21fd48ed14e19cbd70de3e4
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
+  RNGridMenu: 7a5c2c0ad78d254d047c43efe502eee2b16fbcbc
 
 COCOAPODS: 0.33.1

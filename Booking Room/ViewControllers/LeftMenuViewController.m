@@ -9,6 +9,8 @@
 #import "LeftMenuViewController.h"
 #import "MenuTableViewCell.h"
 
+#define FacebookAppIdKey @"1518570525042067"
+
 @implementation LeftMenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -93,7 +95,7 @@
     cellView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.6f];
     [cell setSelectedBackgroundView:cellView];
     
-	return cell;
+    return cell;
 }
 
 

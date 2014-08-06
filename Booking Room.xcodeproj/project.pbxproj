@@ -53,6 +53,9 @@
 		8D7EE9B319802889000878FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7EE9B519802889000878FD /* Localizable.strings */; };
 		8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */; };
 		8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BE19805D6D000878FD /* MeetingRoom.m */; };
+		8DA4F592199023E70082A5C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F591199023E70082A5C7 /* Social.framework */; };
+		8DA4F594199023ED0082A5C7 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F593199023ED0082A5C7 /* Twitter.framework */; };
+		8DA4F596199024B40082A5C7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F595199024B40082A5C7 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +150,9 @@
 		8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingRoomTableViewCell.m; path = ViewControllers/BookingRoomTableViewCell.m; sourceTree = "<group>"; };
 		8D7EE9BD19805D6D000878FD /* MeetingRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRoom.h; path = Models/MeetingRoom.h; sourceTree = "<group>"; };
 		8D7EE9BE19805D6D000878FD /* MeetingRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRoom.m; path = Models/MeetingRoom.m; sourceTree = "<group>"; };
+		8DA4F591199023E70082A5C7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		8DA4F593199023ED0082A5C7 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		8DA4F595199024B40082A5C7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D16CA358B45747B49D6952BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA4F596199024B40082A5C7 /* Accounts.framework in Frameworks */,
+				8DA4F594199023ED0082A5C7 /* Twitter.framework in Frameworks */,
+				8DA4F592199023E70082A5C7 /* Social.framework in Frameworks */,
 				4F7E0F5A1981CDD500B793FD /* Accelerate.framework in Frameworks */,
 				4F7E0F581981CDB900B793FD /* QuartzCore.framework in Frameworks */,
 				4F8AB3AE197F010C00173E66 /* CoreGraphics.framework in Frameworks */,
@@ -258,6 +267,9 @@
 		4F8AB3AA197F010C00173E66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DA4F595199024B40082A5C7 /* Accounts.framework */,
+				8DA4F593199023ED0082A5C7 /* Twitter.framework */,
+				8DA4F591199023E70082A5C7 /* Social.framework */,
 				4F7E0F591981CDD500B793FD /* Accelerate.framework */,
 				4F7E0F571981CDB900B793FD /* QuartzCore.framework */,
 				4F8AB3AB197F010C00173E66 /* Foundation.framework */,
