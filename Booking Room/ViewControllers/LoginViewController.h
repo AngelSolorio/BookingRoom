@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
 #import "FeedUserDefaults.h"
 #import "PPPinPadViewController.h"
 #import <MRProgress/MRProgress.h>

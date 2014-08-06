@@ -19,8 +19,10 @@
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Creates the menu items
     MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Home", @"") andIcon:[UIImage imageNamed:@"Home"]];
     MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MyBookings", @"") andIcon:[UIImage imageNamed:@"Reservaciones"]];
@@ -30,13 +32,13 @@
     menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, nil];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 
-#pragma mark -
-#pragma mark UITableView Delegate
+#pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -61,22 +63,26 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
+        case 4:
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            break;
         default:
             break;
     }
 }
 
 
-#pragma mark -
 #pragma mark UITableView Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
-    return 5;
+    return [menuItems count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
@@ -91,15 +97,16 @@
 }
 
 
-#pragma mark -
 #pragma mark - UIInterfaceOrientation Methods
 
 - (BOOL)shouldAutorotate {
     return YES;
 }
 
+
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
+
 
 @end

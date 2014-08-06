@@ -27,6 +27,9 @@
     _sendButton.enabled = FALSE;
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self willRotateToInterfaceOrientation:interfaceOrientation duration:2];
+
+    // Shows the Navigation Bar
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {

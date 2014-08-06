@@ -13,9 +13,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    _byeViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"byeViewController"];
 }
 
 #pragma mark - Navigation

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
+#import "LeftMenuViewController.h"
+#import "HomeViewController.h"
 
 @interface RootViewController : RESideMenu <RESideMenuDelegate>
 

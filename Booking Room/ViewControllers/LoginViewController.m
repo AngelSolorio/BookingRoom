@@ -68,8 +68,14 @@
     return YES;
 }
 
+
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
 }
 
 
@@ -131,9 +137,10 @@
     // Dismiss the PIN View Controller and show the home view
     [pvc dismissViewControllerAnimated:NO completion:^{
         // Shows the home view
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"rootController"];
-        [self presentViewController:rootViewController animated:YES completion:nil];
+        [self performSegueWithIdentifier:@"loginToRoot" sender:self];
+//        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        RootViewController *rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"rootController"];
+//        [self presentViewController:rootViewController animated:YES completion:nil];
     }];
 
     // Stores the new PIN set and USER
