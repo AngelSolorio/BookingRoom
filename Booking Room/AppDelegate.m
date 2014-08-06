@@ -10,9 +10,20 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainNavigationController *navigationController = [mainStoryboard instantiateInitialViewController];
+    [navigationController setNavigationBarHidden:YES];
+
+    if ([FeedUserDefaults token].length > 0 && [FeedUserDefaults user].length > 0) { // User already logged
+        WelcomeViewController *welcomeViewController = (WelcomeViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"welcomeViewController"];
+        [navigationController pushViewController:welcomeViewController animated:NO];
+    }
+
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 							
