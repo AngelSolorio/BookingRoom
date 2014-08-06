@@ -35,7 +35,7 @@
     MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Suggestions", @"")andIcon:[UIImage imageNamed:@"Comentarios"]];
     MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"LogOut", @"") andIcon:[UIImage imageNamed:@"Logout"]];
     menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, nil];
-    
+
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     longPress.numberOfTapsRequired = 0;
     longPress.numberOfTouchesRequired = 1;
@@ -55,6 +55,18 @@
     // Sets the user picture and name
     UIImage *userImage = [Utility getImageFromFileSystem:@"user.png"];
     _userPicture.image = (userImage == nil) ? [UIImage imageNamed:@"ImageContact"] : userImage;;
+}
+
+
+#pragma mark - UIInterfaceOrientation Methods
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 
@@ -149,8 +161,7 @@
 }
 
 
-#pragma mark -
-#pragma mark - RNGridMenuDelegate
+#pragma mark - RNGridMenuDelegate Methods
 
 - (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
     //NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
@@ -334,7 +345,7 @@
 }
 
 
-#pragma mark - UIImagePicker Delegate
+#pragma mark - UIImagePickerDelegate Methods
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage * pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
@@ -411,18 +422,5 @@
     [Utility saveImageToFileSystem:picture withFileName:@"user.png"];
     UIImageWriteToSavedPhotosAlbum(picture, nil, nil, nil);
 }
-
-
-#pragma mark - UIInterfaceOrientation Methods
-
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-}
-
 
 @end
