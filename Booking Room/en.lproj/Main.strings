@@ -40,8 +40,15 @@
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "5Lf-7p-cpw"; */
 "5Lf-7p-cpw.placeholder" = "Search";
 
+/* Class = "IBUILabel"; text = "Servicios"; ObjectID = "LUn-2k-229"; */
+"LUn-2k-229.text" = "Services";
+
 // MyBookingsViewController
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "j1M-TG-HIC; */
 "j1M-TG-HIC.placeholder" = "Search";
 
+/* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "uzC-WI-OAZ"; */
 "uzC-WI-OAZ.title" = "Menu";
+
+/* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "IQJ-Zc-I7y"; */
+"ps7-dT-4CQ.title" = "Edit";

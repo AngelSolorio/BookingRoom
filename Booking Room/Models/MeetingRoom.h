@@ -7,13 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Photo.h"
+#import "Service.h"
 
 @interface MeetingRoom : NSObject
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *details;
-@property (nonatomic, strong) UIImage *icon;
+@property (strong, nonatomic) NSNumber *identifier;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *location;
+@property (strong, nonatomic) NSMutableArray *photo;
+@property (strong, nonatomic) NSMutableArray *services;
 
-- (id)initWithTitle:(NSString *)title andDetails:(NSString *)details andIcon:(UIImage *)icon;
+- (id)initWithIdentifier:(NSNumber *)aIdentifier
+                    name:(NSString *)aName
+                location:(NSString *)aLocation
+                   photo:(NSMutableArray *)anPhotos
+                services:(NSMutableArray *)anServices;
 
 @end

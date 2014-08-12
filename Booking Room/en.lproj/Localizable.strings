@@ -15,6 +15,8 @@
 "Connection_Successful" = "Successful connection to the server";
 "TokenInvalid" = "Invalid User Token";
 "EmptySearch" = "Empty search";
+"EditButton" = "Edit";
+"DoneButton" = "Done";
 
 // LOGIN
 "Login_UserField" = "Email";

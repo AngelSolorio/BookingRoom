@@ -32,9 +32,8 @@
     if (_meetingRoomItem != meetingRoomItem) {
         _meetingRoomItem = meetingRoomItem;
         
-        _nameBooking.text = _meetingRoomItem.title;
-        _detailsBooking.text = _meetingRoomItem.details;
-        _iconBooking.image = _meetingRoomItem.icon;
+        _nameBooking.text = _meetingRoomItem.name;
+        _detailsBooking.text = _meetingRoomItem.location;
     }
 }
 

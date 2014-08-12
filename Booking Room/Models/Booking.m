@@ -10,14 +10,46 @@
 
 @implementation Booking
 
-- (id)initWithTitle:(NSString *)title andDate:(NSDate *)date andHour:(NSDate *)hour andPhoto:(UIImage *)photo andPriority:(NSInteger)priority {
+- (id)init {
+    self = [self initWithIdentifier:0
+                              title:@"Default"
+                          startDate:[NSDate date]
+                            endDate:[NSDate date]
+                              owner:[[Person alloc]init]
+                         assistants:[[NSMutableArray alloc]initWithObjects: [[Person alloc]init], nil]
+                           createAt:[NSDate date]
+                        meetingRoom:[[MeetingRoom alloc]init]
+                           priority:0
+                             status:0
+                         statusDate:[NSDate date]];
+    return self;
+}
+
+
+- (id)initWithIdentifier:(NSNumber *)aIdentifier
+                   title:(NSString *)aTitle
+               startDate:(NSDate *)aStartDate
+                 endDate:(NSDate *)aEndDate
+                   owner:(Person *)aOwner
+              assistants:(NSMutableArray *)anAssistants
+                createAt:(NSDate *)aCreateAt
+             meetingRoom:(MeetingRoom *)aMeetingRoom
+                priority:(NSNumber *)aPriority
+                  status:(NSNumber *)aStatus
+              statusDate:(NSDate *)aStatusDate {
     self = [super init];
-    if (self) {
-        _title = title;
-        _date = date;
-        _hour = hour;
-        _photo = photo;
-        _priority = priority;
+    if(self) {
+        self.identifier = aIdentifier;
+        self.title = aTitle;
+        self.startDate = aStartDate;
+        self.endDate = aEndDate;
+        self.owner = aOwner;
+        self.assistants = anAssistants;
+        self.createAt = aCreateAt;
+        self.meetingRoom = aMeetingRoom;
+        self.priority = aPriority;
+        self.status = aStatus;
+        self.startDate = aStatusDate;
     }
     return self;
 }
