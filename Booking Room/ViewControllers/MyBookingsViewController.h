@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyBookingsTableViewCell.h"
+#import "Booking.h"
 
-@interface MyBookingsViewController : UIViewController
+@interface MyBookingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
+    NSArray *myBookingsItems;
+    BOOL searching;
+    NSMutableArray *copyListOfItems;
+    __weak IBOutlet UILabel *emptyLabel;
+}
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *myBookingsTable;
 
 @end

@@ -23,6 +23,7 @@
      ACAccountStore *accountStore;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet RoundImageView *userPicture;
 @property (nonatomic, retain) UIImagePickerController *imagePickController;

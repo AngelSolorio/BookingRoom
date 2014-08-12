@@ -39,3 +39,9 @@
 // BookingroomsViewController
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "5Lf-7p-cpw"; */
 "5Lf-7p-cpw.placeholder" = "Search";
+
+// MyBookingsViewController
+/* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "j1M-TG-HIC; */
+"j1M-TG-HIC.placeholder" = "Search";
+
+"uzC-WI-OAZ.title" = "Menu";

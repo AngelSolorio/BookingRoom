@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Creates the menu items
     MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Home", @"") andIcon:[UIImage imageNamed:@"Home"]];
     MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MyBookings", @"") andIcon:[UIImage imageNamed:@"Reservaciones"]];
@@ -33,7 +33,7 @@
     MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Suggestions", @"")andIcon:[UIImage imageNamed:@"Comentarios"]];
     MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"LogOut", @"") andIcon:[UIImage imageNamed:@"Logout"]];
     menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, nil];
-
+    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     longPress.numberOfTapsRequired = 0;
     longPress.numberOfTouchesRequired = 1;
@@ -51,20 +51,10 @@
 
 - (void)userLogged {
     // Sets the user picture and name
-    UIImage *userImage = [Utility getImageFromFileSystem:@"user.png"];
-    _userPicture.image = (userImage == nil) ? [UIImage imageNamed:@"ImageContact"] : userImage;;
-}
-
-
-#pragma mark - UIInterfaceOrientation Methods
-
-- (BOOL)shouldAutorotate {
-    return YES;
-}
-
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
+    _nameLabel.text = [[FeedUserDefaults name] length] != 0  ? [FeedUserDefaults name] : [FeedUserDefaults user];
+    UIImage *picture = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
+                                              inFolder:@"People"];
+    _userPicture.image = picture ? picture : [UIImage imageNamed:@"ImageContact"];
 }
 
 
@@ -159,7 +149,8 @@
 }
 
 
-#pragma mark - RNGridMenuDelegate Methods
+#pragma mark -
+#pragma mark - RNGridMenuDelegate
 
 - (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
     //NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
@@ -263,13 +254,35 @@
             }
         }];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SettingsFacebook", @"")
-                                                        message:NSLocalizedString(@"AccountFacebookNotExist", @"")
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"OkButton", @"")
-                                              otherButtonTitles:nil];
-        alert.tag = 2;
-        [alert show];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            FBSession *session = [[FBSession alloc] initWithPermissions:@[@"publish_actions", @"email"]];
+            // Set the active session
+            [FBSession setActiveSession:session];
+            // Open the session
+            [session openWithBehavior:FBSessionLoginBehaviorForcingWebView completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                if(error == nil) {
+                    NSLog(@"FACEBOOK:inicio de sesión exitoso");
+                    if (session.isOpen) {
+                        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+                            if (!error) {
+                                NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[user objectForKey:@"id"]]];
+                                NSData *data = [NSData dataWithContentsOfURL:url];
+                                UIImage *imageFacebook = [UIImage imageWithData:data];
+                                _userPicture.image = imageFacebook;
+                                [self saveUserPicture:imageFacebook];
+                            } else {
+                                // Fail gracefully...
+                                [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:NSLocalizedString(@"Connection_Error", @"")];
+                                NSLog(@"FACEBOOK: Error en la conexión con el servidor %@", error);
+                            }
+                        }];
+                    }
+                } else {
+                    NSLog(@"FACEBOOK:inicio de sesión no exitoso %@", error);
+                    [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Connection_Error", @""),error]];
+                }
+            }];
+        });
     }
 }
 
@@ -332,31 +345,6 @@
             });
         }];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SettingsTwitter", @"")
-                                                        message:NSLocalizedString(@"AccountTwitterNotExist", @"")
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"OkButton", @"")
-                                              otherButtonTitles:nil];
-        alert.tag = 1;
-        [alert show];
-    }
-}
-
-
-#pragma mark - UIImagePickerDelegate Methods
-
-- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage * pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    _userPicture.image = pickedImage;
-    [self saveUserPicture:pickedImage];
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-#pragma mark - UIAlertViewDelegate Methods
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 1) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[FHSTwitterEngine sharedEngine]permanentlySetConsumerKey:TwitterAppIdKey andSecret:TwitterAppIdKeySecret];
             [[FHSTwitterEngine sharedEngine]loadAccessToken];
@@ -374,38 +362,21 @@
             }];
             [self presentViewController:loginController animated:YES completion:nil];
         });
-    } else if (alertView.tag == 2) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            FBSession *session = [[FBSession alloc] initWithPermissions:@[@"publish_actions", @"email"]];
-            // Set the active session
-            [FBSession setActiveSession:session];
-            // Open the session
-            [session openWithBehavior:FBSessionLoginBehaviorForcingWebView  completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                if(error == nil) {
-                    NSLog(@"FACEBOOK:inicio de sesión exitoso");
-                    if (session.isOpen) {
-                        [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-                            if (!error) {
-                                NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://graph.facebook.com/%@/picture?type=large",[user objectForKey:@"id"]]];
-                                NSData *data = [NSData dataWithContentsOfURL:url];
-                                UIImage *imageFacebook = [UIImage imageWithData:data];
-                                _userPicture.image = imageFacebook;
-                                [self saveUserPicture:imageFacebook];
-                            } else {
-                                // Fail gracefully...
-                                [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:NSLocalizedString(@"Connection_Error", @"")];
-                                NSLog(@"FACEBOOK: Error en la conexión con el servidor %@", error);
-                            }
-                        }];
-                    }
-                } else {
-                    NSLog(@"FACEBOOK:inicio de sesión no exitoso %@", error);
-                    [self showAlert:NSLocalizedString(@"SettingsFacebook", @"") description:[NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Connection_Error", @""),error]];
-                }
-            }];
-        });
     }
 }
+
+
+#pragma mark - UIImagePicker Delegate
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage * pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    _userPicture.image = pickedImage;
+    [self saveUserPicture:pickedImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - UIAlertView Methods
 
 - (void)showAlert:(NSString *)title description:(NSString *)message {
     [[[UIAlertView alloc] initWithTitle:title
@@ -417,8 +388,21 @@
 
 - (void)saveUserPicture:(UIImage *)picture {
     // Save user data to the system
-    [Utility saveImageToFileSystem:picture withFileName:@"user.png"];
-    UIImageWriteToSavedPhotosAlbum(picture, nil, nil, nil);
+    [Utility saveImageToFileSystem:picture withFileName:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]] inFolder:@"People"];
+    //UIImageWriteToSavedPhotosAlbum(picture, nil, nil, nil);
 }
+
+
+#pragma mark - UIInterfaceOrientation Methods
+
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 @end
