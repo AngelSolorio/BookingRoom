@@ -234,8 +234,10 @@
                 [self presentViewController:_imagePickController animated:YES completion:nil];
             }
             break;
-        case 5:// eliminar
-            _userPicture.image = [UIImage imageNamed:@"ImageContact"];
+        case 5:// restore the default picture
+            [Utility deleteFileFromFileSystemWithName:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
+                                             inFolder:@"People"];
+            [_userPicture setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
             break;
         default:
             break;

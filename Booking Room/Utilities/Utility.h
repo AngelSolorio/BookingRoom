@@ -25,6 +25,7 @@
 + (void)saveImageToFileSystem:(UIImage *)photo withFileName:(NSString *)fileName inFolder:(NSString*)directory;
 + (void)saveImageToFileSystem:(UIImage *)photo withFileName:(NSString *)fileName;
 + (BOOL)deleteFileFromFileSystemWithName:(NSString *)fileName;
++ (BOOL)deleteFileFromFileSystemWithName:(NSString *)fileName inFolder:(NSString*)directory;
 
 + (NSDate *)getDateFromString:(NSString *)stringDate withFormat:(NSString *)format;
 + (NSString *)getStringFromDate:(NSDate *)date withFormat:(NSString *)format;

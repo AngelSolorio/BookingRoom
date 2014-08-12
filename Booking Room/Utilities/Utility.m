@@ -90,6 +90,18 @@
     return [manager removeItemAtPath:[basePath stringByAppendingPathComponent:fileName] error:&error];
 }
 
+// Deletes an image to the File System
++ (BOOL)deleteFileFromFileSystemWithName:(NSString *)fileName inFolder:(NSString *)directory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *dataPath = [basePath stringByAppendingPathComponent:directory];
+
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *error = nil;
+
+    return [manager removeItemAtPath:[dataPath stringByAppendingPathComponent:fileName] error:&error];
+}
+
 // Saves an image to the File System
 + (UIImage *)getImageFromFileSystem:(NSString *)fileName inFolder:(NSString *)directory {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
