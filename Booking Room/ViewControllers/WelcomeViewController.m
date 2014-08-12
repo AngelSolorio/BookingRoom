@@ -67,8 +67,9 @@
 - (IBAction)authenticatePin:(id)sender {
     // Redirects to enter a new PIN
     PPPinPadViewController *pinViewController = [[PPPinPadViewController alloc] initWithMode:kAlreadySet];
-    [self presentViewController:pinViewController animated:YES completion:NULL];
+    [pinViewController setBackgroundImage:[Utility getScreenshot:self.view]];
     pinViewController.delegate = self;
+    [self presentViewController:pinViewController animated:YES completion:NULL];
 }
 
 

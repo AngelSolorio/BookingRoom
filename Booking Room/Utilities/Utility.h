@@ -16,6 +16,8 @@
 + (CGSize)getScreenSize;
 + (UIInterfaceOrientation)getOrientation;
 
++ (UIImage *)getScreenshot:(UIView *)view;
+
 + (UIImage *)getImageFromURLString:(NSString *)stringURL;
 + (UIImage *)getImageFrom64EncodedString:(NSString *)encodedString;
 + (UIImage *)getImageFromFileSystem:(NSString *)fileName;

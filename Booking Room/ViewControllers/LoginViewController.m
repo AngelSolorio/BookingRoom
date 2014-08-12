@@ -138,9 +138,6 @@
     [pvc dismissViewControllerAnimated:NO completion:^{
         // Shows the home view
         [self performSegueWithIdentifier:@"loginToRoot" sender:self];
-//        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        RootViewController *rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"rootController"];
-//        [self presentViewController:rootViewController animated:YES completion:nil];
     }];
 
     // Stores the new PIN set and USER
@@ -219,17 +216,11 @@
             // Get the logged user's picture and name
             //[self performSelectorInBackground:@selector(getUserInfoFromWebService) withObject:nil];
 
-            // Get an screenshot
-            UIGraphicsBeginImageContext(self.view.frame.size);
-            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-
             // Redirects to enter a new PIN
             PPPinPadViewController * pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
-            [pinViewController setBackgroundImage:viewImage];
-            [self presentViewController:pinViewController animated:YES completion:NULL];
+            [pinViewController setBackgroundImage:[Utility getScreenshot:self.view]];
             pinViewController.delegate = self;
+            [self presentViewController:pinViewController animated:YES completion:NULL];
 
             NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
         } else {

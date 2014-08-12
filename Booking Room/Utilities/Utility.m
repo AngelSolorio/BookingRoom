@@ -31,6 +31,16 @@
     return interfaceOrientation;
 }
 
+// Get an screenshot
++ (UIImage *)getScreenshot:(UIView *)view {
+    UIGraphicsBeginImageContext(view.frame.size);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return viewImage;
+}
+
 // Gets a UIImage from a URL
 + (UIImage *)getImageFromURLString:(NSString *)stringURL {
     if (stringURL != nil || [stringURL length] > 0) {
