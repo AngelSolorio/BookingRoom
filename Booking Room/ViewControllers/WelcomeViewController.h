@@ -12,8 +12,8 @@
 #import "LoginViewController.h"
 #import "MainNavigationController.h"
 #import "FeedUserDefaults.h"
-#import "RoundImageView.h"
 #import "Utility.h"
+#import "UIImageView+Letters.h"
 
 @interface WelcomeViewController : UIViewController <PinPadPasswordProtocol, UIAlertViewDelegate>
 
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchUserButton;
 @property (weak, nonatomic) IBOutlet UIButton *resetPinButton;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
-@property (weak, nonatomic) IBOutlet RoundImageView *userPictureView;
+@property (weak, nonatomic) IBOutlet UIImageView *userPictureView;
 
 - (IBAction)authenticatePin:(id)sender;
 - (IBAction)switchUser:(id)sender;

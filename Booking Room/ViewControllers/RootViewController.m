@@ -25,7 +25,7 @@
     self.contentViewShadowEnabled = YES;
     self.contentViewController = [[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"homeController"]];
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
-    self.backgroundImage = [UIImage imageNamed:@"Background"];
+    self.backgroundImage = [UIImage imageNamed:@"BackGroundViewControllers"];
     self.delegate = self;
 }
 

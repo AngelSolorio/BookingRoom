@@ -18,6 +18,7 @@
 #import "MenuTableViewCell.h"
 #import "Utility.h"
 #import "FeedUserDefaults.h"
+#import "UIImageView+Letters.h"
 
 @interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
      NSArray *menuItems;

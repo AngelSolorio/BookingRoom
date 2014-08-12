@@ -97,7 +97,7 @@
     progressView = [MRProgressOverlayView showOverlayAddedTo:self.view
                                                        title:NSLocalizedString(@"RefreshControl_Connecting", nil)
                                                         mode:MRProgressOverlayViewModeIndeterminate
-                                                    animated:NO];
+                                                    animated:YES];
 
     // ---- Requests the login to the Web Service using the AFNetworking Framework ----
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

@@ -32,7 +32,11 @@
     _userLabel.text = [[FeedUserDefaults name] length] != 0 ? [FeedUserDefaults name] : [FeedUserDefaults user];
     UIImage *picture = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
                                               inFolder:@"People"];
-    _userPictureView.image = picture ? picture : [UIImage imageNamed:@"ImageContact"];
+    if (picture) {
+        _userPictureView.image = picture;
+    } else {
+        [_userPictureView setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
+    }
 }
 
 

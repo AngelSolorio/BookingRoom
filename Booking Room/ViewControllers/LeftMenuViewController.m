@@ -27,13 +27,21 @@
     [super viewDidLoad];
     
     // Creates the menu items
-    MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Home", @"") andIcon:[UIImage imageNamed:@"Home"]];
-    MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MyBookings", @"") andIcon:[UIImage imageNamed:@"Reservaciones"]];
-    MenuItem *itemThree = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MeetingBookingRooms", @"") andIcon:[UIImage imageNamed:@"Salas"]];
-    MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Suggestions", @"")andIcon:[UIImage imageNamed:@"Comentarios"]];
-    MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"LogOut", @"") andIcon:[UIImage imageNamed:@"Logout"]];
-    menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, nil];
-    
+    MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Home", @"")
+                                                andIcon:[UIImage imageNamed:@"Home"]];
+    MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MyBookings", @"")
+                                                andIcon:[UIImage imageNamed:@"Reservaciones"]];
+    MenuItem *itemThree = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MeetingBookingRooms", @"")
+                                                  andIcon:[UIImage imageNamed:@"Salas"]];
+    MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Suggestions", @"")
+                                                 andIcon:[UIImage imageNamed:@"Comentarios"]];
+    MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"LogOut", @"")
+                                                 andIcon:[UIImage imageNamed:@"Logout"]];
+    MenuItem *itemSix = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"About", @"")
+                                                 andIcon:[UIImage imageNamed:@"About"]];
+    menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, nil];
+
+    // Configures the long press over the user picture
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     longPress.numberOfTapsRequired = 0;
     longPress.numberOfTouchesRequired = 1;
@@ -41,6 +49,7 @@
     [_userPicture addGestureRecognizer:longPress];
     
     accountStore = [[ACAccountStore alloc] init];
+
     [self userLogged];
 }
 
@@ -49,12 +58,17 @@
     [super didReceiveMemoryWarning];
 }
 
+
 - (void)userLogged {
     // Sets the user picture and name
     _nameLabel.text = [[FeedUserDefaults name] length] != 0  ? [FeedUserDefaults name] : [FeedUserDefaults user];
     UIImage *picture = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
                                               inFolder:@"People"];
-    _userPicture.image = picture ? picture : [UIImage imageNamed:@"ImageContact"];
+    if (picture) {
+        _userPicture.image = picture;
+    } else {
+        [_userPicture setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
+    }
 }
 
 
@@ -63,13 +77,20 @@
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
     if (gesture.state == UIGestureRecognizerStateBegan) {
         NSArray *items = @[
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Facebook"] title:@"Facebook"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Twitter"] title:@"Twitter"],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Camera"] title:NSLocalizedString(@"Camera", @"")],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Iphone"] title:NSLocalizedString(@"Device", @"")],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"EditPhoto"] title:NSLocalizedString(@"Edit", @"")],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"DeletePhoto"] title:NSLocalizedString(@"Delete", @"")],
-                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Cancel"] title:NSLocalizedString(@"Cancel", @"")]
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Facebook"]
+                                                           title:@"Facebook"],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Twitter"]
+                                                           title:@"Twitter"],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Camera"]
+                                                           title:NSLocalizedString(@"Camera", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Iphone"]
+                                                           title:NSLocalizedString(@"Device", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"EditPhoto"]
+                                                           title:NSLocalizedString(@"Edit", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"DeletePhoto"]
+                                                           title:NSLocalizedString(@"Delete", @"")],
+                           [[RNGridMenuItem alloc] initWithImage:[UIImage imageNamed:@"Cancel"]
+                                                           title:NSLocalizedString(@"Cancel", @"")]
                            ];
         UIView *header = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
         UILabel *textHeader = [[UILabel alloc] initWithFrame:header.frame];
@@ -149,7 +170,6 @@
 }
 
 
-#pragma mark -
 #pragma mark - RNGridMenuDelegate
 
 - (void)gridMenu:(RNGridMenu *)gridMenu willDismissWithSelectedItem:(RNGridMenuItem *)item atIndex:(NSInteger)itemIndex {
@@ -368,7 +388,7 @@
 
 #pragma mark - UIImagePicker Delegate
 
-- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage * pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
     _userPicture.image = pickedImage;
     [self saveUserPicture:pickedImage];
@@ -388,7 +408,9 @@
 
 - (void)saveUserPicture:(UIImage *)picture {
     // Save user data to the system
-    [Utility saveImageToFileSystem:picture withFileName:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]] inFolder:@"People"];
+    [Utility saveImageToFileSystem:picture
+                      withFileName:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
+                          inFolder:@"People"];
     //UIImageWriteToSavedPhotosAlbum(picture, nil, nil, nil);
 }
 
