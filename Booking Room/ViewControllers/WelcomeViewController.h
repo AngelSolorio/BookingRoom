@@ -26,4 +26,5 @@
 - (IBAction)authenticatePin:(id)sender;
 - (IBAction)switchUser:(id)sender;
 - (IBAction)resetPin:(id)sender;
+
 @end

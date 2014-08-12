@@ -39,7 +39,6 @@
 		4F8AB3D7197F010C00173E66 /* Booking_RoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D6197F010C00173E66 /* Booking_RoomTests.m */; };
 		4F9C4552199025D8006ABC19 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C4551199025D8006ABC19 /* MainNavigationController.m */; };
 		4F9C455619913101006ABC19 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C455519913101006ABC19 /* WelcomeViewController.m */; };
-		4FDB1AC819915133001601C6 /* RoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB1AC719915133001601C6 /* RoundImageView.m */; };
 		4FDB1ACB199170FD001601C6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB1ACA199170FD001601C6 /* HomeViewController.m */; };
 		7EC95BE63E2D4A1691A65A83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16CA358B45747B49D6952BE /* libPods.a */; };
 		8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */; };
@@ -59,7 +58,6 @@
 		8DD128C61991608900B0F435 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD128C51991608900B0F435 /* FacebookSDK.framework */; };
 		8DD128CF199160A500B0F435 /* FHSStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128C9199160A500B0F435 /* FHSStream.m */; };
 		8DD128D0199160A500B0F435 /* FHSTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CB199160A500B0F435 /* FHSTwitterEngine.m */; };
-		8DD128D1199160A500B0F435 /* RoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CE199160A500B0F435 /* RoundImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,10 +122,8 @@
 		4F9C4551199025D8006ABC19 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigationController.m; path = ViewControllers/MainNavigationController.m; sourceTree = "<group>"; };
 		4F9C455419913101006ABC19 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeViewController.h; path = ViewControllers/WelcomeViewController.h; sourceTree = "<group>"; };
 		4F9C455519913101006ABC19 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomeViewController.m; path = ViewControllers/WelcomeViewController.m; sourceTree = "<group>"; };
-		4FDB1AC619915133001601C6 /* RoundImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundImageView.h; sourceTree = "<group>"; };
-		4FDB1AC719915133001601C6 /* RoundImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundImageView.m; sourceTree = "<group>"; };
-		4FDB1AC9199170FD001601C6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		4FDB1ACA199170FD001601C6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		4FDB1AC9199170FD001601C6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ViewControllers/HomeViewController.h; sourceTree = "<group>"; };
+		4FDB1ACA199170FD001601C6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ViewControllers/HomeViewController.m; sourceTree = "<group>"; };
 		8D316C7419807F9200E4C21C /* RoomDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailsViewController.h; path = ViewControllers/RoomDetailsViewController.h; sourceTree = "<group>"; };
 		8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailsViewController.m; path = ViewControllers/RoomDetailsViewController.m; sourceTree = "<group>"; };
 		8D7EE988197F169E000878FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ViewControllers/RootViewController.h; sourceTree = "<group>"; };
@@ -230,7 +226,6 @@
 				8DD128C7199160A500B0F435 /* FHSTwitterEngine */,
 				8DD128CC199160A500B0F435 /* RoundImage */,
 				4F7E0F4B1981C7E200B793FD /* PinPad */,
-				4FDB1AC519915133001601C6 /* Round Image */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -352,16 +347,6 @@
 				4F9C4551199025D8006ABC19 /* MainNavigationController.m */,
 			);
 			name = "Main Navigation Controller";
-			sourceTree = "<group>";
-		};
-		4FDB1AC519915133001601C6 /* Round Image */ = {
-			isa = PBXGroup;
-			children = (
-				4FDB1AC619915133001601C6 /* RoundImageView.h */,
-				4FDB1AC719915133001601C6 /* RoundImageView.m */,
-			);
-			name = "Round Image";
-			path = "Vendor/Round Image";
 			sourceTree = "<group>";
 		};
 		8D316C7B19816F2C00E4C21C /* MeetingRooms */ = {
@@ -610,7 +595,6 @@
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				4F5E438F1981866400E807ED /* FeedUserDefaults.m in Sources */,
 				4F7E0F551981C7E200B793FD /* PPPinPadViewController.m in Sources */,
-				4FDB1AC819915133001601C6 /* RoundImageView.m in Sources */,
 				4F7E0F531981C7E200B793FD /* PPCircleButton.m in Sources */,
 				4F8AB3C2197F010C00173E66 /* LoginViewController.m in Sources */,
 				8D7EE9A1198005C4000878FD /* SuggestionsViewController.m in Sources */,
