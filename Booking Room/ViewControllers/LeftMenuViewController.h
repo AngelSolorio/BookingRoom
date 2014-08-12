@@ -17,6 +17,7 @@
 #import "FHSTwitterEngine.h"
 #import "MenuTableViewCell.h"
 #import "Utility.h"
+#import "FeedUserDefaults.h"
 
 @interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
      NSArray *menuItems;

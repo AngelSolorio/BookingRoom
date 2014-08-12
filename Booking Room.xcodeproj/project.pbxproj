@@ -39,9 +39,9 @@
 		4F8AB3D7197F010C00173E66 /* Booking_RoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8AB3D6197F010C00173E66 /* Booking_RoomTests.m */; };
 		4F9C4552199025D8006ABC19 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C4551199025D8006ABC19 /* MainNavigationController.m */; };
 		4F9C455619913101006ABC19 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C455519913101006ABC19 /* WelcomeViewController.m */; };
+		4FC01D04199A8E2800EB098D /* RoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CE199160A500B0F435 /* RoundImageView.m */; };
 		4FDB1ACB199170FD001601C6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB1ACA199170FD001601C6 /* HomeViewController.m */; };
 		7EC95BE63E2D4A1691A65A83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16CA358B45747B49D6952BE /* libPods.a */; };
-		8D19DF941992B1D900F75F75 /* MyBookingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D19DF931992B1D900F75F75 /* MyBookingsTableViewCell.m */; };
 		8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D316C7519807F9200E4C21C /* RoomDetailsViewController.m */; };
 		8D7EE98A197F169E000878FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE989197F169E000878FD /* RootViewController.m */; };
 		8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE98C197F1804000878FD /* LeftMenuViewController.m */; };
@@ -353,6 +353,15 @@
 			name = "Main Navigation Controller";
 			sourceTree = "<group>";
 		};
+		8D19DF911992B13100F75F75 /* MyBookings */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EE99919800585000878FD /* MyBookingsViewController.h */,
+				8D7EE99A19800585000878FD /* MyBookingsViewController.m */,
+			);
+			name = MyBookings;
+			sourceTree = "<group>";
+		};
 		8D316C7B19816F2C00E4C21C /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,12 +548,12 @@
 			files = (
 				4F7E0F3E1981B2E000B793FD /* room3front.png in Resources */,
 				4F7E0F3D1981B2E000B793FD /* room2front.png in Resources */,
+				4F7E0F3C1981B2E000B793FD /* room1front.png in Resources */,
 				4F7E0F321981AE8D00B793FD /* InfoPlist.strings in Resources */,
 				4F8AB3C4197F010C00173E66 /* Images.xcassets in Resources */,
 				8D7EE9B319802889000878FD /* Localizable.strings in Resources */,
 				4F8AB3BF197F010C00173E66 /* Main.storyboard in Resources */,
 				4F7E0F561981C7E200B793FD /* PPPinPadViewController.xib in Resources */,
-				4F7E0F3C1981B2E000B793FD /* room1front.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC01D04199A8E2800EB098D /* RoundImageView.m in Sources */,
 				4F5E43901981866400E807ED /* UIColor+Hex.m in Sources */,
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				4F5E438F1981866400E807ED /* FeedUserDefaults.m in Sources */,
@@ -609,7 +619,6 @@
 				8DA4867D1992CBFF00C350F1 /* Booking.m in Sources */,
 				8D7EE995197F2631000878FD /* MenuItem.m in Sources */,
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
-				8D19DF941992B1D900F75F75 /* MyBookingsTableViewCell.m in Sources */,
 				4F5E43911981866400E807ED /* Utility.m in Sources */,
 				4F9C455619913101006ABC19 /* WelcomeViewController.m in Sources */,
 				4F7E0F611982B9D900B793FD /* User.m in Sources */,
