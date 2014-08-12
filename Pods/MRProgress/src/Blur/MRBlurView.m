@@ -126,7 +126,7 @@
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        image = [image mr_applyBlurWithRadius:30.0 tintColor:[UIColor colorWithWhite:0.97 alpha:0.82] saturationDeltaFactor:1.0 maskImage:nil];
+        image = [image mr_applyBlurWithRadius:30.0 tintColor:[UIColor colorWithWhite:0.97 alpha:0.52] saturationDeltaFactor:.7 maskImage:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             // Fade on content's change, dependent if there was already an image.
             CATransition *transition = [CATransition new];
