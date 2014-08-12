@@ -6,12 +6,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "salas.png"
+      "filename" : "salas32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "salas2.png"
+      "filename" : "salas64.png"
     }
   ],
   "info" : {

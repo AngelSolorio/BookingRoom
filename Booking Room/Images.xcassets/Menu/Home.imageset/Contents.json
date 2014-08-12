@@ -6,12 +6,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "CalendarTime.png"
+      "filename" : "home32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "CalendarTime2.png"
+      "filename" : "home64.png"
     }
   ],
   "info" : {

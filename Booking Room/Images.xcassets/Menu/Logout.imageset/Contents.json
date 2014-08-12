@@ -6,12 +6,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "signoff.png"
+      "filename" : "salir32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "signoff2.png"
+      "filename" : "salir64.png"
     }
   ],
   "info" : {

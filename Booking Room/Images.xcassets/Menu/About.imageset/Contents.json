@@ -1,17 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "sugerencias32.png"
+      "filename" : "acerca32.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "sugerencias64.png"
+      "filename" : "acerca64.png"
     }
   ],
   "info" : {
