@@ -163,7 +163,7 @@
     
     // Customizes the selection color
     UIView *cellView = [[UIView alloc] initWithFrame:cell.frame];
-    cellView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.6f];
+    cellView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.25f];
     [cell setSelectedBackgroundView:cellView];
     
     return cell;

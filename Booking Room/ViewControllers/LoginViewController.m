@@ -18,9 +18,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Customize the UITextField's
+    _userTextField.borderStyle = UITextBorderStyleLine;
+    _userTextField.layer.cornerRadius = 8.0f;
+    _userTextField.layer.masksToBounds = YES;
+    _userTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+    _userTextField.layer.borderWidth = 1.0f;
+//    [_userTextField setValue:[UIColor darkGrayColor]
+//                  forKeyPath:@"_placeholderLabel.textColor"];
+    [_userTextField setDelegate:self];
+
+    _passwordTextField.borderStyle = UITextBorderStyleLine;
+    _passwordTextField.layer.cornerRadius = 8.0f;
+    _passwordTextField.layer.masksToBounds = YES;
+    _passwordTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+    _passwordTextField.layer.borderWidth = 1.0f;
+//    [_passwordTextField setValue:[UIColor colorWithRed:.7 green:.7 blue:.7 alpha:1.0]
+//                      forKeyPath:@"_placeholderLabel.textColor"];
+    [_passwordTextField setDelegate:self];
+    
     _userTextField.delegate = self;
     _passwordTextField.delegate = self;
-
     _loginButton.enabled = NO;
 
     // Register for Keyboard notifications
@@ -52,7 +70,6 @@
     [super viewDidDisappear:animated];
     _userTextField.text = @"";
     _passwordTextField.text = @"";
-    [_passwordTextField becomeFirstResponder];
 }
 
 
@@ -134,10 +151,12 @@
 
 
 - (void)newPinSet:(NSString *)newPin inViewController:(UIViewController *)pvc {
+    // Shows the home view
+    [self performSegueWithIdentifier:@"loginToRoot" sender:self];
+
     // Dismiss the PIN View Controller and show the home view
-    [pvc dismissViewControllerAnimated:NO completion:^{
-        // Shows the home view
-        [self performSegueWithIdentifier:@"loginToRoot" sender:self];
+    [pvc dismissViewControllerAnimated:YES completion:^{
+
     }];
 
     // Stores the new PIN set
