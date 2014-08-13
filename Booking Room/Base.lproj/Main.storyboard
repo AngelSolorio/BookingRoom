@@ -308,7 +308,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reservaciones" id="EkA-Bb-EJd">
-                                                    <rect key="frame" x="20" y="10" width="50" height="50"/>
+                                                    <rect key="frame" x="20" y="10" width="50" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Junta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dTr-tm-A7N">
@@ -370,7 +370,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Mis Reservaciones" id="zBo-lp-eOY">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="aOp-OZ-F0Q">
+                        <barButtonItem key="leftBarButtonItem" id="aOp-OZ-F0Q">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Wj-q5-OSG">
                                 <rect key="frame" x="16" y="11" width="26" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -424,7 +424,7 @@
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Reservaciones" id="Ouz-MK-Dls">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="pee-Kd-Gr1">
+                        <barButtonItem key="leftBarButtonItem" id="pee-Kd-Gr1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="wOX-Ae-Sj0">
                                 <rect key="frame" x="39" y="11" width="26" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -543,7 +543,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Salas" id="twU-SB-T2w">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="3NR-8T-NHS">
+                        <barButtonItem key="leftBarButtonItem" id="3NR-8T-NHS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k8v-EX-C0p">
                                 <rect key="frame" x="16" y="11" width="26" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -692,7 +692,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sugerencias" id="hbD-Wu-KtT">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Vn0-Kk-o66">
+                        <barButtonItem key="leftBarButtonItem" id="Vn0-Kk-o66">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kgn-5V-xKv">
                                 <rect key="frame" x="39" y="11" width="26" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
