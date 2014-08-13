@@ -140,7 +140,7 @@
         [self performSegueWithIdentifier:@"loginToRoot" sender:self];
     }];
 
-    // Stores the new PIN set and USER
+    // Stores the new PIN set
     [FeedUserDefaults setPin:newPin];
 }
 
@@ -212,9 +212,7 @@
             [FeedUserDefaults setToken:[results valueForKey:@"token"]];
             [FeedUserDefaults setPassword:_passwordTextField.text];
             [FeedUserDefaults setUser:_userTextField.text];
-
-            // Get the logged user's picture and name
-            //[self performSelectorInBackground:@selector(getUserInfoFromWebService) withObject:nil];
+            [FeedUserDefaults setName:[(User *)[results valueForKey:@"user"] name]];
 
             // Redirects to enter a new PIN
             PPPinPadViewController * pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
