@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPCircleButton : UIButton
+@interface PPCircleButton : UIButton {
+    UIColor *customColor;
+}
 
 @end

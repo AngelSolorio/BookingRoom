@@ -14,6 +14,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        customColor = [UIColor colorWithRed:205./255. green:231./255. blue:188./255. alpha:0.8];
     }
     return self;
 }
@@ -26,17 +27,19 @@
     // Drawing code
     [super drawRect:rect];
 
+    customColor = [UIColor colorWithRed:205./255. green:231./255. blue:188./255. alpha:0.8];
+
     [self.layer setCornerRadius:CGRectGetHeight(rect)/2.0];
-    self.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
-    self.layer.borderWidth = 2.0f;
+    self.layer.borderColor = customColor.CGColor;
+    self.layer.borderWidth = 1.5f;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+
     if(highlighted) {
-        self.layer.borderColor = [UIColor colorWithRed:255./255. green:105./255. blue:110./255. alpha:0.5].CGColor;
-        self.layer.backgroundColor = [UIColor colorWithRed:255./255. green:105./255. blue:110./255. alpha:.75].CGColor;
+        self.layer.backgroundColor = customColor.CGColor;
     } else {
-        self.layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
         self.layer.backgroundColor = [UIColor clearColor].CGColor;
     }
 }

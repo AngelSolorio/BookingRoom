@@ -117,7 +117,8 @@ static  CGFloat kVTPinPadViewControllerCircleRadius = 6.0f;
         [self changeStatusBarHidden:YES];
     }
     
-    [_inputPin appendString:[((UIButton*)sender) titleForState:UIControlStateNormal]];
+    //[_inputPin appendString:[((UIButton*)sender) titleForState:UIControlStateNormal]];
+    [_inputPin appendString:[[((UIButton*)sender) attributedTitleForState:UIControlStateNormal] string]];
     [self fillingCircle:_inputPin.length - 1];
     
     if ([self pinLenght] == _inputPin.length) {
@@ -173,8 +174,7 @@ static  CGFloat kVTPinPadViewControllerCircleRadius = 6.0f;
 
 
 - (BOOL)isValidPin:(NSString*)pin {
-    NSArray *invalidCombinations = [[NSArray alloc] initWithObjects:@"0000", @"1111", @"2222", @"3333", @"4444", @"5555", @"6666", @"7777", @"8888", @"9999",
-                                    @"0123", @"1234", @"2345", @"3456", @"4567", @"5678", @"6789", @"9876", @"8765", @"7654", @"6543", @"5432", @"4321", @"3210", nil];
+    NSArray *invalidCombinations = [[NSArray alloc] initWithObjects:@"0000", @"1111", @"2222", @"3333", @"4444", @"5555", @"6666", @"7777", @"8888", @"9999", @"0123", @"1234", @"2345", @"3456", @"4567", @"5678", @"6789", @"9876", @"8765", @"7654", @"6543", @"5432", @"4321", @"3210", nil];
     for (NSString *combination in invalidCombinations) {
         if ([combination isEqualToString:pin]) {
             return NO;
@@ -242,7 +242,7 @@ static  CGFloat kVTPinPadViewControllerCircleRadius = 6.0f;
     if(symbolIndex >= _circleViewList.count)
         return;
     PPPinCircleView *circleView = [_circleViewList objectAtIndex:symbolIndex];
-    circleView.backgroundColor = [UIColor whiteColor];
+    circleView.backgroundColor = [UIColor colorWithRed:205./255. green:231./255. blue:188./255. alpha:0.95];
 }
 
 

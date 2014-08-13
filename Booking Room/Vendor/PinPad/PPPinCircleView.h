@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PPPinCircleView : UIImageView
+@interface PPPinCircleView : UIImageView {
+    UIColor *customColor;
+}
 
 + (instancetype)circleView:(CGFloat)radius;
 
