@@ -28,12 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    Booking *itemOne = [[Booking alloc] initWithTitle:@"Reunión Sellcom" andDate:[NSDate date] andHour:[NSDate date] andPhoto:[UIImage imageNamed:@"Room1"] andPriority:1];
-    Booking *itemTwo = [[Booking alloc] initWithTitle:@"Junta Apps" andDate:[NSDate date] andHour:[NSDate date] andPhoto:[UIImage imageNamed:@"Room1"] andPriority:2];
-    Booking *itemThree = [[Booking alloc] initWithTitle:@"Reunión Directivos" andDate:[NSDate date] andHour:[NSDate date] andPhoto:[UIImage imageNamed:@"Room1"] andPriority:3];
-    Booking *itemFour = [[Booking alloc] initWithTitle:@"Platica" andDate:[NSDate date] andHour:[NSDate date] andPhoto:[UIImage imageNamed:@"Room1"] andPriority:2];
+    Booking *itemOne = [[Booking alloc] initWithIdentifier:0 title:@"Junta 1" startDate:[NSDate date] endDate:[NSDate date] owner:[[Person alloc]init] assistants:nil createAt:[NSDate date] meetingRoom:nil priority:0 status:nil statusDate:[NSDate date]];
+    Booking *itemTwo = [[Booking alloc] initWithIdentifier:0 title:@"Junta 2" startDate:[NSDate date] endDate:[NSDate date] owner:[[Person alloc]init] assistants:nil createAt:[NSDate date] meetingRoom:nil priority:[NSNumber numberWithInt:1] status:nil statusDate:[NSDate date]];
+    Booking *itemThree = [[Booking alloc] initWithIdentifier:0 title:@"Junta 3" startDate:[NSDate date] endDate:[NSDate date] owner:[[Person alloc]init] assistants:nil createAt:[NSDate date] meetingRoom:nil priority:[NSNumber numberWithInt:2] status:nil statusDate:[NSDate date]];
+    Booking *itemFour = [[Booking alloc] initWithIdentifier:0 title:@"Junta 4" startDate:[NSDate date] endDate:[NSDate date] owner:[[Person alloc]init] assistants:nil createAt:[NSDate date] meetingRoom:nil priority:[NSNumber numberWithInt:3] status:nil statusDate:[NSDate date]];
     
-    myBookingsItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, nil];
+    myBookingsItems = [[NSMutableArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, nil];
     
     // SearchBar initialize
     searching = NO;
@@ -78,6 +78,7 @@
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
     if (searching) {
         emptyLabel.text = ([copyListOfItems count] == 0) ? NSLocalizedString(@"EmptySearch", @"") : @"";
@@ -89,6 +90,7 @@
         return myBookingsItems.count;
     }
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyBookingsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyBookingCell"];
@@ -108,6 +110,24 @@
 }
 
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [myBookingsItems removeObjectAtIndex:indexPath.row];
+        
+        if (searching) {
+            [copyListOfItems removeObjectAtIndex:indexPath.row];
+        }
+        
+        [_myBookingsTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+
 #pragma mark -
 #pragma mark - UISearchBar delegate
 
@@ -117,6 +137,7 @@
         [_myBookingsTable setHidden:NO];
     }
 }
+
 
 - (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
     // Removes all objects first.
@@ -133,6 +154,7 @@
     [_myBookingsTable reloadData];
 }
 
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)aSearchBar {
     searching = NO;
     _searchBar.text = @"";
@@ -141,9 +163,11 @@
     [_myBookingsTable reloadData];
 }
 
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [_searchBar resignFirstResponder];
 }
+
 
 - (void)searchString:(NSString *)searchText {
     NSMutableArray *searchArray = [[NSMutableArray alloc] initWithArray:myBookingsItems];
@@ -192,4 +216,19 @@
 }
 */
 
+
+#pragma mark - UIBarButtonItem Methods
+
+- (IBAction)editMyBookings:(id)sender {
+    if (_myBookingsTable.editing) {
+        [super setEditing:NO animated:YES];
+        [_myBookingsTable setEditing:NO animated:YES];
+        _editButton.title = NSLocalizedString(@"EditButton", nil);
+    } else {
+        [super setEditing:YES animated:YES];
+        [_myBookingsTable setEditing:YES animated:YES];
+        _editButton.title = NSLocalizedString(@"DoneButton", nil);
+    }
+
+}
 @end

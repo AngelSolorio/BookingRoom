@@ -11,7 +11,7 @@
 #import "Booking.h"
 
 @interface MyBookingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
-    NSArray *myBookingsItems;
+    NSMutableArray *myBookingsItems;
     BOOL searching;
     NSMutableArray *copyListOfItems;
     __weak IBOutlet UILabel *emptyLabel;
@@ -19,5 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *myBookingsTable;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+
+- (IBAction)editMyBookings:(id)sender;
 
 @end

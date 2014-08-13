@@ -27,11 +27,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Service *screen = [[Service alloc]initWithIdentifier:0 name:@"Screen" value:[NSNumber numberWithInt:1] photo:[[Photo alloc]initWithImage:[UIImage imageNamed:@"Screen"]]];
+    MeetingRoom *itemOne = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 1" location:@"Piso 1" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc] initWithImage:[UIImage imageNamed:@"room1front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, screen, nil] ];
+    MeetingRoom *itemTwo = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 2" location:@"Piso 1" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc] initWithImage:[UIImage imageNamed:@"room2front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, screen, screen, nil] ];
+    MeetingRoom *itemThree = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 3" location:@"Piso 2" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc]initWithImage:[UIImage imageNamed:@"room3front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, nil] ];
+    MeetingRoom *itemFour = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 4" location:@"Piso 2" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc] initWithImage:[UIImage imageNamed:@"room2front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, screen, screen, screen, nil] ];
     
-    MeetingRoom *itemOne = [[MeetingRoom alloc] initWithTitle :NSLocalizedString(@"MeetingRoom1", @"") andDetails:NSLocalizedString(@"Floor1", @"") andIcon:[UIImage imageNamed:@"Room1"]];
-    MeetingRoom *itemTwo = [[MeetingRoom alloc] initWithTitle:NSLocalizedString(@"MeetingRoom2", @"") andDetails:NSLocalizedString(@"Floor2", @"") andIcon:[UIImage imageNamed:@"Room2"]];
-    MeetingRoom *itemThree = [[MeetingRoom alloc] initWithTitle:NSLocalizedString(@"MeetingRoom3", @"") andDetails:NSLocalizedString(@"Floor3", @"") andIcon:[UIImage imageNamed:@"Room3"]];
-    MeetingRoom *itemFour = [[MeetingRoom alloc] initWithTitle:NSLocalizedString(@"MeetingRoom4", @"") andDetails:NSLocalizedString(@"Floor4", @"") andIcon:[UIImage imageNamed:@"Room4"]];
     meetingRoomItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, nil];
     
     // SearchBar initialize
@@ -142,7 +143,7 @@
     for (int x = 0; x < [searchArray count]; x++) {
         if ([[searchArray objectAtIndex:x] isKindOfClass:[MeetingRoom class]]) {
             MeetingRoom *room = [searchArray objectAtIndex:x];
-            nameTemp = (room.title != nil) ? [[NSString alloc] initWithString:room.title] : @"";
+            nameTemp = (room.name != nil) ? [[NSString alloc] initWithString:room.name] : @"";
             NSRange nameResultsRange = [nameTemp rangeOfString:searchText options:NSCaseInsensitiveSearch];
             if (nameResultsRange.length > 0 && ![copyListOfItems containsObject:room]) {
                 [copyListOfItems addObject:room];
@@ -161,7 +162,7 @@
     if ([segue.identifier isEqualToString:@"roomToDetailRoom"]) {
         BookingRoomTableViewCell *btn = (BookingRoomTableViewCell *)sender;
         RoomDetailsViewController *detailRoom = [segue destinationViewController];
-        [detailRoom setTitleView:btn.nameBooking.text];
+        [detailRoom setMeetingRoom:btn.meetingRoomItem];
     }
 }
 

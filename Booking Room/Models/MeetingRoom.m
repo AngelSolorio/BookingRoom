@@ -10,12 +10,28 @@
 
 @implementation MeetingRoom
 
-- (id)initWithTitle:(NSString *)title andDetails:(NSString *)details andIcon:(UIImage *)icon {
+- (id)init {
+    self = [self initWithIdentifier:0
+                               name:@"Default"
+                           location:@"Default"
+                              photo:[[NSMutableArray alloc]initWithObjects: [[Photo alloc]init], nil]
+                           services:[[NSMutableArray alloc]initWithObjects: [[Service alloc]init], nil]];
+    return self;
+}
+
+
+- (id)initWithIdentifier:(NSNumber *)aIdentifier
+                    name:(NSString *)aName
+                location:(NSString *)aLocation
+                   photo:(NSMutableArray *)anPhotos
+                services:(NSMutableArray *)anServices {
     self = [super init];
-    if (self) {
-        _title = title;
-        _details = details;
-        _icon = icon;
+    if(self) {
+        self.identifier = aIdentifier;
+        self.name = aName;
+        self.location = aLocation;
+        self.photo = anPhotos;
+        self.services = anServices;
     }
     return self;
 }

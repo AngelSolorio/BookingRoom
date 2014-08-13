@@ -8,17 +8,32 @@
 
 #import <Foundation/Foundation.h>
 #import "MeetingRoom.h"
+#import "Person.h"
 
 @interface Booking : NSObject
 
-@property (nonatomic, assign) NSInteger identifier;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSDate *date;
-@property (nonatomic, copy) NSDate *hour;
-@property (nonatomic, assign) NSInteger priority;
-@property (nonatomic, assign) MeetingRoom *meetingRoom;
-@property (nonatomic, strong) UIImage *photo;
+@property (strong, nonatomic) NSNumber *identifier;
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDate *endDate;
+@property (strong, nonatomic) Person *owner;
+@property (strong, nonatomic) NSMutableArray *assistants;
+@property (strong, nonatomic) NSDate *createAt;
+@property (strong, nonatomic) MeetingRoom *meetingRoom;
+@property (assign, nonatomic) NSNumber *priority;
+@property (assign, nonatomic) NSNumber *status;
+@property (strong, nonatomic) NSDate *statusDate;
 
-- (id)initWithTitle:(NSString *)title andDate:(NSDate *)date andHour:(NSDate *)hour andPhoto:(UIImage *)photo andPriority:(NSInteger)priority;
+- (id)initWithIdentifier:(NSNumber *)aIdentifier
+                   title:(NSString *)aTitle
+               startDate:(NSDate *)aStartDate
+                 endDate:(NSDate *)aEndDate
+                   owner:(Person *)aOwner
+              assistants:(NSMutableArray *)anAssistants
+                createAt:(NSDate *)aCreateAt
+             meetingRoom:(MeetingRoom *)aMeetingRoom
+                priority:(NSNumber *)aPriority
+                  status:(NSNumber *)aStatus
+              statusDate:(NSDate *)aStatusDate;
 
 @end

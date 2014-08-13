@@ -299,73 +299,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Moo-CX-AXs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha Termino" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ld0-ut-snY">
+                                                    <rect key="frame" x="79" y="55" width="221" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" id="D3T-Fc-H2D">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="BAp-wr-5N0">
-                                                                    <rect key="frame" x="242" y="7" width="50" height="50"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <state key="normal" image="DeletePhoto">
-                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="buttonDeleteTouched:" destination="MYG-gZ-o3Q" eventType="touchUpInside" id="C9P-9a-h1i"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" id="PE5-Mj-2Bg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CellDefault" id="qWA-QU-Brt">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="EkA-Bb-EJd">
-                                                                    <rect key="frame" x="20" y="10" width="50" height="50"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                </imageView>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Junta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dTr-tm-A7N">
-                                                                    <rect key="frame" x="81" y="10" width="221" height="21"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AL2-gJ-Cu3">
-                                                                    <rect key="frame" x="81" y="34" width="142" height="21"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                    </subviews>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="MYG-gZ-o3Q" id="Zm8-Bp-E8W"/>
-                                                    </connections>
-                                                </scrollView>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reservaciones" id="EkA-Bb-EJd">
+                                                    <rect key="frame" x="20" y="10" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Junta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dTr-tm-A7N">
+                                                    <rect key="frame" x="79" y="0.0" width="179" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha Inicio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AL2-gJ-Cu3">
+                                                    <rect key="frame" x="79" y="38" width="221" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creador" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bYV-ae-Zx6">
+                                                    <rect key="frame" x="79" y="20" width="221" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="backgroundImage" destination="qWA-QU-Brt" id="WeF-Xf-wjT"/>
-                                            <outlet property="bookingIcon" destination="EkA-Bb-EJd" id="tbI-hj-L93"/>
-                                            <outlet property="buttonsContainerView" destination="D3T-Fc-H2D" id="6hj-An-FqF"/>
-                                            <outlet property="dateLabel" destination="AL2-gJ-Cu3" id="bAf-wl-ed2"/>
-                                            <outlet property="deleteButton" destination="BAp-wr-5N0" id="5sJ-pi-iwY"/>
-                                            <outlet property="innerContentView" destination="PE5-Mj-2Bg" id="R14-SH-v3g"/>
-                                            <outlet property="scrollView" destination="Moo-CX-AXs" id="Fuu-Gl-EMt"/>
-                                            <outlet property="titleLabel" destination="dTr-tm-A7N" id="S0O-7l-aWf"/>
+                                            <outlet property="endDateLabel" destination="ld0-ut-snY" id="FBa-X2-2ZC"/>
+                                            <outlet property="ownerLabel" destination="bYV-ae-Zx6" id="yaR-wF-zsH"/>
+                                            <outlet property="startDateLabel" destination="AL2-gJ-Cu3" id="GBD-tH-blg"/>
+                                            <outlet property="titleLabel" destination="dTr-tm-A7N" id="zff-mR-4ah"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -391,10 +364,17 @@
                                 <action selector="presentLeftMenuViewController:" destination="RAr-Xh-Agr" id="eGY-o8-HF1"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="ps7-dT-4CQ">
+                            <color key="tintColor" red="0.85415393110000004" green="0.10782039359999999" blue="0.1018413579" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="editMyBookings:" destination="RAr-Xh-Agr" id="mtJ-Vl-D8t"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="editButton" destination="ps7-dT-4CQ" id="dNy-xz-58H"/>
                         <outlet property="emptyLabel" destination="zSX-Lw-luS" id="T3n-dn-Wok"/>
                         <outlet property="myBookingsTable" destination="Pd7-0R-B9W" id="ElT-es-2XL"/>
                         <outlet property="searchBar" destination="j1M-TG-HIC" id="jAv-La-Qzv"/>
@@ -499,7 +479,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Wwe-vN-RSW">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Room4" id="Wwe-vN-RSW">
                                                     <rect key="frame" x="20" y="5" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
@@ -565,62 +545,75 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="xIW-zi-eR0">
-                                <rect key="frame" x="0.0" y="56" width="320" height="171"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="aEO-kC-4Gd" id="PD4-ZM-8ms"/>
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="RTQ-gG-za6">
-                                <rect key="frame" x="0.0" y="193" width="320" height="37"/>
+                                <rect key="frame" x="0.0" y="225" width="320" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="0.1215686275" green="0.69803921570000005" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Psa-B8-Ccq">
-                                <rect key="frame" x="0.0" y="226" width="320" height="342"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Servicios" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LUn-2k-229">
+                                <rect key="frame" x="9" y="264" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="HfV-nf-Tjb">
+                                <rect key="frame" x="0.0" y="286" width="320" height="282"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="RoomDetailsCell" rowHeight="60" id="GXv-5W-P4a" customClass="RoomDetailsTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GXv-5W-P4a" id="rKc-7c-B9o">
-                                            <rect key="frame" x="0.0" y="0.0" width="281" height="60"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ord-3H-kgn">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoomDetailsCollectionViewCell" id="tk3-Af-Jar" customClass="RoomDetailsCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="R5U-69-mJG">
-                                                    <rect key="frame" x="20" y="5" width="50" height="50"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ty9-N6-r3V">
+                                                    <rect key="frame" x="25" y="7" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3fS-Dd-UWP">
-                                                    <rect key="frame" x="86" y="14" width="214" height="32"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YUI-CR-hef">
+                                                    <rect key="frame" x="0.0" y="65" width="100" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" red="0.40862771739999998" green="0.40862771739999998" blue="0.40862771739999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <connections>
-                                            <outlet property="iconRoomDetail" destination="R5U-69-mJG" id="iYW-MY-RBF"/>
-                                            <outlet property="titleRoomDetail" destination="3fS-Dd-UWP" id="00b-Gg-BX4"/>
+                                            <outlet property="iconRoomDetail" destination="Ty9-N6-r3V" id="tdc-Iu-O8B"/>
+                                            <outlet property="titleRoomDetail" destination="YUI-CR-hef" id="FtM-53-1n5"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="aEO-kC-4Gd" id="s34-KL-NoV"/>
-                                    <outlet property="delegate" destination="aEO-kC-4Gd" id="fIk-35-5io"/>
+                                    <outlet property="dataSource" destination="aEO-kC-4Gd" id="tJr-76-yQF"/>
+                                    <outlet property="delegate" destination="aEO-kC-4Gd" id="YRN-P1-daz"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detalles Sala" id="eO4-9E-y6e"/>
                     <connections>
                         <outlet property="imagePageControl" destination="RTQ-gG-za6" id="a2r-eS-VNT"/>
-                        <outlet property="roomDetailsTable" destination="Psa-B8-Ccq" id="dpK-LJ-tJV"/>
+                        <outlet property="roomDetailsCollectionView" destination="HfV-nf-Tjb" id="0e1-M5-Wzc"/>
                         <outlet property="roomImageScrollView" destination="xIW-zi-eR0" id="DN6-Zb-DQi"/>
                     </connections>
                 </viewController>
@@ -693,6 +686,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7A-vh-4JS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1349" y="669"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VER-CU-0ho">
+            <objects>
+                <viewController id="uKO-8l-Tns" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLu-92-igB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qWD-Vg-Rr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
