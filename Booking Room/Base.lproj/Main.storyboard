@@ -87,7 +87,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="rh5-rC-3rs">
             <objects>
-                <viewController storyboardIdentifier="welcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gPw-33-jd5" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeViewController" extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gPw-33-jd5" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kj3-hr-LnP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,8 +156,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="enterButton" destination="4Qh-iB-06D" id="Uoq-nX-4fU"/>
                         <outlet property="resetPinButton" destination="tlU-kE-SN0" id="FRk-CS-MHt"/>
@@ -306,9 +307,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reservaciones" id="EkA-Bb-EJd">
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reservaciones" id="EkA-Bb-EJd">
                                                     <rect key="frame" x="20" y="10" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Junta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dTr-tm-A7N">
                                                     <rect key="frame" x="79" y="0.0" width="179" height="21"/>
@@ -369,10 +370,17 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Mis Reservaciones" id="zBo-lp-eOY">
-                        <barButtonItem key="leftBarButtonItem" title="Menú" id="uzC-WI-OAZ">
-                            <connections>
-                                <action selector="presentLeftMenuViewController:" destination="RAr-Xh-Agr" id="eGY-o8-HF1"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="aOp-OZ-F0Q">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Wj-q5-OSG">
+                                <rect key="frame" x="16" y="11" width="26" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="MenuIcon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentLeftMenuViewController:" destination="RAr-Xh-Agr" eventType="touchUpInside" id="BZ0-2i-bhd"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Editar" id="ps7-dT-4CQ">
                             <color key="tintColor" red="0.85415393110000004" green="0.10782039359999999" blue="0.1018413579" alpha="1" colorSpace="calibratedRGB"/>
@@ -416,10 +424,18 @@
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Reservaciones" id="Ouz-MK-Dls">
-                        <barButtonItem key="leftBarButtonItem" title="Menú" id="6lG-6i-f1H">
-                            <connections>
-                                <action selector="presentLeftMenuViewController:" destination="2pB-5B-eWw" id="4ul-6R-YPb"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="pee-Kd-Gr1">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="wOX-Ae-Sj0">
+                                <rect key="frame" x="39" y="11" width="26" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.34850543480000001" green="0.34850543480000001" blue="0.34850543480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="MenuIcon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentLeftMenuViewController:" destination="2pB-5B-eWw" eventType="touchUpInside" id="dDg-Bc-xae"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -431,9 +447,11 @@
         <!--Main Navigation Controller-->
         <scene sceneID="OR3-4A-E00">
             <objects>
-                <navigationController storyboardIdentifier="contentViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mFe-Px-e3f" customClass="MainNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentViewController" extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mFe-Px-e3f" customClass="MainNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="j1R-Fr-TZU"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hX8-K7-msj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -525,10 +543,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Salas" id="twU-SB-T2w">
-                        <barButtonItem key="leftBarButtonItem" title="Menú" id="zZO-yo-ydf">
-                            <connections>
-                                <action selector="presentLeftMenuViewController:" destination="DSF-6p-yjw" id="bVo-Zs-6pc"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="3NR-8T-NHS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k8v-EX-C0p">
+                                <rect key="frame" x="16" y="11" width="26" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="MenuIcon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentLeftMenuViewController:" destination="DSF-6p-yjw" eventType="touchUpInside" id="jdt-mZ-CsU"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -545,8 +570,8 @@
         <!--Detalles Sala-->
         <scene sceneID="T7x-3D-4Wy">
             <objects>
-                <viewController id="aEO-kC-4Gd" customClass="RoomDetailsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TB8-P2-7UJ">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="aEO-kC-4Gd" customClass="RoomDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="TB8-P2-7UJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -618,9 +643,12 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.34850543480000001" green="0.34850543480000001" blue="0.34850543480000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detalles Sala" id="eO4-9E-y6e"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imagePageControl" destination="RTQ-gG-za6" id="a2r-eS-VNT"/>
                         <outlet property="roomDetailsCollectionView" destination="HfV-nf-Tjb" id="0e1-M5-Wzc"/>
@@ -664,10 +692,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sugerencias" id="hbD-Wu-KtT">
-                        <barButtonItem key="leftBarButtonItem" title="Menú" id="Xpj-QN-tcQ">
-                            <connections>
-                                <action selector="presentLeftMenuViewController:" destination="hwX-qE-Xge" id="n9K-bp-0BJ"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Vn0-Kk-o66">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kgn-5V-xKv">
+                                <rect key="frame" x="39" y="11" width="26" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="MenuIcon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentLeftMenuViewController:" destination="hwX-qE-Xge" eventType="touchUpInside" id="N7L-8V-qqq"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="Lgh-hs-eFy">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="W39-rH-TAZ">
@@ -714,6 +749,7 @@
     </scenes>
     <resources>
         <image name="BackGroundViewControllers" width="320" height="480"/>
+        <image name="MenuIcon" width="26" height="16"/>
         <image name="Reservaciones" width="32" height="32"/>
         <image name="Room4" width="80" height="80"/>
     </resources>
