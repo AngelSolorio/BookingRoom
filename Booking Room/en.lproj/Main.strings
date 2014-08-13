@@ -52,3 +52,13 @@
 
 /* Class = "IBUIBarButtonItem"; title = "Menu"; ObjectID = "IQJ-Zc-I7y"; */
 "ps7-dT-4CQ.title" = "Edit";
+
+// ImageEditorViewController
+/* Class = "IBUILabel"; text = "Mover y Escalar"; ObjectID = "eMq-CL-5FR"; */
+"eMq-CL-5FR.text" = "Move and Scale";
+
+/* Class = "IBUIBarButtonItem"; title = "Cancelar"; ObjectID = "LMT-K8-LJx; */
+"LMT-K8-LJx.title" = "Cancel";
+
+/* Class = "IBUIBarButtonItem"; title = "Usar"; ObjectID = "bqt-eA-3VH"; */
+"bqt-eA-3VH.title" = "Choose";

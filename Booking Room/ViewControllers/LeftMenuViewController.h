@@ -18,8 +18,9 @@
 #import "MenuTableViewCell.h"
 #import "Utility.h"
 #import "FeedUserDefaults.h"
+#import "ImageEditorViewController.h"
 
-@interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
+@interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, HFImageEditorFrame> {
      NSArray *menuItems;
      ACAccountStore *accountStore;
 }
@@ -28,5 +29,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet RoundImageView *userPicture;
 @property (nonatomic, retain) UIImagePickerController *imagePickController;
+@property(nonatomic,strong) ImageEditorViewController *imageEditor;
 
 @end

@@ -233,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dje-5u-6cw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765" y="-1051"/>
+            <point key="canvasLocation" x="549" y="-1076"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Xbz-Tz-iUM">
@@ -682,15 +682,56 @@
         <!--View Controller-->
         <scene sceneID="VER-CU-0ho">
             <objects>
-                <viewController id="uKO-8l-Tns" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageEditor" id="uKO-8l-Tns" customClass="ImageEditorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xLu-92-igB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="2U2-pb-8Co" customClass="HFImageEditorFrameView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="525"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mover y Escalar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eMq-CL-5FR">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="gpE-jw-xYs">
+                                <rect key="frame" x="0.0" y="525" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Cancelar" width="83" id="LMT-K8-LJx">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="uKO-8l-Tns" id="UYp-v3-AAr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="155" style="plain" systemItem="fixedSpace" id="aqc-BO-35Q"/>
+                                    <barButtonItem title="Usar" width="52" id="bqt-eA-3VH">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="doneAction:" destination="uKO-8l-Tns" id="mRg-dx-PkH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="frameView" destination="2U2-pb-8Co" id="zUt-Vy-nYo"/>
+                        <outlet property="saveButton" destination="bqt-eA-3VH" id="13c-Tc-dwe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWD-Vg-Rr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="879" y="-1076"/>
         </scene>
     </scenes>
     <resources>
