@@ -24,8 +24,6 @@
     _userTextField.layer.masksToBounds = YES;
     _userTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
     _userTextField.layer.borderWidth = 1.0f;
-//    [_userTextField setValue:[UIColor darkGrayColor]
-//                  forKeyPath:@"_placeholderLabel.textColor"];
     [_userTextField setDelegate:self];
 
     _passwordTextField.borderStyle = UITextBorderStyleLine;
@@ -33,12 +31,8 @@
     _passwordTextField.layer.masksToBounds = YES;
     _passwordTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
     _passwordTextField.layer.borderWidth = 1.0f;
-//    [_passwordTextField setValue:[UIColor colorWithRed:.7 green:.7 blue:.7 alpha:1.0]
-//                      forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTextField setDelegate:self];
-    
-    _userTextField.delegate = self;
-    _passwordTextField.delegate = self;
+
     _loginButton.enabled = NO;
 
     // Register for Keyboard notifications
@@ -198,6 +192,8 @@
 
     if (!CGRectContainsPoint(aRect, pointToSearch) ) {
         // Moves controls up
+        _logoImageView.frame = CGRectMake(_logoImageView.frame.origin.x, _logoImageView.frame.origin.y - OFFSET, _logoImageView.frame.size.width, _logoImageView.frame.size.height);
+        _appLabel.frame = CGRectMake(_appLabel.frame.origin.x, _appLabel.frame.origin.y - OFFSET, _appLabel.frame.size.width, _appLabel.frame.size.height);
         _userTextField.frame = CGRectMake(_userTextField.frame.origin.x, _userTextField.frame.origin.y - OFFSET, _userTextField.frame.size.width, _userTextField.frame.size.height);
         _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, _passwordTextField.frame.origin.y - OFFSET, _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
         _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, _loginButton.frame.origin.y - OFFSET, _loginButton.frame.size.width, _loginButton.frame.size.height);
@@ -215,6 +211,8 @@
 
     if (!CGRectContainsPoint(aRect, pointToSearch) ) {
         // Moves contolrs down
+        _logoImageView.frame = CGRectMake(_logoImageView.frame.origin.x, _logoImageView.frame.origin.y + OFFSET, _logoImageView.frame.size.width, _logoImageView.frame.size.height);
+        _appLabel.frame = CGRectMake(_appLabel.frame.origin.x, _appLabel.frame.origin.y + OFFSET, _appLabel.frame.size.width, _appLabel.frame.size.height);
         _userTextField.frame = CGRectMake(_userTextField.frame.origin.x, _userTextField.frame.origin.y + OFFSET, _userTextField.frame.size.width, _userTextField.frame.size.height);
         _passwordTextField.frame = CGRectMake(_passwordTextField.frame.origin.x, _passwordTextField.frame.origin.y + OFFSET, _passwordTextField.frame.size.width, _passwordTextField.frame.size.height);
         _loginButton.frame = CGRectMake(_loginButton.frame.origin.x, _loginButton.frame.origin.y + OFFSET, _loginButton.frame.size.width, _loginButton.frame.size.height);
