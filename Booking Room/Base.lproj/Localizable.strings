@@ -44,12 +44,13 @@
 "Pin_NotValid" = "¡PIN con combinación inválida!";
 
 // MAIN MENU
-"Home" = "Reservaciones";
-"MyBookings" = "Mis Reservaciones";
-"MeetingBookingRooms" = "Salas";
-"Suggestions" = "Sugerencias";
-"LogOut" = "Cerrar Sesión";
-"About" = "Acerca";
+"Menu_Home" = "Reservaciones";
+"Menu_MyBookings" = "Mis Reservaciones";
+"Menu_MeetingRooms" = "Salas";
+"Menu_Suggestions" = "Sugerencias";
+"Menu_ResetPin" = "Actualizar Código";
+"Menu_LogOut" = "Cerrar Sesión";
+"Menu_About" = "Acerca";
 "Camera" = "Cámara";
 "Device" = "Teléfono";
 "Edit" = "Editar";

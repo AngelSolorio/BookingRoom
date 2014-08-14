@@ -7,6 +7,7 @@
 //
 
 #import "LeftMenuViewController.h"
+#import "TypeDefs.h"
 
 #define FacebookAppIdKey        @"1518570525042067"
 #define TwitterAppIdKey         @"1wG8eh4e6GNZXCKCdw9ueyeF1"
@@ -27,19 +28,21 @@
     [super viewDidLoad];
     
     // Creates the menu items
-    MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Home", @"")
+    MenuItem *itemOne = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_Home", nil)
                                                 andIcon:[UIImage imageNamed:@"Home"]];
-    MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MyBookings", @"")
-                                                andIcon:[UIImage imageNamed:@"Reservaciones"]];
-    MenuItem *itemThree = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"MeetingBookingRooms", @"")
-                                                  andIcon:[UIImage imageNamed:@"Salas"]];
-    MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Suggestions", @"")
-                                                 andIcon:[UIImage imageNamed:@"Comentarios"]];
-    MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"LogOut", @"")
+    MenuItem *itemTwo = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_MyBookings", nil)
+                                                andIcon:[UIImage imageNamed:@"Bookings"]];
+    MenuItem *itemThree = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_MeetingRooms", nil)
+                                                  andIcon:[UIImage imageNamed:@"MeetingRooms"]];
+    MenuItem *itemFour = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_Suggestions", nil)
+                                                 andIcon:[UIImage imageNamed:@"Comments"]];
+    MenuItem *itemFive = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_ResetPin", nil)
+                                                 andIcon:[UIImage imageNamed:@"Pin"]];
+    MenuItem *itemSix = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_LogOut", nil)
                                                  andIcon:[UIImage imageNamed:@"Logout"]];
-    MenuItem *itemSix = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"About", @"")
+    MenuItem *itemSeven = [[MenuItem alloc] initWithTitle:NSLocalizedString(@"Menu_About", nil)
                                                  andIcon:[UIImage imageNamed:@"About"]];
-    menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, nil];
+    menuItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, nil];
 
     // Configures the long press over the user picture
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
@@ -116,28 +119,34 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
-        case 0:
+        case 0: // HOME
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"homeController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 1:
+        case 1: // MY BOOKINGS
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myBookingsController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 2:
+        case 2: // MEETING ROOMS
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"bookingRoomsController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 3:
+        case 3: // COMMENTS
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"suggestionsController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 4:
+        case 4: // RESET PIN
+            [self showAlertWithTitle:NSLocalizedString(@"Login_Password", nil)
+                             message:NSLocalizedString(@"Login_Message", nil)];
+            break;
+        case 5: // LOGOUT
             [self.navigationController popToRootViewControllerAnimated:YES];
+            break;
+        case 6: // ABOUT
             break;
         default:
             break;
@@ -167,6 +176,70 @@
     [cell setSelectedBackgroundView:cellView];
     
     return cell;
+}
+
+
+#pragma mark - UIAlertViewDelegate Methods
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        return;
+    }
+
+    UITextField *textfield = [alertView textFieldAtIndex:0];
+    if ([[FeedUserDefaults password] isEqualToString:textfield.text]) { // Correct password
+        // Redirects to enter a new PIN
+        PPPinPadViewController *pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
+        [pinViewController setBackgroundImage:[Utility getScreenshot:self.view]];
+        pinViewController.delegate = self;
+        [self presentViewController:pinViewController animated:YES completion:NULL];
+    } else {
+        [self showAlertWithTitle:NSLocalizedString(@"Login_IncorrectPassword", nil)
+                         message:NSLocalizedString(@"Login_MessageAgain", nil)];
+    }
+}
+
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    // shows an alert to enter the password
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"CancelButton", nil)
+                                              otherButtonTitles:NSLocalizedString(@"ContinueButton", nil), nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+
+    UITextField* textfield = [alertView textFieldAtIndex:0];
+    textfield.placeholder = NSLocalizedString(@"Login_Password", nil);
+    textfield.secureTextEntry = YES;
+    
+    [alertView show];
+}
+
+
+#pragma mark - PinPadPasswordProtocol Methods
+
+- (BOOL)checkPin:(NSString *)pin {
+    BOOL result = NO;
+    if ([pin isEqualToString:[FeedUserDefaults pin]]) {
+        result = YES;
+    }
+
+    return result;
+}
+
+
+- (NSInteger)pinLenght {
+    return 4;
+}
+
+
+- (void)newPinSet:(NSString *)newPin inViewController:(UIViewController *)pvc {
+    // Dismiss the PIN View Controller
+    [pvc dismissViewControllerAnimated:NO completion:nil];
+
+    // Stores the new PIN set
+    [FeedUserDefaults setPin:newPin];
 }
 
 

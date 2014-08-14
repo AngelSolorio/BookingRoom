@@ -107,8 +107,9 @@
     if ([[FeedUserDefaults password] isEqualToString:textfield.text]) { // Correct password
         // Redirects to enter a new PIN
         PPPinPadViewController *pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
-        [self presentViewController:pinViewController animated:YES completion:NULL];
+        [pinViewController setBackgroundImage:[Utility getScreenshot:self.view]];
         pinViewController.delegate = self;
+        [self presentViewController:pinViewController animated:YES completion:NULL];
     } else {
         [self showAlertWithTitle:NSLocalizedString(@"Login_IncorrectPassword", nil)
                          message:NSLocalizedString(@"Login_MessageAgain", nil)];
@@ -153,22 +154,8 @@
 - (void)pinAuthenticatedInViewController:(UIViewController *)pvc {
     // Dismiss the PIN View Controller
     [pvc dismissViewControllerAnimated:NO completion:^{
-//        if ([(MainNavigationController *)self.navigationController newsToNotify]) {
-//            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            HomeViewController *homeViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeViewController"];
-//            NewsViewController *newsViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"newsViewController"];
-//            DetailNewsViewController *detailNewsViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"detailNewsViewController"];
-//            News *news = [(MainNavigationController *)self.navigationController newsToNotify];
-//            [detailNewsViewController setNews:news];
-//            NSMutableArray *viewControllers = [[NSMutableArray alloc] initWithArray:[self.navigationController viewControllers]];
-//            [viewControllers addObject:homeViewController];
-//            [viewControllers addObject:newsViewController];
-//            [viewControllers addObject:detailNewsViewController];
-//            [self.navigationController setViewControllers:viewControllers];
-//        } else {
             // Shows the home view
             [self performSegueWithIdentifier:@"welcomeToRoot" sender:self];
-//        }
     }];
 }
 

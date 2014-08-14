@@ -19,8 +19,10 @@
 #import "Utility.h"
 #import "FeedUserDefaults.h"
 #import "UIImageView+Letters.h"
+#import "ImageEditorViewController.h"
+#import "PPPinPadViewController.h"
 
-@interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, HFImageEditorFrame> {
+@interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, PinPadPasswordProtocol, HFImageEditorFrame> {
      NSArray *menuItems;
      ACAccountStore *accountStore;
 }
