@@ -115,6 +115,7 @@
                                                        title:NSLocalizedString(@"RefreshControl_Connecting", nil)
                                                         mode:MRProgressOverlayViewModeIndeterminate
                                                     animated:YES];
+    progressView.tintColor = [UIColor colorWithRed:95/255. green:186/255. blue:89/255. alpha:1.0];
 
     // ---- Requests the login to the Web Service using the AFNetworking Framework ----
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

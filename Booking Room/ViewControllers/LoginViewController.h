@@ -10,7 +10,7 @@
 #import "RootViewController.h"
 #import "FeedUserDefaults.h"
 #import "PPPinPadViewController.h"
-#import <MRProgress/MRProgress.h>
+#import "MRProgress.h"
 #import "WebService.h"
 
 @interface LoginViewController : UIViewController <PinPadPasswordProtocol, UITextFieldDelegate> {
