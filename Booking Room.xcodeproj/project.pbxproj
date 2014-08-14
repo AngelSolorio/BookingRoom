@@ -65,6 +65,9 @@
 		8DD128C61991608900B0F435 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD128C51991608900B0F435 /* FacebookSDK.framework */; };
 		8DD128CF199160A500B0F435 /* FHSStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128C9199160A500B0F435 /* FHSStream.m */; };
 		8DD128D0199160A500B0F435 /* FHSTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CB199160A500B0F435 /* FHSTwitterEngine.m */; };
+		8DD6A785199C0FB5003074DA /* HFImageEditorFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6A781199C0FB5003074DA /* HFImageEditorFrameView.m */; };
+		8DD6A786199C0FB5003074DA /* HFImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6A784199C0FB5003074DA /* HFImageEditorViewController.m */; };
+		8DD6A789199C100B003074DA /* ImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6A788199C100B003074DA /* ImageEditorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +183,13 @@
 		8DD128CD199160A500B0F435 /* RoundImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundImageView.h; sourceTree = "<group>"; };
 		8DD128CE199160A500B0F435 /* RoundImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundImageView.m; sourceTree = "<group>"; };
 		8DD128D2199182A300B0F435 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8DD6A780199C0FB5003074DA /* HFImageEditorFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFImageEditorFrameView.h; sourceTree = "<group>"; };
+		8DD6A781199C0FB5003074DA /* HFImageEditorFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFImageEditorFrameView.m; sourceTree = "<group>"; };
+		8DD6A782199C0FB5003074DA /* HFImageEditorViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HFImageEditorViewController+Private.h"; sourceTree = "<group>"; };
+		8DD6A783199C0FB5003074DA /* HFImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFImageEditorViewController.h; sourceTree = "<group>"; };
+		8DD6A784199C0FB5003074DA /* HFImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFImageEditorViewController.m; sourceTree = "<group>"; };
+		8DD6A787199C100B003074DA /* ImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageEditorViewController.h; path = ViewControllers/ImageEditorViewController.h; sourceTree = "<group>"; };
+		8DD6A788199C100B003074DA /* ImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageEditorViewController.m; path = ViewControllers/ImageEditorViewController.m; sourceTree = "<group>"; };
 		D16CA358B45747B49D6952BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -242,6 +252,7 @@
 		4F5E439219818E3F00E807ED /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8DD6A77F199C0FB5003074DA /* ImageEditor */,
 				8DD128C7199160A500B0F435 /* FHSTwitterEngine */,
 				8DD128CC199160A500B0F435 /* RoundImage */,
 				4F7E0F4B1981C7E200B793FD /* PinPad */,
@@ -416,6 +427,8 @@
 				8D7EE98C197F1804000878FD /* LeftMenuViewController.m */,
 				8D7EE98F197F25E5000878FD /* MenuTableViewCell.h */,
 				8D7EE990197F25E5000878FD /* MenuTableViewCell.m */,
+				8DD6A787199C100B003074DA /* ImageEditorViewController.h */,
+				8DD6A788199C100B003074DA /* ImageEditorViewController.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -487,6 +500,19 @@
 			);
 			name = RoundImage;
 			path = Vendor/RoundImage;
+			sourceTree = "<group>";
+		};
+		8DD6A77F199C0FB5003074DA /* ImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				8DD6A780199C0FB5003074DA /* HFImageEditorFrameView.h */,
+				8DD6A781199C0FB5003074DA /* HFImageEditorFrameView.m */,
+				8DD6A782199C0FB5003074DA /* HFImageEditorViewController+Private.h */,
+				8DD6A783199C0FB5003074DA /* HFImageEditorViewController.h */,
+				8DD6A784199C0FB5003074DA /* HFImageEditorViewController.m */,
+			);
+			name = ImageEditor;
+			path = Vendor/ImageEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,9 +657,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FC01D04199A8E2800EB098D /* RoundImageView.m in Sources */,
+				8DD6A785199C0FB5003074DA /* HFImageEditorFrameView.m in Sources */,
 				4F5E43901981866400E807ED /* UIColor+Hex.m in Sources */,
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				8D439B34199AB8A200D5249D /* Service.m in Sources */,
+				8DD6A789199C100B003074DA /* ImageEditorViewController.m in Sources */,
 				4F5E438F1981866400E807ED /* FeedUserDefaults.m in Sources */,
 				4F7E0F551981C7E200B793FD /* PPPinPadViewController.m in Sources */,
 				4F7E0F531981C7E200B793FD /* PPCircleButton.m in Sources */,
@@ -661,6 +689,7 @@
 				4F7E0F541981C7E200B793FD /* PPPinCircleView.m in Sources */,
 				8D439B32199AB8A200D5249D /* Person.m in Sources */,
 				4FDB1ACB199170FD001601C6 /* HomeViewController.m in Sources */,
+				8DD6A786199C0FB5003074DA /* HFImageEditorViewController.m in Sources */,
 				8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */,
 				8DD128CF199160A500B0F435 /* FHSStream.m in Sources */,
 				8D439B33199AB8A200D5249D /* Photo.m in Sources */,

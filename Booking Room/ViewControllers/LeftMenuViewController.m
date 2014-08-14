@@ -225,14 +225,18 @@
                 [self presentViewController:_imagePickController animated:YES completion:nil];
             }
             break;
-        case 4:// editar
-            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
-                _imagePickController = [[UIImagePickerController alloc] init];
-                _imagePickController.delegate = self;
-                _imagePickController.SourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-                _imagePickController.allowsEditing = YES;
-                [self presentViewController:_imagePickController animated:YES completion:nil];
-            }
+        case 4:{ // editar
+            UIImage *picture = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
+                                                      inFolder:@"People"];
+            self.imageEditor = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ImageEditor"];
+            self.imageEditor.checkBounds = YES;
+            self.imageEditor.delegate = self;
+            self.imageEditor.rotateEnabled = YES;
+            self.imageEditor.sourceImage = picture ? picture : [UIImage imageNamed:@"ImageContact"];
+            self.imageEditor.previewImage = picture ? picture : [UIImage imageNamed:@"ImageContact"];
+            [self.imageEditor reset:NO];
+            [self presentViewController:self.imageEditor animated:YES completion:nil];
+        }
             break;
         case 5:// restore the default picture
             [Utility deleteFileFromFileSystemWithName:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
@@ -242,6 +246,20 @@
         default:
             break;
     }
+}
+
+
+#pragma mark - ImageEditor Delegate
+
+- (void)pressSaveButton:(HFImageEditorViewController *)hfImageEditorFrame andEditPhoto:(UIImage *)editPhoto {
+    _userPicture.image = editPhoto;
+    [self saveUserPicture:editPhoto];
+    [hfImageEditorFrame dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)pressCancelButton:(HFImageEditorViewController *)hfImageEditorFrame {
+    [hfImageEditorFrame dismissViewControllerAnimated:YES completion:nil];
 }
 
 
