@@ -21,17 +21,17 @@
     dispatch_once(&onceToken, ^{
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         [config setHTTPAdditionalHeaders:@{@"Content-Type" : @"application/x-www-form-urlencoded"}];
-
+        
         NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:10 * 1024 * 1024
                                                           diskCapacity:50 * 1024 * 1024
                                                               diskPath:nil];
-
+        
         [config setURLCache:cache];
-
+        
         _sharedClient = [[WebService alloc] initWithSessionConfiguration:config];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
     });
-
+    
     return _sharedClient;
 }
 
@@ -67,31 +67,57 @@
 }
 
 
-- (NSURLSessionDataTask *)sendComment:(NSString *)comment idLogs:(NSInteger)idLogs completion:(void (^)(NSDictionary *results, NSError *error))completion {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    [parameters setValue:@"set_comment" forKey:@"request"];
-    [parameters setValue:[FeedUserDefaults user] forKey:@"user"];
-    [parameters setValue:[FeedUserDefaults token] forKey:@"token"];
-    [parameters setValue:comment forKey:@"text"];
+- (NSURLSessionDataTask *)sendComment:(NSString *)comment completion:(void (^)(NSDictionary *results, NSError *error))completion {
+    NSURLSessionDataTask *task = [self POST:[kBASE_URL stringByAppendingString:@"/suggestions.json"]
+                                 parameters:@{@"" : @"sessions.json"}
+                  constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                      [formData appendPartWithFormData:[comment dataUsingEncoding:NSUTF8StringEncoding] name:@"suggestion[comment]"];
+                      [formData appendPartWithFormData:[[FeedUserDefaults token] dataUsingEncoding:NSUTF8StringEncoding] name:@"remember_token"];
+                  }
+                                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        if (httpResponse.statusCode == 200) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completion(responseObject, nil);
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                                completion(nil, nil);
+                                            });
+                                        }
+                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        if (httpResponse.statusCode == 401) {
+                                            NSError *tokenError = [NSError errorWithDomain:@"Invalid User Token" code:401 userInfo:nil];
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completion(nil, tokenError);
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completion(nil, error);
+                                            });
+                                        }
+                                    }];
+    return task;
+}
 
-    NSURLSessionDataTask *task = [self GET:kBASE_URL
+
+- (NSURLSessionDataTask *)getAllMeetingRooms:(void (^)(NSDictionary *results, NSError *error))completion {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:[FeedUserDefaults token] forKey:@"remember_token"];
+    NSURLSessionDataTask *task = [self GET:[kBASE_URL stringByAppendingString:@"/meeting_rooms.json"]
                                 parameters:parameters
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
                                        if (httpResponse.statusCode == 200) {
                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                if ([[responseObject valueForKey:@"success"] boolValue]) {
-                                                   NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Successful", nil));
-                                                   completion(responseObject, nil);
+                                                   completion([self parseMeetingRooms:responseObject], nil);
                                                } else {
-                                                   NSError *error = [NSError errorWithDomain:@"Invalid User Token" code:99 userInfo:nil];
-                                                   if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
-                                                       NSLog(@"ERROR: %@", NSLocalizedString(@"TokenInvalid", nil));
-                                                       completion(responseObject, error);
-                                                   } else {
-                                                       NSLog(@"ERROR: %@", [responseObject valueForKey:@"error"]);
-                                                       completion(responseObject, nil);
-                                                   }
+                                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                                       completion(nil, nil);
+                                                   });
                                                }
                                            });
                                        } else {
@@ -101,19 +127,57 @@
                                            });
                                        }
                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                           NSLog(@"ERROR: %@", NSLocalizedString(@"Connection_Error", nil));
-                                           /*[DatabaseConexion saveLogRequest:@"set_comment"
-                                                                       user:[FeedUserDefaults user]
-                                                                      token:[FeedUserDefaults token]
-                                                                       rate:0
-                                                                     dishID:0
-                                                                    comment:comment
-                                                                      error:[error localizedDescription]
-                                                                     status:0
-                                                                 identifier:idLogs];*/
-                                           completion(nil, error);
-                                       });
+                                       NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                       if (httpResponse.statusCode == 401) {
+                                           NSError *tokenError = [NSError errorWithDomain:@"Invalid User Token" code:401 userInfo:nil];
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               completion(nil, tokenError);
+                                           });
+                                       } else {
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               completion(nil, error);
+                                           });
+                                       }
+                                   }];
+    return task;
+}
+
+
+- (NSURLSessionDataTask *)getDetailsMeetingRoomById:(NSInteger)meetingID completion:(void (^)(NSDictionary *results, NSError *error))completion {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:[FeedUserDefaults token] forKey:@"remember_token"];
+    NSURLSessionDataTask *task = [self GET:[kBASE_URL stringByAppendingString: [NSString stringWithFormat: @"/meeting_rooms/%d.json", meetingID]]
+                                parameters:parameters
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                       if (httpResponse.statusCode == 200) {
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               if ([[responseObject valueForKey:@"success"] boolValue]) {
+                                                   completion([self parseDetailMeetingRoom:responseObject], nil);
+                                               } else {
+                                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                                       completion(nil, nil);
+                                                   });
+                                               }
+                                           });
+                                       } else {
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                               completion(nil, nil);
+                                           });
+                                       }
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                       if (httpResponse.statusCode == 401) {
+                                           NSError *tokenError = [NSError errorWithDomain:@"Invalid User Token" code:401 userInfo:nil];
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               completion(nil, tokenError);
+                                           });
+                                       } else {
+                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                               completion(nil, error);
+                                           });
+                                       }
                                    }];
     return task;
 }
@@ -127,7 +191,7 @@
     [parameters setValue:type forKey:@"type"];
     [parameters setValue:[NSNumber numberWithInteger:1] forKey:@"image"];
     [parameters setValue:pictureID forKey:@"id"];
-
+    
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"GET"
                                                                    URLString:kBASE_URL
                                                                   parameters:parameters
@@ -142,7 +206,7 @@
 
 - (NSDictionary *)parseUser:(id)response {
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
-
+    
     // Gets all the Staff from an specific team
     if (![[response objectForKey:@"user"] isKindOfClass:[NSNull class]]) {
         NSDictionary *userInfo = [response objectForKey:@"user"];
@@ -152,13 +216,79 @@
         user.email = [userInfo valueForKey:@"email"];
         [results setValue:user forKey:@"user"];
     }
-
+    
     [results setValue:[response valueForKey:@"token"] forKey:@"token"];
     [results setValue:[response valueForKey:@"success"] forKey:@"success"];
-
+    
     return results;
 }
 
+
+- (NSDictionary *)parseMeetingRooms:(id)response {
+    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+    
+    // Gets all the zones from an specific building and floor
+    NSMutableArray *meetingRoomsArray = [[NSMutableArray alloc] init];
+    
+    if (![[response objectForKey:@"meeting_rooms"] isKindOfClass:[NSNull class]]) {
+        for (NSDictionary *item in [response valueForKey:@"meeting_rooms"]) {
+            MeetingRoom *roomItem = [[MeetingRoom alloc] init];
+            roomItem.identifier = [item valueForKey:@"id"];
+            roomItem.name = [item valueForKey:@"name"];
+            
+            NSMutableArray *photoFiles = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *images in [item valueForKey:@"images"]) {
+                Photo *photoRoom = [[Photo alloc]init];
+                photoRoom.identifier = [images valueForKey:@"id"];
+                photoRoom.name = @"photo_file";
+                NSDictionary *arrayPhotos = [images valueForKey:@"photo_file"];
+                NSString *urlImage = [kBASE_URL stringByAppendingString: [NSString stringWithFormat:@"/%@", [arrayPhotos valueForKey:@"url"]]];
+                //Download Image
+                NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:urlImage]];
+                UIImage *image = [UIImage imageWithData: imageData];
+                photoRoom.image = image;
+                [photoFiles addObject:photoRoom];
+            }
+            
+            roomItem.photo = photoFiles;
+            [meetingRoomsArray addObject:roomItem];
+        }
+    }
+    
+    [results setValue:meetingRoomsArray forKey:@"meeting_rooms"];
+    [results setValue:[response valueForKey:@"rows"] forKey:@"rows"];
+    [results setValue:[response valueForKey:@"deleted"] forKey:@"deleted"];
+    [results setValue:[response valueForKey:@"lastupdate"] forKey:@"lastUpdate"];
+    [results setValue:[response valueForKey:@"success"] forKey:@"success"];
+    
+    return results;
+}
+
+
+- (NSDictionary *)parseDetailMeetingRoom:(id)response {
+    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+    
+    // Gets all the zones from an specific building and floor
+    NSMutableArray *meetingRoomsArray = [[NSMutableArray alloc] init];
+    
+    if (![[response objectForKey:@"meeting_room"] isKindOfClass:[NSNull class]]) {
+        for (NSDictionary *item in [[response valueForKey:@"meeting_room"] valueForKey:@"services"]) {
+            Service *serviceItem = [[Service alloc] init];
+            serviceItem.identifier = [item valueForKey:@"id"];
+            serviceItem.name = [item valueForKey:@"name"];
+            [meetingRoomsArray addObject:serviceItem];
+        }
+    }
+    
+    [results setValue:meetingRoomsArray forKey:@"meeting_room"];
+    [results setValue:[response valueForKey:@"rows"] forKey:@"rows"];
+    [results setValue:[response valueForKey:@"deleted"] forKey:@"deleted"];
+    [results setValue:[response valueForKey:@"lastupdate"] forKey:@"lastUpdate"];
+    [results setValue:[response valueForKey:@"success"] forKey:@"success"];
+    
+    return results;
+}
 
 
 //- (NSDictionary *)parseEmployees:(id)response {
@@ -191,7 +321,7 @@
 //                                                                        options:NSDataBase64DecodingIgnoreUnknownCharacters];
 //                employeeItem.picture = (dataImage != nil) ? [UIImage imageWithData:dataImage] : nil;
 //            }
-//            
+//
 //            [employeeArray addObject:employeeItem];
 //        }
 //    }

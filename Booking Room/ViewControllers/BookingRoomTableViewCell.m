@@ -34,6 +34,12 @@
         
         _nameBooking.text = _meetingRoomItem.name;
         _detailsBooking.text = _meetingRoomItem.location;
+        
+        if (meetingRoomItem.photo.count > 0) {
+            Photo *photo = [meetingRoomItem.photo objectAtIndex:0];
+            UIImage *image = photo.image;
+            _iconBooking.image = image;
+        }
     }
 }
 

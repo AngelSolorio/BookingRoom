@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BookingRoomTableViewCell.h"
 #import "MeetingRoom.h"
+#import "WebService.h"
 
 @interface BookingRoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
     NSArray *meetingRoomItems;

@@ -34,6 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Creates the activity indicator
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
+    self.navigationItem.rightBarButtonItem = item;
+    
     for (int i = 0; i < _meetingRoom.photo.count; i++) {
         CGFloat xOrigin = i * _roomImageScrollView.frame.size.width;
         UIImageView *image = [[UIImageView alloc] initWithFrame:
@@ -42,7 +47,7 @@
                                          _roomImageScrollView.frame.size.height)];
         Photo *photo = [_meetingRoom.photo objectAtIndex:i];
         image.image = photo.image;
-        image.contentMode = UIViewContentModeScaleAspectFit;
+        //image.contentMode = UIViewContentModeScaleAspectFit;
         [_roomImageScrollView addSubview:image];
     }
     
@@ -50,13 +55,34 @@
     _roomImageScrollView.contentSize = CGSizeMake(_roomImageScrollView.frame.size.width * _meetingRoom.photo.count, _roomImageScrollView.frame.size.height);
     _imagePageControl.numberOfPages = _meetingRoom.photo.count;
     
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    // ---- Gets the MeetingRooms from the Web Service using the AFNetworking Framework ----
+    [self.indicator startAnimating];
     
-    for (Service *service in _meetingRoom.services) {
-        [tempArray addObject:service];
-    }
-    
-    roomDetailsItems = [[NSArray alloc] initWithArray:tempArray];
+    [[WebService sharedClient] getDetailsMeetingRoomById:[_meetingRoom.identifier intValue]
+                                              completion:^(NSDictionary *results, NSError *error) {
+                                                  // Validates the response
+                                                  if ([[results valueForKey:@"success"] boolValue]) {
+                                                      NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
+                                                      [self performSelectorInBackground:@selector(changesToDatabase:) withObject:results];
+                                                  } else if (error.code == 401) { // Invalid User Token
+                                                      [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+                                                                                  message:NSLocalizedString(@"TokenInvalid", nil)
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
+                                                                        otherButtonTitles: nil] show];
+                                                      NSLog(@"EVENT: %@", NSLocalizedString(@"TokenInvalid", nil));
+                                                      [self.indicator stopAnimating];
+                                                  } else {
+                                                      [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+                                                                                  message:NSLocalizedString(@"Connection_Error", nil)
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
+                                                                        otherButtonTitles: nil]
+                                                       show];
+                                                      NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Error", nil));
+                                                      [self.indicator stopAnimating];
+                                                  }
+                                              }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +94,25 @@
     [super viewWillAppear:animated];
     
     self.title = _meetingRoom.name;
+}
+
+
+#pragma mark - Web Service Response
+
+- (void)changesToDatabase:(NSDictionary *)results {
+    if ([[results valueForKey:@"meeting_room"] count] > 0) {
+        NSMutableArray *item = [[NSMutableArray alloc] init];
+        
+        for (Service *meetingRoom in [results valueForKey:@"meeting_room"]) {
+            [item addObject:meetingRoom];
+        }
+        
+        roomDetailsItems = [[NSArray alloc] initWithArray:item];
+        [_roomDetailsCollectionView reloadData];
+    }
+    
+    // Stops the activity indicator
+    [self.indicator stopAnimating];
 }
 
 
@@ -112,6 +157,10 @@
 
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
 }
 
 @end
