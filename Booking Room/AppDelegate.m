@@ -24,7 +24,20 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 
+    // Registers for Push Notifications
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"application:didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken);
+
+    // Register the device token with a webservice
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Error: %@", error);
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

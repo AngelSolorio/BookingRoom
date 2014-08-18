@@ -58,10 +58,19 @@
                                             });
                                         }
                                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                            NSLog(@"ERROR: %@", NSLocalizedString(@"Connection_Error", nil));
-                                            completion(nil, error);
-                                        });
+                                        //NSLog(@"json:%@", [task ]);
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        if (httpResponse.statusCode == 422) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                                completion(nil, nil);
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                NSLog(@"ERROR: %@", NSLocalizedString(@"Connection_Error", nil));
+                                                completion(nil, error);
+                                            });
+                                        }
                                     }];
     return task;
 }
