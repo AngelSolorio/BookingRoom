@@ -27,23 +27,73 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Service *screen = [[Service alloc]initWithIdentifier:0 name:@"Screen" value:[NSNumber numberWithInt:1] photo:[[Photo alloc]initWithImage:[UIImage imageNamed:@"Screen"]]];
-    MeetingRoom *itemOne = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 1" location:@"Piso 1" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc] initWithImage:[UIImage imageNamed:@"room1front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, screen, nil] ];
-    MeetingRoom *itemTwo = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 2" location:@"Piso 1" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc] initWithImage:[UIImage imageNamed:@"room2front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, screen, screen, nil] ];
-    MeetingRoom *itemThree = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 3" location:@"Piso 2" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc]initWithImage:[UIImage imageNamed:@"room3front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, nil] ];
-    MeetingRoom *itemFour = [[MeetingRoom alloc]initWithIdentifier:0 name:@"Sala de Juntas 4" location:@"Piso 2" photo:[[NSMutableArray alloc] initWithObjects:[[Photo alloc] initWithImage:[UIImage imageNamed:@"room2front.png"]], nil] services:[[NSMutableArray alloc] initWithObjects:screen, screen, screen, screen, nil] ];
     
-    meetingRoomItems = [[NSArray alloc] initWithObjects:itemOne, itemTwo, itemThree, itemFour, nil];
+    // Creates the activity indicator
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
+    self.navigationItem.rightBarButtonItem = item;
+    meetingRoomItems = [[NSArray alloc] init];
     
     // SearchBar initialize
     searching = NO;
     _searchBar.showsCancelButton = NO;
     copyListOfItems = [[NSMutableArray alloc] init];
+    
+    // ---- Gets the MeetingRooms from the Web Service using the AFNetworking Framework ----
+    [self.indicator startAnimating];
+    
+    [[WebService sharedClient] getAllMeetingRooms:^(NSDictionary *results, NSError *error){
+        // Validates the response
+        if ([[results valueForKey:@"success"] boolValue]) {
+            NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
+            [self performSelectorInBackground:@selector(changesToDatabase:) withObject:results];
+        } else if (error.code == 401) { // Invalid User Token
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+                                        message:NSLocalizedString(@"TokenInvalid", nil)
+                                       delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
+                              otherButtonTitles: nil] show];
+            NSLog(@"EVENT: %@", NSLocalizedString(@"TokenInvalid", nil));
+            [self.indicator stopAnimating];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+                                        message:NSLocalizedString(@"Connection_Error", nil)
+                                       delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
+                              otherButtonTitles: nil]
+             show];
+            NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Error", nil));
+            [self.indicator stopAnimating];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+
+#pragma mark - Web Service Response
+
+- (void)changesToDatabase:(NSDictionary *)results {
+    if ([[results valueForKey:@"meeting_rooms"] count] > 0) {
+        NSMutableArray *item = [[NSMutableArray alloc] init];
+        
+        for (MeetingRoom *meetingRoom in [results valueForKey:@"meeting_rooms"]) {
+            [item addObject:meetingRoom];
+        }
+        
+        meetingRoomItems = [[NSArray alloc] initWithArray:item];
+        [_bookingRoomTable reloadData];
+    }
+    
+    // Stops the activity indicator
+    [self.indicator stopAnimating];
 }
 
 
@@ -95,7 +145,7 @@
         [cell setMeetingRoomItem:[meetingRoomItems objectAtIndex:indexPath.row]];
     }
     
-	return cell;
+    return cell;
 }
 
 

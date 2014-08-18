@@ -10,6 +10,7 @@
 #import "RoomDetailsCollectionViewCell.h"
 #import "MenuItem.h"
 #import "MeetingRoom.h"
+#import "WebService.h"
 
 @interface RoomDetailsViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDelegate> {
     NSArray *roomDetailsItems;
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *roomImageScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *roomDetailsCollectionView;
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 - (id)initWithMeetingRoom:(MeetingRoom *)aMeetingRoom;
 
