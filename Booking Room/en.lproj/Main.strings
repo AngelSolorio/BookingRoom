@@ -43,6 +43,12 @@
 /* Class = "IBUILabel"; text = "Servicios"; ObjectID = "LUn-2k-229"; */
 "LUn-2k-229.text" = "Services";
 
+/* Class = "IBUILabel"; text = "Localización"; ObjectID = "Iqy-KT-i50"; */
+"yGU-pd-3ES.text" = "Location:";
+
+/* Class = "IBUILabel"; text = "Capacidad"; ObjectID = "2k5-d1-tiq"; */
+"T4z-Bv-lIo.text" = "Capacity:";
+
 // MyBookingsViewController
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "j1M-TG-HIC; */
 "j1M-TG-HIC.placeholder" = "Search";

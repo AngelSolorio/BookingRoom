@@ -6,12 +6,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "meetingRoom2b.png"
+      "filename" : "small_wifi100.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "meetingRoom2.png"
+      "filename" : "wifi100.png"
     }
   ],
   "info" : {

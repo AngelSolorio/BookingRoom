@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MenuItem.h"
+#import "Service.h"
+#import "UIImageView+AFNetworking.h"
+#import "RMDownloadIndicator.h"
+#import "Utility.h"
 
 @interface RoomDetailsCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) MenuItem *menuItem;
+@property (nonatomic, strong) Service *serviceItem;
 @property (weak, nonatomic) IBOutlet UIImageView *iconRoomDetail;
 @property (weak, nonatomic) IBOutlet UILabel *titleRoomDetail;
+@property (weak, nonatomic) IBOutlet RMDownloadIndicator *downloadIndicator;
 
-- (void)setRoomDetailItem:(MenuItem *)menuItem;
+- (void)setRoomDetailItem:(Service *)serviceItem;
 
 @end

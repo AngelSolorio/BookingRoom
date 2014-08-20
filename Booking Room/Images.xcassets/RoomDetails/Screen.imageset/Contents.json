@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "screen.png"
+      "filename" : "small_pantalla100.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "screen2.png"
+      "filename" : "pantalla100.png"
     }
   ],
   "info" : {

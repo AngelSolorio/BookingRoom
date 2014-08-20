@@ -234,8 +234,6 @@
 
 - (NSDictionary *)parseMeetingRooms:(id)response {
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
-    
-    // Gets all the zones from an specific building and floor
     NSMutableArray *meetingRoomsArray = [[NSMutableArray alloc] init];
     
     if (![[response objectForKey:@"meeting_rooms"] isKindOfClass:[NSNull class]]) {
@@ -243,20 +241,16 @@
             MeetingRoom *roomItem = [[MeetingRoom alloc] init];
             roomItem.identifier = [item valueForKey:@"id"];
             roomItem.name = [item valueForKey:@"name"];
-            
+            roomItem.location = [item valueForKey:@"location"];
+            roomItem.capacity = [item valueForKey:@"capacity"];
+            // Save url images
             NSMutableArray *photoFiles = [[NSMutableArray alloc] init];
             
-            for (NSDictionary *images in [item valueForKey:@"images"]) {
-                Photo *photoRoom = [[Photo alloc]init];
-                photoRoom.identifier = [images valueForKey:@"id"];
-                photoRoom.name = @"photo_file";
-                NSDictionary *arrayPhotos = [images valueForKey:@"photo_file"];
-                NSString *urlImage = [kBASE_URL stringByAppendingString: [NSString stringWithFormat:@"/%@", [arrayPhotos valueForKey:@"url"]]];
-                //Download Image
-                NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:urlImage]];
-                UIImage *image = [UIImage imageWithData: imageData];
-                photoRoom.image = image;
-                [photoFiles addObject:photoRoom];
+            for (NSDictionary *dictionary in [item valueForKey:@"images"]) {
+                NSNumber *identifier = [dictionary valueForKey:@"id"];
+                NSString *urlFile = [kBASE_URL stringByAppendingString: [NSString stringWithFormat:@"/%@",[[dictionary valueForKey:@"photo_file"] valueForKey:@"url"]]];
+                Photo *photoFile = [[Photo alloc]initWithIdentifier:identifier name:@"photo_file" url:urlFile];
+                [photoFiles addObject:photoFile];
             }
             
             roomItem.photo = photoFiles;
@@ -276,8 +270,6 @@
 
 - (NSDictionary *)parseDetailMeetingRoom:(id)response {
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
-    
-    // Gets all the zones from an specific building and floor
     NSMutableArray *meetingRoomsArray = [[NSMutableArray alloc] init];
     
     if (![[response objectForKey:@"meeting_room"] isKindOfClass:[NSNull class]]) {
@@ -285,6 +277,8 @@
             Service *serviceItem = [[Service alloc] init];
             serviceItem.identifier = [item valueForKey:@"id"];
             serviceItem.name = [item valueForKey:@"name"];
+            NSString *urlImage = [kBASE_URL stringByAppendingString: [NSString stringWithFormat:@"/%@", [[[item valueForKey:@"image"] valueForKey:@"photo_file"] valueForKey:@"url"]]];
+            serviceItem.photo = [[Photo alloc] initWithIdentifier:serviceItem.identifier name:serviceItem.name url:urlImage];
             [meetingRoomsArray addObject:serviceItem];
         }
     }

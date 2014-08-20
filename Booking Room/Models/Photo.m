@@ -13,19 +13,19 @@
 - (id)init {
     self = [self initWithIdentifier:0
                                name:@"Default"
-                              image:[UIImage imageNamed:@"ImageContact"]];
+                                url:nil];
     return self;
 }
 
 
 - (id)initWithIdentifier:(NSNumber *)aIdentifier
                     name:(NSString *)aName
-                   image:(UIImage *)aImage {
+                     url:(NSString *)aUrl {
     self = [super init];
     if(self) {
         self.identifier = aIdentifier;
         self.name = aName;
-        self.image = aImage;
+        self.url = aUrl;
     }
     return self;
 }
