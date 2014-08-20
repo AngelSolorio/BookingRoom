@@ -51,6 +51,8 @@
 "Menu_ResetPin" = "Actualizar Código";
 "Menu_LogOut" = "Cerrar Sesión";
 "Menu_About" = "Acerca";
+"Menu_LogoutMessage" = "¿Está seguro de que quiere cerrar la sesión?";
+"Menu_UpdateSuccessful" = "¡Actualización exitosa!";
 "Camera" = "Cámara";
 "Device" = "Teléfono";
 "Edit" = "Editar";
