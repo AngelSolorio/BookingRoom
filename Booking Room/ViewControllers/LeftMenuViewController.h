@@ -21,10 +21,12 @@
 #import "UIImageView+Letters.h"
 #import "ImageEditorViewController.h"
 #import "PPPinPadViewController.h"
+#import "MRProgress.h"
 
 @interface LeftMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, RESideMenuDelegate, RNGridMenuDelegate, PinPadPasswordProtocol, HFImageEditorFrame> {
-     NSArray *menuItems;
-     ACAccountStore *accountStore;
+    NSArray *menuItems;
+    ACAccountStore *accountStore;
+    MRProgressOverlayView *progressView;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

@@ -51,6 +51,8 @@
 "Menu_ResetPin" = "Reset Access Code";
 "Menu_LogOut" = "Log Out";
 "Menu_About" = "About";
+"Menu_LogoutMessage" = "Are you sure you want to log out?";
+"Menu_UpdateSuccessful" = "Update successful!";
 "Camera" = "Camera";
 "Device" = "Device";
 "Edit" = "Edit";

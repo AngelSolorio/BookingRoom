@@ -236,10 +236,25 @@
 
 - (void)newPinSet:(NSString *)newPin inViewController:(UIViewController *)pvc {
     // Dismiss the PIN View Controller
-    [pvc dismissViewControllerAnimated:NO completion:nil];
+    [pvc dismissViewControllerAnimated:YES completion:^{
+        // Creates a progress control
+        progressView = [MRProgressOverlayView showOverlayAddedTo:self.view
+                                                           title:NSLocalizedString(@"Menu_UpdateSuccessful", nil)
+                                                            mode:MRProgressOverlayViewModeCheckmark
+                                                        animated:YES];
+        progressView.tintColor = [UIColor colorWithRed:31/255. green:178/255. blue:90/255. alpha:1.0];
+    }];
+
+    // Closes the progressView
+    [self performSelector:@selector(dissmissProgressView) withObject:nil afterDelay:2.0];
 
     // Stores the new PIN set
     [FeedUserDefaults setPin:newPin];
+}
+
+
+- (void)dissmissProgressView {
+    [progressView dismiss:YES];
 }
 
 
