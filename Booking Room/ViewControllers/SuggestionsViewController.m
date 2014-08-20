@@ -36,11 +36,8 @@
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self willRotateToInterfaceOrientation:interfaceOrientation duration:2];
     
-    // Shows the Navigation Bar
-    [self.navigationController setNavigationBarHidden:NO];
-    
     // Applies the blur effect to the background image
-    _backgroundImage = [UIImage imageNamed:@"BackgroundViewControllers"];
+    _backgroundImage = [UIImage imageNamed:@"BackgroundGeneral"];
     _background.image = [_backgroundImage applyExtraLightEffect];
     _background.layer.masksToBounds = YES;
     _background.layer.cornerRadius = 10.0f;
@@ -110,7 +107,7 @@
 }
 
 - (IBAction)sendSuggestions:(id)sender {
-    _sendButton.enabled = NO;
+    [_sendButton setEnabled:NO];
     [self.indicator startAnimating];
     
     // ---- Requests the login to the Web Service using the AFNetworking Framework ----
@@ -138,7 +135,7 @@
          show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
         _commentsTextView.text = @"";
-        
+        [_sendButton setEnabled:NO];
     } else if (error.code == 401) { // Invalid User Token
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
                                     message:NSLocalizedString(@"TokenInvalid", nil)
@@ -156,7 +153,7 @@
         NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Error", nil));
     }
     
-    _sendButton.enabled = YES;
+    [_sendButton setEnabled:YES];
 }
 
 @end

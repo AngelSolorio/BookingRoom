@@ -144,7 +144,15 @@
                              message:NSLocalizedString(@"Login_Message", nil)];
             break;
         case 5: // LOGOUT
-            [self.navigationController popToRootViewControllerAnimated:YES];
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Menu_LogOut", nil)
+                                                            message:NSLocalizedString(@"Menu_LogoutMessage", nil)
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"CancelButton", nil)
+                                                  otherButtonTitles:NSLocalizedString(@"OkButton", nil), nil];
+            [alert setTag:2];
+            [alert show];
+        }
             break;
         case 6: // ABOUT
             break;
@@ -182,20 +190,33 @@
 #pragma mark - UIAlertViewDelegate Methods
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        return;
-    }
+    if ([alertView tag] == 1) { // Reset Pin
+        if (buttonIndex == 0) {
+            return;
+        }
 
-    UITextField *textfield = [alertView textFieldAtIndex:0];
-    if ([[FeedUserDefaults password] isEqualToString:textfield.text]) { // Correct password
-        // Redirects to enter a new PIN
-        PPPinPadViewController *pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
-        [pinViewController setBackgroundImage:[Utility getScreenshot:self.view]];
-        pinViewController.delegate = self;
-        [self presentViewController:pinViewController animated:YES completion:NULL];
-    } else {
-        [self showAlertWithTitle:NSLocalizedString(@"Login_IncorrectPassword", nil)
-                         message:NSLocalizedString(@"Login_MessageAgain", nil)];
+        UITextField *textfield = [alertView textFieldAtIndex:0];
+        if ([[FeedUserDefaults password] isEqualToString:textfield.text]) { // Correct password
+                                                                            // Redirects to enter a new PIN
+            PPPinPadViewController *pinViewController = [[PPPinPadViewController alloc] initWithMode:kNeverSet];
+            [pinViewController setBackgroundImage:[Utility getScreenshot:self.view]];
+            pinViewController.delegate = self;
+            [self presentViewController:pinViewController animated:YES completion:NULL];
+        } else {
+            [self showAlertWithTitle:NSLocalizedString(@"Login_IncorrectPassword", nil)
+                             message:NSLocalizedString(@"Login_MessageAgain", nil)];
+        }
+    } else if ([alertView tag] == 2) { // Logout
+        if (buttonIndex == 1) {
+            // Cleans credentials
+            [FeedUserDefaults setPin:@""];
+            [FeedUserDefaults setUser:@""];
+            [FeedUserDefaults setPassword:@""];
+            [FeedUserDefaults setToken:@""];
+
+            // Redirects to loginViewController
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
     }
 }
 
@@ -212,7 +233,8 @@
     UITextField* textfield = [alertView textFieldAtIndex:0];
     textfield.placeholder = NSLocalizedString(@"Login_Password", nil);
     textfield.secureTextEntry = YES;
-    
+
+    [alertView setTag:1];
     [alertView show];
 }
 
