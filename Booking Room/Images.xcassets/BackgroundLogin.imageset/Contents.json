@@ -1,24 +1,18 @@
 {
   "images" : [
     {
-      "idiom" : "iphone"
-    },
-    {
       "idiom" : "iphone",
-      "subtype" : "retina4"
-    },
-    {
-      "idiom" : "iphone",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "fondo_menu480.png"
     },
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "fondo.png"
+      "filename" : "fondo_menu960.png"
     },
     {
       "idiom" : "iphone",
-      "filename" : "fondo-1136.png",
+      "filename" : "fondo_menu1136.png",
       "subtype" : "retina4",
       "scale" : "2x"
     }

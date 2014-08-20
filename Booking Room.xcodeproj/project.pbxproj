@@ -855,7 +855,7 @@
 					SystemConfiguration,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "70B1CECD-8317-46E5-994E-414E06BF49CB";
+				PROVISIONING_PROFILE = "d1305868-7228-4583-9e33-e58e0cc45de1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -889,7 +889,7 @@
 					SystemConfiguration,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "70B1CECD-8317-46E5-994E-414E06BF49CB";
+				PROVISIONING_PROFILE = "d1305868-7228-4583-9e33-e58e0cc45de1";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

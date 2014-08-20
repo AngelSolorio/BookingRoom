@@ -40,7 +40,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     
     // Applies the blur effect to the background image
-    _backgroundImage = [UIImage imageNamed:@"BackGroundViewControllers"];
+    _backgroundImage = [UIImage imageNamed:@"BackgroundViewControllers"];
     _background.image = [_backgroundImage applyExtraLightEffect];
     _background.layer.masksToBounds = YES;
     _background.layer.cornerRadius = 10.0f;
@@ -130,10 +130,10 @@
     [self.indicator stopAnimating];
     
     if ([[results objectForKey:@"success"] boolValue]) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", @"")
-                                    message:NSLocalizedString(@"Suggestion_Message", @"")
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+                                    message:NSLocalizedString(@"Suggestion_Message", nil)
                                    delegate:nil
-                          cancelButtonTitle:NSLocalizedString(@"OkButton", @"")
+                          cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
                           otherButtonTitles:nil]
          show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));

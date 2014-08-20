@@ -58,7 +58,6 @@
                                             });
                                         }
                                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                        //NSLog(@"json:%@", [task ]);
                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
                                         if (httpResponse.statusCode == 422) {
                                             dispatch_async(dispatch_get_main_queue(), ^{

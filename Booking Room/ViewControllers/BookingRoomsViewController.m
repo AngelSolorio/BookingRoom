@@ -33,6 +33,11 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
     self.navigationItem.rightBarButtonItem = item;
     meetingRoomItems = [[NSArray alloc] init];
+
+    // Sets the TableViewFooter
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, 1.0, 1.0)];
+    footerView.backgroundColor = [UIColor clearColor];
+    _bookingRoomTable.tableFooterView = footerView;
     
     // SearchBar initialize
     searching = NO;
