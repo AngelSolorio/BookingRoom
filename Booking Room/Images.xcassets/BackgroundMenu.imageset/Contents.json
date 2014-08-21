@@ -1,6 +1,13 @@
 {
   "images" : [
     {
+      "idiom" : "iphone"
+    },
+    {
+      "idiom" : "iphone",
+      "subtype" : "retina4"
+    },
+    {
       "idiom" : "iphone",
       "scale" : "1x",
       "filename" : "menu480.png"

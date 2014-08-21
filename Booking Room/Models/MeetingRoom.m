@@ -14,6 +14,7 @@
     self = [self initWithIdentifier:0
                                name:@"Default"
                            location:@"Default"
+                           capacity:0
                               photo:[[NSMutableArray alloc]initWithObjects: [[Photo alloc]init], nil]
                            services:[[NSMutableArray alloc]initWithObjects: [[Service alloc]init], nil]];
     return self;
@@ -23,6 +24,7 @@
 - (id)initWithIdentifier:(NSNumber *)aIdentifier
                     name:(NSString *)aName
                 location:(NSString *)aLocation
+                capacity:(NSNumber *)aCapacity
                    photo:(NSMutableArray *)anPhotos
                 services:(NSMutableArray *)anServices {
     self = [super init];
@@ -30,6 +32,7 @@
         self.identifier = aIdentifier;
         self.name = aName;
         self.location = aLocation;
+        self.capacity = aCapacity;
         self.photo = anPhotos;
         self.services = anServices;
     }

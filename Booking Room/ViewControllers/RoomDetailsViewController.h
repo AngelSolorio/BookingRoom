@@ -11,6 +11,8 @@
 #import "MenuItem.h"
 #import "MeetingRoom.h"
 #import "WebService.h"
+#import "UIImageView+AFNetworking.h"
+#import "Utility.h"
 
 @interface RoomDetailsViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDelegate> {
     NSArray *roomDetailsItems;

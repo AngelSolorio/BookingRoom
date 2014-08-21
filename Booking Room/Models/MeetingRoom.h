@@ -15,12 +15,14 @@
 @property (strong, nonatomic) NSNumber *identifier;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *location;
+@property (strong, nonatomic) NSNumber *capacity;
 @property (strong, nonatomic) NSMutableArray *photo;
 @property (strong, nonatomic) NSMutableArray *services;
 
 - (id)initWithIdentifier:(NSNumber *)aIdentifier
                     name:(NSString *)aName
                 location:(NSString *)aLocation
+                capacity:(NSNumber *)aCapacity
                    photo:(NSMutableArray *)anPhotos
                 services:(NSMutableArray *)anServices;
 

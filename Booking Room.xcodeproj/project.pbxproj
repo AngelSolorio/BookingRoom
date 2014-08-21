@@ -48,6 +48,8 @@
 		8D439B34199AB8A200D5249D /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D439B30199AB8A200D5249D /* Service.m */; };
 		8D439B37199AB9FB00D5249D /* MyBookingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D439B36199AB9FB00D5249D /* MyBookingsTableViewCell.m */; };
 		8D439B3A199AC52F00D5249D /* RoomDetailsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D439B39199AC52F00D5249D /* RoomDetailsCollectionViewCell.m */; };
+		8D71E8E119A563140042349F /* RMDisplayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E8DE19A563140042349F /* RMDisplayLabel.m */; };
+		8D71E8E219A563140042349F /* RMDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E8E019A563140042349F /* RMDownloadIndicator.m */; };
 		8D7EE98A197F169E000878FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE989197F169E000878FD /* RootViewController.m */; };
 		8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE98C197F1804000878FD /* LeftMenuViewController.m */; };
 		8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE990197F25E5000878FD /* MenuTableViewCell.m */; };
@@ -146,6 +148,10 @@
 		8D439B36199AB9FB00D5249D /* MyBookingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBookingsTableViewCell.m; path = ViewControllers/MyBookingsTableViewCell.m; sourceTree = "<group>"; };
 		8D439B38199AC52F00D5249D /* RoomDetailsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailsCollectionViewCell.h; path = ViewControllers/RoomDetailsCollectionViewCell.h; sourceTree = "<group>"; };
 		8D439B39199AC52F00D5249D /* RoomDetailsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailsCollectionViewCell.m; path = ViewControllers/RoomDetailsCollectionViewCell.m; sourceTree = "<group>"; };
+		8D71E8DD19A563140042349F /* RMDisplayLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDisplayLabel.h; sourceTree = "<group>"; };
+		8D71E8DE19A563140042349F /* RMDisplayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDisplayLabel.m; sourceTree = "<group>"; };
+		8D71E8DF19A563140042349F /* RMDownloadIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDownloadIndicator.h; sourceTree = "<group>"; };
+		8D71E8E019A563140042349F /* RMDownloadIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDownloadIndicator.m; sourceTree = "<group>"; };
 		8D7EE988197F169E000878FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ViewControllers/RootViewController.h; sourceTree = "<group>"; };
 		8D7EE989197F169E000878FD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ViewControllers/RootViewController.m; sourceTree = "<group>"; };
 		8D7EE98B197F1804000878FD /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuViewController.h; path = ViewControllers/LeftMenuViewController.h; sourceTree = "<group>"; };
@@ -252,6 +258,7 @@
 		4F5E439219818E3F00E807ED /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8D71E8DC19A563140042349F /* DownloadIndicator */,
 				8DD6A77F199C0FB5003074DA /* ImageEditor */,
 				8DD128C7199160A500B0F435 /* FHSTwitterEngine */,
 				8DD128CC199160A500B0F435 /* RoundImage */,
@@ -398,6 +405,18 @@
 				4F7E0F3B1981B2E000B793FD /* room3front.png */,
 			);
 			name = MeetingRooms;
+			sourceTree = "<group>";
+		};
+		8D71E8DC19A563140042349F /* DownloadIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				8D71E8DD19A563140042349F /* RMDisplayLabel.h */,
+				8D71E8DE19A563140042349F /* RMDisplayLabel.m */,
+				8D71E8DF19A563140042349F /* RMDownloadIndicator.h */,
+				8D71E8E019A563140042349F /* RMDownloadIndicator.m */,
+			);
+			name = DownloadIndicator;
+			path = Vendor/DownloadIndicator;
 			sourceTree = "<group>";
 		};
 		8D7EE986197F161D000878FD /* ViewControllers */ = {
@@ -684,6 +703,8 @@
 				8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */,
 				8D439B3A199AC52F00D5249D /* RoomDetailsCollectionViewCell.m in Sources */,
 				8DD128D0199160A500B0F435 /* FHSTwitterEngine.m in Sources */,
+				8D71E8E219A563140042349F /* RMDownloadIndicator.m in Sources */,
+				8D71E8E119A563140042349F /* RMDisplayLabel.m in Sources */,
 				4F8AB3B8197F010C00173E66 /* main.m in Sources */,
 				8D7EE99B19800585000878FD /* MyBookingsViewController.m in Sources */,
 				4F7E0F541981C7E200B793FD /* PPPinCircleView.m in Sources */,

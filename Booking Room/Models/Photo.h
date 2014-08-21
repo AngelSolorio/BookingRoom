@@ -13,10 +13,11 @@
 @property (strong, nonatomic) NSNumber *identifier;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *url;
 
 - (id)initWithIdentifier:(NSNumber *)aIdentifier
                     name:(NSString *)aName
-                   image:(UIImage *)aImage;
+                     url:(NSString *)aUrl;
 
 - (id)initWithImage:(UIImage *)aImage;
 

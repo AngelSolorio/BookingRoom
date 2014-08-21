@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "projector.png"
+      "filename" : "small_proyector100.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "projector2.png"
+      "filename" : "proyector100.png"
     }
   ],
   "info" : {

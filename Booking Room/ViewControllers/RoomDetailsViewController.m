@@ -39,16 +39,40 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.indicator];
     self.navigationItem.rightBarButtonItem = item;
     
-    for (int i = 0; i < _meetingRoom.photo.count; i++) {
-        CGFloat xOrigin = i * _roomImageScrollView.frame.size.width;
-        UIImageView *image = [[UIImageView alloc] initWithFrame:
-                              CGRectMake(xOrigin, 0,
-                                         _roomImageScrollView.frame.size.width,
-                                         _roomImageScrollView.frame.size.height)];
-        Photo *photo = [_meetingRoom.photo objectAtIndex:i];
-        image.image = photo.image;
-        //image.contentMode = UIViewContentModeScaleAspectFit;
-        [_roomImageScrollView addSubview:image];
+    // Add images into ScrollView
+    int cont = 0;
+    for ( Photo *photoMeeting in _meetingRoom.photo) {
+        CGFloat xOrigin = cont * _roomImageScrollView.frame.size.width;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(xOrigin, 0, _roomImageScrollView.frame.size.width, _roomImageScrollView.frame.size.height)];
+        
+        if (photoMeeting.image) {
+            imageView.image = photoMeeting.image;
+        } else {
+            UIImage *imageSave = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"%@_%@.png",_meetingRoom.name, photoMeeting.identifier]
+                                                        inFolder:@"MeetingRoom"];
+            if (imageSave) {
+                imageView.image = imageSave;
+            } else {
+                [imageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:photoMeeting.url]]
+                                 placeholderImage:[UIImage imageNamed:@"Room1"]
+                                          success:^(NSURLRequest *request , NSHTTPURLResponse *response , UIImage *image ){
+                                              photoMeeting.image = image ? image : [UIImage imageNamed:@"Room1"];
+                                              UIImageView *imageView = [[_roomImageScrollView subviews] objectAtIndex:cont];
+                                              imageView.image = image ? image : [UIImage imageNamed:@"Room1"];
+                                              [Utility saveImageToFileSystem:image withFileName:[NSString stringWithFormat:@"%@_%@.png",_meetingRoom.name, photoMeeting.identifier]
+                                                                    inFolder:@"MeetingRoom"];
+                                              NSLog(@"Loaded successfully: %d", [response statusCode]);
+                                          }
+                                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                              NSLog(@"failed loading: %@", error);
+                                              NSLog(@"Error loading dish picture: %@", error.description);
+                                          }
+                 ];
+            }
+        }
+        
+        [_roomImageScrollView addSubview:imageView];
+        cont ++;
     }
     
     //set the scroll view content size
@@ -97,6 +121,18 @@
 }
 
 
+#pragma mark - PageControl Response
+
+- (IBAction)changePage:(id)sender {
+    UIPageControl *pager = sender;
+    int page = pager.currentPage;
+    CGRect frame = _roomImageScrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [_roomImageScrollView scrollRectToVisible:frame animated:YES];
+}
+
+
 #pragma mark - Web Service Response
 
 - (void)changesToDatabase:(NSDictionary *)results {
@@ -141,8 +177,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     RoomDetailsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RoomDetailsCollectionViewCell" forIndexPath:indexPath];
     Service *service = [roomDetailsItems objectAtIndex:indexPath.row];
-    MenuItem *detail = [[MenuItem alloc]initWithTitle:service.name andIcon:service.photo.image];
-    [cell setRoomDetailItem:detail];
+    [cell setRoomDetailItem:service];
     
     return cell;
 }
