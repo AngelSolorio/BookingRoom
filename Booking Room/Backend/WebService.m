@@ -154,7 +154,7 @@
 - (NSURLSessionDataTask *)getDetailsMeetingRoomById:(NSInteger)meetingID completion:(void (^)(NSDictionary *results, NSError *error))completion {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:[FeedUserDefaults token] forKey:@"remember_token"];
-    NSURLSessionDataTask *task = [self GET:[kBASE_URL stringByAppendingString: [NSString stringWithFormat: @"/meeting_rooms/%d.json", meetingID]]
+    NSURLSessionDataTask *task = [self GET:[kBASE_URL stringByAppendingString: [NSString stringWithFormat: @"/meeting_rooms/%ld.json", (long)meetingID]]
                                 parameters:parameters
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;

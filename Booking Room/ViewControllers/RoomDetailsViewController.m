@@ -61,7 +61,7 @@
                                               imageView.image = image ? image : [UIImage imageNamed:@"Room1"];
                                               [Utility saveImageToFileSystem:image withFileName:[NSString stringWithFormat:@"%@_%@.png",_meetingRoom.name, photoMeeting.identifier]
                                                                     inFolder:@"MeetingRoom"];
-                                              NSLog(@"Loaded successfully: %d", [response statusCode]);
+                                              NSLog(@"Loaded successfully: %ld", (long)[response statusCode]);
                                           }
                                           failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
                                               NSLog(@"failed loading: %@", error);
@@ -132,7 +132,7 @@
 
 - (IBAction)changePage:(id)sender {
     UIPageControl *pager = sender;
-    int page = pager.currentPage;
+    int page = (int) pager.currentPage;
     CGRect frame = _roomImageScrollView.frame;
     frame.origin.x = frame.size.width * page;
     frame.origin.y = 0;
