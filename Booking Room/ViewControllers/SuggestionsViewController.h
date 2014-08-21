@@ -11,14 +11,13 @@
 #import "UIImage+ImageEffects.h"
 #import "WebService.h"
 
-@interface SuggestionsViewController : UIViewController <UITextViewDelegate>
+@interface SuggestionsViewController : UIViewController <UITextViewDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *suggestionsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
 @property (nonatomic, strong) UIImage *backgroundImage;
 @property (weak, nonatomic) IBOutlet UIImageView *background;
-@property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 - (IBAction)sendSuggestions:(id)sender;
 

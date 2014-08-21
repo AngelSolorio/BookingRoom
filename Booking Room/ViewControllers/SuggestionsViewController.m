@@ -25,13 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Creates the activity indicator
-    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.indicator.center = CGPointMake(self.commentsTextView.frame.size.width / 2, self.commentsTextView.frame.size.height / 2);
-    self.indicator.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.indicator.hidesWhenStopped = YES;
-    [self.commentsTextView addSubview:self.indicator];
-    
     _sendButton.enabled = FALSE;
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self willRotateToInterfaceOrientation:interfaceOrientation duration:2];
@@ -40,7 +33,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     
     // Applies the blur effect to the background image
-    _backgroundImage = [UIImage imageNamed:@"BackgroundViewControllers"];
+    _backgroundImage = [UIImage imageNamed:@"BackgroundMenu"];
     _background.image = [_backgroundImage applyExtraLightEffect];
     _background.layer.masksToBounds = YES;
     _background.layer.cornerRadius = 10.0f;
@@ -68,6 +61,13 @@
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if([text isEqualToString:@"\n"] && ![textView.text isEqualToString:@""]) {
+        [self sendSuggestions:nil];
+    }
+    
+    return YES;
+}
 
 #pragma mark - UIInterfaceOrientation Methods
 
@@ -111,9 +111,7 @@
 
 - (IBAction)sendSuggestions:(id)sender {
     _sendButton.enabled = NO;
-    [self.indicator startAnimating];
-    
-    // ---- Requests the login to the Web Service using the AFNetworking Framework ----
+    // ---- Requests the suggestions to the Web Service using the AFNetworking Framework ----
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [[WebService sharedClient] sendComment:_commentsTextView.text
@@ -127,7 +125,7 @@
 
 - (void)getSuggestionsResults:(NSDictionary *)results error:(NSError *)error {
     // Stops the activity indicator
-    [self.indicator stopAnimating];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if ([[results objectForKey:@"success"] boolValue]) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
@@ -137,7 +135,6 @@
                           otherButtonTitles:nil]
          show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
-        _commentsTextView.text = @"";
         
     } else if (error.code == 401) { // Invalid User Token
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
@@ -156,6 +153,8 @@
         NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Error", nil));
     }
     
+    [_commentsTextView becomeFirstResponder];
+    _commentsTextView.text = @"";
     _sendButton.enabled = YES;
 }
 
