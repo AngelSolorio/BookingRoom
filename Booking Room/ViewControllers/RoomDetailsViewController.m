@@ -121,6 +121,13 @@
 }
 
 
+#pragma BackButton Method
+
+- (IBAction)backButtonTouch:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 #pragma mark - PageControl Response
 
 - (IBAction)changePage:(id)sender {

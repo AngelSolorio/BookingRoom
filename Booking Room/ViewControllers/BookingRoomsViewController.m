@@ -139,6 +139,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BookingRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookingRoomCell"];
     
+    // Customizes accessoryView color
+    DTCustomColoredAccessory *accessory = [DTCustomColoredAccessory accessoryWithColor:[UIColor colorWithRed:89.0/255.0f green:89.0/255.0f blue:89.0/255.0f alpha:1.0f]];
+    accessory.highlightedColor = [UIColor whiteColor];
+    cell.accessoryView =accessory;
+    
     // Customizes the selection color
     UIView *cellView = [[UIView alloc] initWithFrame:cell.frame];
     cellView.backgroundColor = [UIColor colorWithRed:131.0/255.0 green:224.0/255.0 blue:84.0/255.0 alpha:0.6f];
