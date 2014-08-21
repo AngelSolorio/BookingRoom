@@ -286,11 +286,33 @@
     //NSLog(@"Dismissed with item %d: %@", itemIndex, item.title);
     switch (itemIndex) {
         case 0:// facebook
+            // Creates a progress control
+            progressView = [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view
+                                                               title:NSLocalizedString(@"RefreshControl_Connecting", nil)
+                                                                mode:MRProgressOverlayViewModeIndeterminate
+                                                            animated:YES];
+            progressView.tintColor = [UIColor colorWithRed:31/255. green:178/255. blue:90/255. alpha:1.0];
+
             [self connectFacebook];
+
+            // Closes the progressView
+            [self performSelector:@selector(dissmissProgressView) withObject:nil afterDelay:2.0];
             break;
+
         case 1:// twitter
+            // Creates a progress control
+            progressView = [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view
+                                                               title:NSLocalizedString(@"RefreshControl_Connecting", nil)
+                                                                mode:MRProgressOverlayViewModeIndeterminate
+                                                            animated:YES];
+            progressView.tintColor = [UIColor colorWithRed:31/255. green:178/255. blue:90/255. alpha:1.0];
+
             [self connectTwitter];
+
+            // Closes the progressView
+            [self performSelector:@selector(dissmissProgressView) withObject:nil afterDelay:2.0];
             break;
+
         case 2: {  // camera
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                 _imagePickController  = [[UIImagePickerController alloc] init];
@@ -326,6 +348,7 @@
             }
             break;
         }
+
         case 3: // telefono
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
                 _imagePickController = [[UIImagePickerController alloc] init];
@@ -335,6 +358,7 @@
                 [self presentViewController:_imagePickController animated:YES completion:nil];
             }
             break;
+
         case 4:{ // editar
             UIImage *picture = [Utility getImageFromFileSystem:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
                                                       inFolder:@"People"];
@@ -348,11 +372,13 @@
             [self presentViewController:self.imageEditor animated:YES completion:nil];
         }
             break;
+
         case 5:// restore the default picture
             [Utility deleteFileFromFileSystemWithName:[NSString stringWithFormat:@"user_%@.png", [FeedUserDefaults user]]
                                              inFolder:@"People"];
             [_userPicture setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
             break;
+
         default:
             break;
     }
