@@ -33,7 +33,7 @@
         // Sets the selected background
         roundImage = [[RoundImageView alloc] initWithImage:_iconView.image];
         roundImage.layer.borderColor = [UIColor clearColor].CGColor;
-        [roundImage setBackgroundColor:[UIColor colorWithRed:150/255. green:209/255. blue:124/255. alpha:0.5]];
+        [roundImage setBackgroundColor:[UIColor colorWithRed:150/255. green:209/255. blue:124/255. alpha:1.0]];
         [self setSelectedBackgroundView:roundImage];
     }
 }

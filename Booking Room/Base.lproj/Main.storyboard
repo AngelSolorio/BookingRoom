@@ -399,11 +399,11 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar clipsSubviews="YES" contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search" showsCancelButton="YES" id="j1M-TG-HIC">
+                            <searchBar opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" searchBarStyle="minimal" placeholder="Search" showsCancelButton="YES" id="j1M-TG-HIC">
                                 <rect key="frame" x="0.0" y="65" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.34850543480000001" green="0.34850543480000001" blue="0.34850543480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.34850543480000001" green="0.34850543480000001" blue="0.34850543480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="RAr-Xh-Agr" id="HBw-ot-QPr"/>
@@ -502,6 +502,33 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.8784313725490196" blue="0.69019607843137254" alpha="0.75" colorSpace="deviceRGB"/>
                             </imageView>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="August, 2014" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WQY-3f-aX5">
+                                <rect key="frame" x="44" y="133" width="232" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.34850543480000001" green="0.34850543480000001" blue="0.34850543480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="RZL-Gp-WlK">
+                                <rect key="frame" x="0.0" y="125" width="36" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="MenuArrowBack">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousMonth:" destination="2pB-5B-eWw" eventType="touchUpInside" id="fqs-ss-Iyl"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="ZpP-3h-UGG">
+                                <rect key="frame" x="284" y="125" width="36" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ArrowRight">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextMonth:" destination="2pB-5B-eWw" eventType="touchUpInside" id="7mt-Vg-Uni"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Ouz-MK-Dls">
@@ -521,6 +548,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="dateLabel" destination="WQY-3f-aX5" id="EtH-7w-DuE"/>
                         <outlet property="meetingRoomsCollection" destination="Acc-L7-JRY" id="gaQ-mQ-LXy"/>
                     </connections>
                 </viewController>
@@ -579,7 +607,7 @@
                                         <rect key="frame" x="0.0" y="22" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qzl-h0-CEj" id="69e-E9-gwu">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalles Sala" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FM5-LX-IKq">
@@ -756,9 +784,9 @@
                         <color key="tintColor" red="0.34850543480000001" green="0.34850543480000001" blue="0.34850543480000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detalles Sala" id="eO4-9E-y6e">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="LaY-zY-d83">
+                        <barButtonItem key="leftBarButtonItem" id="LaY-zY-d83">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NNO-0h-e5F">
-                                <rect key="frame" x="28" y="9" width="16" height="25"/>
+                                <rect key="frame" x="16" y="9" width="16" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="MenuArrowBack">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -805,7 +833,7 @@
                                 <rect key="frame" x="16" y="113" width="289" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" textAlignment="justified" id="6Fu-tJ-1B1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" id="6Fu-tJ-1B1">
                                 <rect key="frame" x="16" y="113" width="289" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -919,6 +947,7 @@
     </scenes>
     <resources>
         <image name="AppLogo" width="114" height="114"/>
+        <image name="ArrowRight" width="16" height="25"/>
         <image name="BackgroundGeneral" width="320" height="480"/>
         <image name="BackgroundHome" width="320" height="480"/>
         <image name="BackgroundLogin" width="320" height="480"/>

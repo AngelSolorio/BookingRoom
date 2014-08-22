@@ -107,10 +107,7 @@
 }
 
 - (IBAction)sendSuggestions:(id)sender {
-    [_sendButton setEnabled:NO];
-    [self.indicator startAnimating];
-    
-    // ---- Requests the login to the Web Service using the AFNetworking Framework ----
+    // ---- Requests the suggestions to the Web Service using the AFNetworking Framework ----
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [[WebService sharedClient] sendComment:_commentsTextView.text
@@ -136,8 +133,7 @@
                           otherButtonTitles:nil]
          show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
-        _commentsTextView.text = @"";
-        [_sendButton setEnabled:NO];
+        
     } else if (error.code == 401) { // Invalid User Token
         UIAlertView *alertToken = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
                                     message:NSLocalizedString(@"TokenInvalid", nil)
@@ -158,6 +154,12 @@
     }
     
     [_sendButton setEnabled:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 401) {
+        [self.navigationController.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 @end

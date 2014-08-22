@@ -9,14 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "MeetingRoom.h"
 #import "MeetingRoomCollectionViewCell.h"
+#import "Utility.h"
 
 
 @interface HomeViewController : UIViewController <UICollectionViewDataSource> {
     NSMutableArray *meetingRoomsArray;
     NSInteger selectedMeetingRoom;
+    NSDate *selectedDate;
     UIColor *customGreenColor;
 }
 
 @property (weak, nonatomic) IBOutlet UICollectionView *meetingRoomsCollection;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+- (IBAction)previousMonth:(id)sender;
+- (IBAction)nextMonth:(id)sender;
 
 @end

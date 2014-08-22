@@ -28,7 +28,9 @@ NSString *kCellID = @"MeetingRoomCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Initizalize variables
     customGreenColor = [UIColor colorWithRed:150/255. green:209/255. blue:124/255. alpha:1.0];
+    selectedDate = [NSDate date];
 
     MeetingRoom *room1 = [[MeetingRoom alloc] init];
     room1.icon = [UIImage imageNamed:@"Room1"];
@@ -114,6 +116,45 @@ NSString *kCellID = @"MeetingRoomCellID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedMeetingRoom = indexPath.row;
+}
+
+
+#pragma mark - IBActions Methods
+
+- (IBAction)previousMonth:(id)sender {
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setMonth:-1];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    selectedDate = [calendar dateByAddingComponents:dateComponents toDate:selectedDate options:0];
+    [self displayDate:selectedDate];
+}
+
+
+- (IBAction)nextMonth:(id)sender {
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setMonth:1];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    selectedDate = [calendar dateByAddingComponents:dateComponents toDate:selectedDate options:0];
+    [self displayDate:selectedDate];
+}
+
+
+#pragma mark - Custom Methods
+
+- (void)displayDate:(NSDate *)date {
+    NSLocale *currentLocale;
+    if ([[Utility getCurrentLanguageCode] isEqualToString:@"en"]) {
+        currentLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    } else {
+        currentLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"es_MX"];
+    }
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:currentLocale];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    [formatter setDateFormat:@"MMMM, yyyy"];
+    NSString *stringDate = [formatter stringFromDate:date];
+    _dateLabel.text = [stringDate capitalizedStringWithLocale:currentLocale];
 }
 
 

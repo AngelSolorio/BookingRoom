@@ -247,6 +247,15 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		4F493E2719A7C5BB008DDD2D /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				8D7EE9B8198052D0000878FD /* SuggestionsViewController.h */,
+				8D7EE9A0198005C4000878FD /* SuggestionsViewController.m */,
+			);
+			name = Comments;
+			sourceTree = "<group>";
+		};
 		4F5E43861981854500E807ED /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,8 +369,6 @@
 				4F5E43871981866400E807ED /* Utilities */,
 				8D7EE992197F2622000878FD /* Models */,
 				8D7EE986197F161D000878FD /* ViewControllers */,
-				8D7EE9B8198052D0000878FD /* SuggestionsViewController.h */,
-				8D7EE9A0198005C4000878FD /* SuggestionsViewController.m */,
 				4F5E439219818E3F00E807ED /* Vendor */,
 				8D7EE98E197F1E66000878FD /* Assets */,
 				4F8AB3B2197F010C00173E66 /* Supporting Files */,
@@ -459,7 +466,8 @@
 				8D7EE987197F163F000878FD /* Menu */,
 				4F493E1C19A690B3008DDD2D /* Home */,
 				8D19DF911992B13100F75F75 /* MyBookings */,
-				8D7EE9B919805BEE000878FD /* BookingRooms */,
+				8D7EE9B919805BEE000878FD /* MeetingRooms */,
+				4F493E2719A7C5BB008DDD2D /* Comments */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -511,7 +519,7 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		8D7EE9B919805BEE000878FD /* BookingRooms */ = {
+		8D7EE9B919805BEE000878FD /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
 				8D7EE99C1980059E000878FD /* BookingRoomsViewController.h */,
@@ -523,7 +531,7 @@
 				8D439B38199AC52F00D5249D /* RoomDetailsCollectionViewCell.h */,
 				8D439B39199AC52F00D5249D /* RoomDetailsCollectionViewCell.m */,
 			);
-			name = BookingRooms;
+			name = MeetingRooms;
 			sourceTree = "<group>";
 		};
 		8DD128C7199160A500B0F435 /* FHSTwitterEngine */ = {
