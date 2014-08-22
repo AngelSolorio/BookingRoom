@@ -11,7 +11,7 @@
 #import "UIImage+ImageEffects.h"
 #import "WebService.h"
 
-@interface SuggestionsViewController : UIViewController <UITextViewDelegate, UITextViewDelegate>
+@interface SuggestionsViewController : UIViewController <UITextViewDelegate, UITextViewDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *suggestionsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;

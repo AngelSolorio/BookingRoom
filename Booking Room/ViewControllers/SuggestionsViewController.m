@@ -110,7 +110,6 @@
 }
 
 - (IBAction)sendSuggestions:(id)sender {
-    _sendButton.enabled = NO;
     // ---- Requests the suggestions to the Web Service using the AFNetworking Framework ----
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
@@ -124,6 +123,8 @@
 #pragma mark - Web Service Response
 
 - (void)getSuggestionsResults:(NSDictionary *)results error:(NSError *)error {
+    _commentsTextView.text = @"";
+    _sendButton.enabled = NO;
     // Stops the activity indicator
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
@@ -137,11 +138,13 @@
         NSLog(@"EVENT: %@", NSLocalizedString(@"Login_Success", nil));
         
     } else if (error.code == 401) { // Invalid User Token
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+        UIAlertView *alertToken = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
                                     message:NSLocalizedString(@"TokenInvalid", nil)
-                                   delegate:nil
+                                   delegate:self
                           cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
-                          otherButtonTitles: nil] show];
+                          otherButtonTitles: nil];
+        alertToken.tag = 401;
+        [alertToken show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"TokenInvalid", nil));
     } else {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
@@ -152,10 +155,12 @@
          show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"Connection_Error", nil));
     }
-    
-    [_commentsTextView becomeFirstResponder];
-    _commentsTextView.text = @"";
-    _sendButton.enabled = YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 401) {
+        [self.navigationController.parentViewController.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 @end
