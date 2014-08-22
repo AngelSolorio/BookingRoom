@@ -25,13 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Creates the activity indicator
-    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.indicator.center = CGPointMake(self.commentsTextView.frame.size.width / 2, self.commentsTextView.frame.size.height / 2);
-    self.indicator.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.indicator.hidesWhenStopped = YES;
-    [self.commentsTextView addSubview:self.indicator];
-    
     _sendButton.enabled = FALSE;
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self willRotateToInterfaceOrientation:interfaceOrientation duration:2];
@@ -65,6 +58,13 @@
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if([text isEqualToString:@"\n"] && ![textView.text isEqualToString:@""]) {
+        [self sendSuggestions:nil];
+    }
+    
+    return YES;
+}
 
 #pragma mark - UIInterfaceOrientation Methods
 
@@ -123,8 +123,10 @@
 #pragma mark - Web Service Response
 
 - (void)getSuggestionsResults:(NSDictionary *)results error:(NSError *)error {
+    _commentsTextView.text = @"";
+    _sendButton.enabled = NO;
     // Stops the activity indicator
-    [self.indicator stopAnimating];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if ([[results objectForKey:@"success"] boolValue]) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
@@ -137,11 +139,13 @@
         _commentsTextView.text = @"";
         [_sendButton setEnabled:NO];
     } else if (error.code == 401) { // Invalid User Token
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
+        UIAlertView *alertToken = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)
                                     message:NSLocalizedString(@"TokenInvalid", nil)
-                                   delegate:nil
+                                   delegate:self
                           cancelButtonTitle:NSLocalizedString(@"OkButton", nil)
-                          otherButtonTitles: nil] show];
+                          otherButtonTitles: nil];
+        alertToken.tag = 401;
+        [alertToken show];
         NSLog(@"EVENT: %@", NSLocalizedString(@"TokenInvalid", nil));
     } else {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Suggestion_TitleLabel", nil)

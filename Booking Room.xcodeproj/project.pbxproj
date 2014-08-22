@@ -51,6 +51,7 @@
 		8D439B3A199AC52F00D5249D /* RoomDetailsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D439B39199AC52F00D5249D /* RoomDetailsCollectionViewCell.m */; };
 		8D71E8E119A563140042349F /* RMDisplayLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E8DE19A563140042349F /* RMDisplayLabel.m */; };
 		8D71E8E219A563140042349F /* RMDownloadIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E8E019A563140042349F /* RMDownloadIndicator.m */; };
+		8D71E8E819A636790042349F /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E8E719A636790042349F /* DTCustomColoredAccessory.m */; };
 		8D7EE98A197F169E000878FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE989197F169E000878FD /* RootViewController.m */; };
 		8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE98C197F1804000878FD /* LeftMenuViewController.m */; };
 		8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE990197F25E5000878FD /* MenuTableViewCell.m */; };
@@ -155,6 +156,8 @@
 		8D71E8DE19A563140042349F /* RMDisplayLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDisplayLabel.m; sourceTree = "<group>"; };
 		8D71E8DF19A563140042349F /* RMDownloadIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDownloadIndicator.h; sourceTree = "<group>"; };
 		8D71E8E019A563140042349F /* RMDownloadIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDownloadIndicator.m; sourceTree = "<group>"; };
+		8D71E8E619A636790042349F /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
+		8D71E8E719A636790042349F /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		8D7EE988197F169E000878FD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ViewControllers/RootViewController.h; sourceTree = "<group>"; };
 		8D7EE989197F169E000878FD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ViewControllers/RootViewController.m; sourceTree = "<group>"; };
 		8D7EE98B197F1804000878FD /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuViewController.h; path = ViewControllers/LeftMenuViewController.h; sourceTree = "<group>"; };
@@ -274,6 +277,7 @@
 		4F5E439219818E3F00E807ED /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8D71E8E519A6365F0042349F /* DTCustomColoredAccessory */,
 				8D71E8DC19A563140042349F /* DownloadIndicator */,
 				8DD6A77F199C0FB5003074DA /* ImageEditor */,
 				8DD128C7199160A500B0F435 /* FHSTwitterEngine */,
@@ -435,6 +439,16 @@
 			);
 			name = DownloadIndicator;
 			path = Vendor/DownloadIndicator;
+			sourceTree = "<group>";
+		};
+		8D71E8E519A6365F0042349F /* DTCustomColoredAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				8D71E8E619A636790042349F /* DTCustomColoredAccessory.h */,
+				8D71E8E719A636790042349F /* DTCustomColoredAccessory.m */,
+			);
+			name = DTCustomColoredAccessory;
+			path = Vendor/DTCustomColoredAccessory;
 			sourceTree = "<group>";
 		};
 		8D7EE986197F161D000878FD /* ViewControllers */ = {
@@ -694,6 +708,7 @@
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				8D439B34199AB8A200D5249D /* Service.m in Sources */,
 				8DD6A789199C100B003074DA /* ImageEditorViewController.m in Sources */,
+				8D71E8E819A636790042349F /* DTCustomColoredAccessory.m in Sources */,
 				4F5E438F1981866400E807ED /* FeedUserDefaults.m in Sources */,
 				4F7E0F551981C7E200B793FD /* PPPinPadViewController.m in Sources */,
 				4F7E0F531981C7E200B793FD /* PPCircleButton.m in Sources */,

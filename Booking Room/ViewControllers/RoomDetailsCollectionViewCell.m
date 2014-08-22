@@ -69,7 +69,7 @@
                                                             [_downloadIndicator updateWithTotalBytes:100 downloadedBytes:100];
                                                             _iconRoomDetail.image = image ? image : [UIImage imageNamed:@"MeetingRooms"];
                                                             [Utility saveImageToFileSystem:image withFileName:[NSString stringWithFormat:@"%@_%@.png",_serviceItem.name, _serviceItem.identifier] inFolder:@"Services"];
-                                                            NSLog(@"Loaded successfully: %d", [response statusCode]);
+                                                            NSLog(@"Loaded successfully: %ld", (long)[response statusCode]);
                                                         }
                                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
                                                             NSLog(@"failed loading: %@", error);

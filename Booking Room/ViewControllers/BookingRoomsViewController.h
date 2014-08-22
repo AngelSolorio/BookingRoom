@@ -10,6 +10,7 @@
 #import "BookingRoomTableViewCell.h"
 #import "MeetingRoom.h"
 #import "WebService.h"
+#import "DTCustomColoredAccessory.h"
 
 @interface BookingRoomsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {
     NSArray *meetingRoomItems;

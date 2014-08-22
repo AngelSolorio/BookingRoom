@@ -11,6 +11,10 @@
 #import "LeftMenuViewController.h"
 #import "HomeViewController.h"
 
-@interface RootViewController : RESideMenu <RESideMenuDelegate>
+@interface RootViewController : RESideMenu <RESideMenuDelegate> { 
+    BOOL leftMenuVisible;
+    UIViewController *topViewController;
+}
+
 
 @end

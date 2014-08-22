@@ -24,6 +24,7 @@
     self.contentViewShadowRadius = 12;
     self.contentViewShadowEnabled = YES;
     self.contentViewController = [[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"homeController"]];
+    topViewController = [(UINavigationController *)self.contentViewController topViewController ];
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
     self.backgroundImage = [UIImage imageNamed:@"BackgroundMenu"];
     self.delegate = self;
@@ -32,13 +33,14 @@
 
 #pragma mark - RESideMenu Delegate
 
-- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController {
-    //NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController {
+    leftMenuVisible = YES;
 }
 
 
-- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController {
-    //NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+- (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController {
+    leftMenuVisible = FALSE;
+    topViewController = [(UINavigationController *)sideMenu.contentViewController topViewController ];
 }
 
 
@@ -50,7 +52,7 @@
 
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
+    return (leftMenuVisible) ? UIInterfaceOrientationMaskPortrait : [topViewController supportedInterfaceOrientations];
 }
 
 

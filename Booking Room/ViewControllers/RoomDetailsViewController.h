@@ -25,5 +25,6 @@
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 - (id)initWithMeetingRoom:(MeetingRoom *)aMeetingRoom;
+- (IBAction)backButtonTouch:(id)sender;
 
 @end
