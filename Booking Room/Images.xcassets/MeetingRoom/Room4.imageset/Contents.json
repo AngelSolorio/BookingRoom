@@ -1,17 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "meeting4a.png"
+      "filename" : "sala4.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "meeting4b.png"
+      "filename" : "sala4-1.png"
     }
   ],
   "info" : {

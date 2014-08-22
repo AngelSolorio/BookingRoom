@@ -12,12 +12,13 @@
 
 @interface MeetingRoom : NSObject
 
-@property (strong, nonatomic) NSNumber *identifier;
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *location;
-@property (strong, nonatomic) NSNumber *capacity;
-@property (strong, nonatomic) NSMutableArray *photo;
-@property (strong, nonatomic) NSMutableArray *services;
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, strong) NSNumber *capacity;
+@property (nonatomic, strong) NSMutableArray *photo;
+@property (nonatomic, strong) NSMutableArray *services;
+@property (nonatomic, strong) UIImage *icon;
 
 - (id)initWithIdentifier:(NSNumber *)aIdentifier
                     name:(NSString *)aName

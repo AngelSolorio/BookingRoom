@@ -15,8 +15,8 @@
                                name:@"Default"
                            location:@"Default"
                            capacity:0
-                              photo:[[NSMutableArray alloc]initWithObjects: [[Photo alloc]init], nil]
-                           services:[[NSMutableArray alloc]initWithObjects: [[Service alloc]init], nil]];
+                              photo:[[NSMutableArray alloc]initWithObjects: [[Photo alloc] init], nil]
+                           services:[[NSMutableArray alloc]initWithObjects: [[Service alloc] init], nil]];
     return self;
 }
 

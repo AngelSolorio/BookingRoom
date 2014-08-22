@@ -3,16 +3,16 @@
     {
       "idiom" : "iphone",
       "scale" : "1x",
-      "filename" : "menu480.png"
+      "filename" : "fondo_VC480.png"
     },
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "menu960[1].png"
+      "filename" : "fondo_VC960.png"
     },
     {
       "idiom" : "iphone",
-      "filename" : "menu1136.png",
+      "filename" : "fondo_VC1136.png",
       "subtype" : "retina4",
       "scale" : "2x"
     }

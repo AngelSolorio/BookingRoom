@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MeetingRoom.h"
+#import "MeetingRoomCollectionViewCell.h"
 
-@interface HomeViewController : UIViewController
+
+@interface HomeViewController : UIViewController <UICollectionViewDataSource> {
+    NSMutableArray *meetingRoomsArray;
+    NSInteger selectedMeetingRoom;
+    UIColor *customGreenColor;
+}
+
+@property (weak, nonatomic) IBOutlet UICollectionView *meetingRoomsCollection;
 
 @end
