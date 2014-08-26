@@ -88,3 +88,37 @@
 // Home - BookingAssistants
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "RP5-gl-lUD"; */
 "RP5-gl-lUD.placeholder" = "Search";
+
+// Add Assisntent
+/* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "s1y-Rl-R3q"; */
+"s1y-Rl-R3q.placeholder" = "Search";
+
+/* Class = "IBUINavigationItem"; title = "Cerrar"; ObjectID = "0YU-ev-G4a"; */
+"0YU-ev-G4a.title" = "Close";
+
+/* Class = "IBUINavigationItem"; title = "Añadir"; ObjectID = "5z5-Ah-MUC"; */
+"5z5-Ah-MUC.title" = "Add";
+
+/* Class = "UITextField"; placeholder = "Nombre"; ObjectID = "DF5-EA-GUu"; */
+"DF5-EA-GUu.placeholder" = "Name";
+
+/* Class = "UITextField"; placeholder = "Compañia"; ObjectID = "0yC-Je-l27"; */
+"0yC-Je-l27.placeholder" = "Company";
+
+/* Class = "UITextField"; placeholder = "Teléfono"; ObjectID = "eQC-lw-gDk"; */
+"eQC-lw-gDk.placeholder" = "Phone Number";
+
+/* Class = "UITextField"; placeholder = "Correo electrónico"; ObjectID = "yg3-ZW-5c4"; */
+"yg3-ZW-5c4.placeholder" = "Email";
+
+/* Class = "IBUINavigationItem"; title = "Asistentes"; ObjectID = "N2E-ck-ugQ"; */
+"N2E-ck-ugQ.title" = "Assistants";
+
+/* Class = "IBUILabel"; text = "Vehículo"; ObjectID = "Ouz-Fw-86z"; */
+"Ouz-Fw-86z.text" = "Car";
+
+/* Class = "UITextField"; placeholder = "Modelo"; ObjectID = "LQJ-U4-nEM"; */
+"LQJ-U4-nEM.placeholder" = "Model";
+
+/* Class = "UITextField"; placeholder = "Matrícula"; ObjectID = "xEq-H0-ijO"; */
+"xEq-H0-ijO.placeholder" = "Plate";

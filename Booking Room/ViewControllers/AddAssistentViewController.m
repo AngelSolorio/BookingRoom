@@ -62,9 +62,28 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - UIBarButtonItem Methods
+
 - (IBAction)closePopOver:(id)sender {
     self.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)addAssistant:(id)sender {
+    if (_segmentAssistants.selectedSegmentIndex == 0) {
+        if (_sellcomTable.editing) {
+            [super setEditing:NO animated:YES];
+            [_sellcomTable setEditing:NO animated:YES];
+            _addButton.title = NSLocalizedString(@"AddButton", nil);
+        } else {
+            [super setEditing:YES animated:YES];
+            [_sellcomTable setEditing:YES animated:YES];
+            _addButton.title = NSLocalizedString(@"DoneButton", nil);
+        }
+    } else {
+        
+    }
 }
 
 
@@ -77,6 +96,12 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
         _viewCreateAssistant.hidden = YES;
     } else {
         //NSLog(@"External assistants");
+        if (_sellcomTable.editing) {
+            [super setEditing:NO animated:YES];
+            [_sellcomTable setEditing:NO animated:YES];
+            _addButton.title = NSLocalizedString(@"AddButton", nil);
+        }
+        
         _viewSellcom.hidden = YES;
         _viewCreateAssistant.hidden = NO;
     }
@@ -119,7 +144,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AssistantTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssistantCell"];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
     // Customizes the selection color
     UIView *cellView = [[UIView alloc] initWithFrame:cell.frame];
     cellView.backgroundColor = [UIColor colorWithRed:131.0/255.0 green:224.0/255.0 blue:84.0/255.0 alpha:0.6f];
@@ -132,6 +157,22 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     }
     
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleInsert;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleInsert) {
+        [assistantItems removeObjectAtIndex:indexPath.row];
+        
+        if (searching) {
+            [copyListOfItems removeObjectAtIndex:indexPath.row];
+        }
+        
+        [_sellcomTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 
@@ -242,12 +283,17 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     [_emailTextField resignFirstResponder];
     [_phoneTextField resignFirstResponder];
     [_companyTextField resignFirstResponder];
+    [_modelTextField resignFirstResponder];
+    [_plateTextField resignFirstResponder];
 }
 
 
 #pragma mark - Custom Methods
 
 - (void)customComponent {
+    //Segment Control initialize
+    [_segmentAssistants setTitle:NSLocalizedString(@"Assistants_Extern", @"") forSegmentAtIndex:1];
+    
     // SearchBar initialize
     searching = NO;
     _searchBar.showsCancelButton = NO;
@@ -285,6 +331,20 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     _phoneTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
     _phoneTextField.layer.borderWidth = 1.0f;
     _phoneTextField.delegate = self;
+    
+    _plateTextField.borderStyle = UITextBorderStyleLine;
+    _plateTextField.layer.cornerRadius = 8.0f;
+    _plateTextField.layer.masksToBounds = YES;
+    _plateTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+    _plateTextField.layer.borderWidth = 1.0f;
+    _plateTextField.delegate = self;
+    
+    _modelTextField.borderStyle = UITextBorderStyleLine;
+    _modelTextField.layer.cornerRadius = 8.0f;
+    _modelTextField.layer.masksToBounds = YES;
+    _modelTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+    _modelTextField.layer.borderWidth = 1.0f;
+    _modelTextField.delegate = self;
 }
 
 

@@ -17,6 +17,7 @@
 "EmptySearch" = "Empty search";
 "EditButton" = "Edit";
 "DoneButton" = "Done";
+"AddButton" = "Add";
 
 // LOGIN
 "Login_UserField" = "Email";
@@ -71,6 +72,9 @@
 "BookingSteps_Details" = "Details";
 "BookingSteps_Assistants" = "Assistants";
 "BookingSteps_Rooms" = "Meeting Rooms";
+
+// BOOKING ASSISTANTS
+"Assistants_Extern" = "Extern";
 
 // BOOKING ROOM
 "MeetingRoom1" = "Meeting Room 1";

@@ -859,7 +859,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGeneral" id="hW5-FL-19m">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="660"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" id="4in-VX-6iR">
@@ -875,6 +875,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Añadir" id="5z5-Ah-MUC">
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="addAssistant:" destination="fhw-Ny-i0G" id="gJO-ch-nhi"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -943,6 +946,31 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehículo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ouz-Fw-86z">
+                                        <rect key="frame" x="0.0" y="255" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Modelo" minimumFontSize="17" clearButtonMode="always" id="LQJ-U4-nEM">
+                                        <rect key="frame" x="20" y="280" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Matrícula" minimumFontSize="17" clearButtonMode="always" id="xEq-H0-ijO">
+                                        <rect key="frame" x="20" y="320" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -967,14 +995,15 @@
                                             <outlet property="delegate" destination="fhw-Ny-i0G" id="X1r-3e-GXl"/>
                                         </connections>
                                     </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="61P-ue-feh">
+                                    <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="61P-ue-feh">
                                         <rect key="frame" x="0.0" y="44" width="320" height="411"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.29926658160000003" green="0.29926658160000003" blue="0.29926658160000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="separatorColor" red="0.3483338648" green="0.3483338648" blue="0.3483338648" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssistantCell" rowHeight="70" id="hiK-HL-kei" customClass="AssistantTableViewCell">
+                                            <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssistantCell" rowHeight="70" id="hiK-HL-kei" customClass="AssistantTableViewCell">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hiK-HL-kei" id="hef-kf-UNm">
@@ -1009,6 +1038,13 @@
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.47136080994897955" green="0.47136080994897955" blue="0.47136080994897955" alpha="0.25" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="companyPerson" destination="Ync-Oo-TyG" id="gzJ-E3-xDz"/>
+                                                    <outlet property="namePerson" destination="Js2-qH-jAc" id="cpK-uy-7CJ"/>
+                                                    <outlet property="photoPerson" destination="6Il-rF-Xxn" id="oSr-4B-ww0"/>
+                                                    <outlet property="positionPerson" destination="mfJ-gU-8uf" id="yxP-Cn-OaC"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -1024,13 +1060,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="5z5-Ah-MUC" id="6yH-2h-q4v"/>
                         <outlet property="background" destination="hW5-FL-19m" id="rV8-g3-xoL"/>
                         <outlet property="companyTextField" destination="0yC-Je-l27" id="wox-cg-5Sz"/>
                         <outlet property="emailTextField" destination="yg3-ZW-5c4" id="7R0-XD-Vec"/>
                         <outlet property="emptyLabel" destination="M0g-oD-kM9" id="FPS-41-K5L"/>
+                        <outlet property="modelTextField" destination="LQJ-U4-nEM" id="k6x-8V-l5b"/>
                         <outlet property="nameTextField" destination="DF5-EA-GUu" id="fIl-0H-2c9"/>
                         <outlet property="phoneTextField" destination="eQC-lw-gDk" id="ucH-1V-w8Y"/>
                         <outlet property="photo" destination="iWj-AW-wfb" id="udo-ME-O7X"/>
+                        <outlet property="plateTextField" destination="xEq-H0-ijO" id="Tc5-g0-BX2"/>
                         <outlet property="searchBar" destination="s1y-Rl-R3q" id="6m0-VP-sBw"/>
                         <outlet property="segmentAssistants" destination="MOl-2Q-eY6" id="20M-gn-Y4e"/>
                         <outlet property="sellcomTable" destination="61P-ue-feh" id="qYT-Uk-NBc"/>

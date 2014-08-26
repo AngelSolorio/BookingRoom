@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *modelTextField;
+@property (weak, nonatomic) IBOutlet UITextField *plateTextField;
 
 // View Sellcom
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -38,8 +40,10 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentAssistants;
 @property (weak, nonatomic) IBOutlet UIScrollView *viewSellcom;
 @property (weak, nonatomic) IBOutlet UIScrollView *viewCreateAssistant;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 - (IBAction)closePopOver:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)addAssistant:(id)sender;
 
 @end
