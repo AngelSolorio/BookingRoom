@@ -35,7 +35,8 @@
     if (picture) {
         _userPictureView.image = picture;
     } else {
-        [_userPictureView setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
+        [_userPictureView setImageWithString:[FeedUserDefaults name] color:[UIColor colorWithWhite:1.0 alpha:0.5]];
+        _userPictureView.layer.borderColor = [UIColor clearColor].CGColor;
     }
 }
 

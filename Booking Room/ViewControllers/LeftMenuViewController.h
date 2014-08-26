@@ -27,6 +27,10 @@
     NSArray *menuItems;
     ACAccountStore *accountStore;
     MRProgressOverlayView *progressView;
+    UINavigationController *navHomeController;
+    UINavigationController *navMyBookingsController;
+    UINavigationController *navRoomsController;
+    UINavigationController *navCommentsController;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

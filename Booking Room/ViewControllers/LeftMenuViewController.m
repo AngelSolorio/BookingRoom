@@ -54,6 +54,12 @@
     accountStore = [[ACAccountStore alloc] init];
 
     [self userLogged];
+
+    // Loads the View Controllers
+    navHomeController = [[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"homeController"]];
+    navMyBookingsController = [[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myBookingsController"]];
+    navRoomsController = [[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"meetingRoomsController"]];
+    navCommentsController = [[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"suggestionsController"]];
 }
 
 
@@ -70,7 +76,8 @@
     if (picture) {
         _userPicture.image = picture;
     } else {
-        [_userPicture setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
+        [_userPicture setImageWithString:[FeedUserDefaults name] color:[UIColor colorWithWhite:1.0 alpha:0.5]];
+        _userPicture.layer.borderColor = [UIColor clearColor].CGColor;
     }
 }
 
@@ -120,23 +127,19 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0: // HOME
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"homeController"]]
-                                                         animated:YES];
+            [self.sideMenuViewController setContentViewController:navHomeController animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1: // MY BOOKINGS
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myBookingsController"]]
-                                                         animated:YES];
+            [self.sideMenuViewController setContentViewController:navMyBookingsController animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2: // MEETING ROOMS
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"bookingRoomsController"]]
-                                                         animated:YES];
+            [self.sideMenuViewController setContentViewController:navRoomsController animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 3: // COMMENTS
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"suggestionsController"]]
-                                                         animated:YES];
+            [self.sideMenuViewController setContentViewController:navCommentsController animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 4: // RESET PIN
