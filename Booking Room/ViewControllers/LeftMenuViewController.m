@@ -70,7 +70,8 @@
     if (picture) {
         _userPicture.image = picture;
     } else {
-        [_userPicture setImageWithString:[FeedUserDefaults user] color:[UIColor whiteColor]];
+        [_userPicture setImageWithString:[FeedUserDefaults name] color:[UIColor colorWithWhite:1.0 alpha:0.5]];
+        _userPicture.layer.borderColor = [UIColor clearColor].CGColor;
     }
 }
 

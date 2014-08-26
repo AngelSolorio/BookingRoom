@@ -40,14 +40,13 @@
     UILabel *letterLabel = [[UILabel alloc] initWithFrame:self.bounds];
     letterLabel.textAlignment = NSTextAlignmentCenter;
     letterLabel.backgroundColor = [UIColor clearColor];
-    letterLabel.textColor = [UIColor darkGrayColor];
+    letterLabel.textColor = [UIColor colorWithRed:89/255. green:89/255. blue:89/255. alpha:1.0];
     letterLabel.adjustsFontSizeToFitWidth = YES;
     letterLabel.minimumScaleFactor = 8.0f / 65.0f;
     letterLabel.font = [self fontForLetterLabel];
     [tempView addSubview:letterLabel];
     
     NSMutableString *displayString = [NSMutableString stringWithString:@""];
-    
     NSArray *words = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     if ([words count]) {
@@ -57,7 +56,7 @@
         }
         
         if ([words count] >= 2) {
-            NSString *lastWord = words[[words count] - 1];
+            NSString *lastWord = words[1];
             if ([lastWord length]) {
                 [displayString appendString:[lastWord substringWithRange:NSMakeRange(0, 1)]];
             }
@@ -85,7 +84,7 @@
     UILabel *letterLabel = [[UILabel alloc] initWithFrame:self.bounds];
     letterLabel.textAlignment = NSTextAlignmentCenter;
     letterLabel.backgroundColor = [UIColor clearColor];
-    letterLabel.textColor = [UIColor darkGrayColor];
+    letterLabel.textColor = [UIColor clearColor];
     letterLabel.adjustsFontSizeToFitWidth = YES;
     letterLabel.minimumScaleFactor = 8.0f / 65.0f;
     letterLabel.font = font;
