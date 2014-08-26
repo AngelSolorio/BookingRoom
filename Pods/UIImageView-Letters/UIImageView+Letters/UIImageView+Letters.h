@@ -44,4 +44,7 @@
  */
 - (void)setImageWithString:(NSString *)string color:(UIColor *)color;
 
+
+- (void)setImageWithString:(NSString *)string color:(UIColor *)color font:(UIFont *)font;
+
 @end

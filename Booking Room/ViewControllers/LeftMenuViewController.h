@@ -33,6 +33,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet RoundImageView *userPicture;
 @property (nonatomic, retain) UIImagePickerController *imagePickController;
-@property(nonatomic,strong) ImageEditorViewController *imageEditor;
+@property (nonatomic,strong) ImageEditorViewController *imageEditor;
 
 @end

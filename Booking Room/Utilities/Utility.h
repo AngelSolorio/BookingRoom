@@ -10,12 +10,10 @@
 
 @interface Utility : NSObject
 
-+ (NSString *)trimString:(NSString *)stringñ;
-
++ (NSString *)trimString:(NSString *)string;
 + (float)getDeviceiOSVersion;
 + (CGSize)getScreenSize;
 + (UIInterfaceOrientation)getOrientation;
-
 + (UIImage *)getScreenshot:(UIView *)view;
 
 + (UIImage *)getImageFromURLString:(NSString *)stringURL;
@@ -29,15 +27,19 @@
 
 + (NSDate *)getDateFromString:(NSString *)stringDate withFormat:(NSString *)format;
 + (NSString *)getStringFromDate:(NSDate *)date withFormat:(NSString *)format;
++ (NSInteger)getNumberOfDaysFromMonth:(NSDate *)date;
++ (NSArray *)getArrayOfDaysFromMonth:(NSDate *)date;
++ (NSInteger)getDayNumberFromDate:(NSDate *)date;
++ (NSInteger)getMonthNumberFromDate:(NSDate *)date;
++ (NSInteger)getYearNumberFromDate:(NSDate *)date;
 
 + (NSString *)getCurrentLanguageString;
 + (NSString *)getCurrentLanguageCode;
 + (NSInteger)getCurrentLanguageID;
 
-+ (NSString *)getHttpStringFromString:(NSString *)urlString;
-
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 + (CGFloat)colorComponentFrom:(NSString *)string start:(NSUInteger)start length:(NSUInteger)length;
 
++ (NSString *)getHttpStringFromString:(NSString *)urlString;
 
 @end

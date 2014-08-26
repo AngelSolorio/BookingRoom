@@ -25,6 +25,7 @@
 		4F7E0F5E1981D58400B793FD /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F5D1981D58400B793FD /* WebService.m */; };
 		4F7E0F611982B9D900B793FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F601982B9D900B793FD /* User.m */; };
 		4F7E0F641982E33A00B793FD /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7E0F631982E33A00B793FD /* UIImage+ImageEffects.m */; };
+		4F7EFD4319ABB69200C6461D /* DayCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7EFD4219ABB69200C6461D /* DayCollectionViewCell.m */; };
 		4F8AB3AC197F010C00173E66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AB197F010C00173E66 /* Foundation.framework */; };
 		4F8AB3AE197F010C00173E66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AD197F010C00173E66 /* CoreGraphics.framework */; };
 		4F8AB3B0197F010C00173E66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8AB3AF197F010C00173E66 /* UIKit.framework */; };
@@ -123,6 +124,8 @@
 		4F7E0F601982B9D900B793FD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
 		4F7E0F621982E33A00B793FD /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		4F7E0F631982E33A00B793FD /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		4F7EFD4119ABB69200C6461D /* DayCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayCollectionViewCell.h; path = ViewControllers/DayCollectionViewCell.h; sourceTree = "<group>"; };
+		4F7EFD4219ABB69200C6461D /* DayCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayCollectionViewCell.m; path = ViewControllers/DayCollectionViewCell.m; sourceTree = "<group>"; };
 		4F8AB3A8197F010C00173E66 /* Booking Room.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booking Room.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8AB3AB197F010C00173E66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4F8AB3AD197F010C00173E66 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -265,6 +268,8 @@
 			children = (
 				4FDB1AC9199170FD001601C6 /* HomeViewController.h */,
 				4FDB1ACA199170FD001601C6 /* HomeViewController.m */,
+				4F7EFD4119ABB69200C6461D /* DayCollectionViewCell.h */,
+				4F7EFD4219ABB69200C6461D /* DayCollectionViewCell.m */,
 				4F493E1D19A69152008DDD2D /* MeetingRoomCollectionViewCell.h */,
 				4F493E1E19A69152008DDD2D /* MeetingRoomCollectionViewCell.m */,
 				8D82ED9A19ABAA0000B4360D /* BookingStepsViewController.h */,
@@ -764,6 +769,7 @@
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
 				8D82EDB319AC162800B4360D /* InternalAssistantViewController.m in Sources */,
 				8D439B34199AB8A200D5249D /* Service.m in Sources */,
+				4F7EFD4319ABB69200C6461D /* DayCollectionViewCell.m in Sources */,
 				8DD6A789199C100B003074DA /* ImageEditorViewController.m in Sources */,
 				8D71E8E819A636790042349F /* DTCustomColoredAccessory.m in Sources */,
 				4F5E438F1981866400E807ED /* FeedUserDefaults.m in Sources */,

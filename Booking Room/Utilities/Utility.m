@@ -14,6 +14,9 @@
     return [string stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
 }
 
+
+#pragma mark - Device Methods
+
 // Gets the iOS version running on this device
 + (float)getDeviceiOSVersion {
     return [[[UIDevice currentDevice] systemVersion] floatValue];
@@ -40,6 +43,9 @@
 
     return viewImage;
 }
+
+
+#pragma mark - UIImage Methods
 
 // Gets a UIImage from a URL
 + (UIImage *)getImageFromURLString:(NSString *)stringURL {
@@ -127,6 +133,9 @@
     [binaryImageData writeToFile:[dataPath stringByAppendingPathComponent:fileName] atomically:YES];
 }
 
+
+#pragma mark - Date Methods
+
 // Gets a NSDate value from a NSString
 + (NSDate *)getDateFromString:(NSString *)stringDate withFormat:(NSString *)format {
     if (![stringDate isKindOfClass:[NSNull class]] && stringDate != nil) {
@@ -147,6 +156,75 @@
 
     return strinDate;
 }
+
+// Gets the number of days from an specific month
++ (NSInteger)getNumberOfDaysFromMonth:(NSDate *)date {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSRange rng = [cal rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:date];
+    return rng.length;
+}
+
+// Gets an array with the days from an specific month
++ (NSArray *)getArrayOfDaysFromMonth:(NSDate *)date {
+    NSDate *today = date;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    NSMutableArray *datesThisMonth = [NSMutableArray array];
+    NSRange rangeOfDaysThisMonth = [cal rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:today];
+
+    NSDateComponents *components = [cal components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSEraCalendarUnit) fromDate:today];
+    [components setHour:0];
+    [components setMinute:0];
+    [components setSecond:0];
+
+    for (NSInteger i = rangeOfDaysThisMonth.location; i < NSMaxRange(rangeOfDaysThisMonth); ++i) {
+        [components setDay:i];
+        NSDate *dayInMonth = [cal dateFromComponents:components];
+        [datesThisMonth addObject:dayInMonth];
+    }
+
+    NSMutableArray *daysFormatted = [[NSMutableArray alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"E d"];
+    NSLocale *currentLocale;
+    if ([[Utility getCurrentLanguageCode] isEqualToString:@"en"]) {
+        currentLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    } else {
+        currentLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"es_MX"];
+    }
+    [formatter setLocale:currentLocale];
+    for (NSDate *date in datesThisMonth) {
+        NSString *stringDate = [formatter stringFromDate:date];
+        [daysFormatted addObject:stringDate];
+        NSLog(@"Date Formatted: %@", stringDate);
+    }
+
+    return daysFormatted;
+}
+
++ (NSInteger)getDayNumberFromDate:(NSDate *)date {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+
+    return [components day];
+}
+
+
++ (NSInteger)getMonthNumberFromDate:(NSDate *)date {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+
+    return [components month];
+}
+
+
++ (NSInteger)getYearNumberFromDate:(NSDate *)date {
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+
+    return [components year];
+}
+
+
+
+#pragma mark - Translations Methods
 
 // Gets a NSString with the current language name of the App
 + (NSString *)getCurrentLanguageString {
@@ -170,15 +248,8 @@
     }
 }
 
-// Gets an URL NSString with the corresponding HTPP:// or HTPP:// initial substring
-+ (NSString *)getHttpStringFromString:(NSString *)urlString {
-    if ([[urlString substringToIndex:7].lowercaseString isEqualToString:@"http://"] || [[urlString substringToIndex:8].lowercaseString isEqualToString:@"https://"]) {
-        return urlString;
-    } else {
-        return [@"http://" stringByAppendingString:(urlString != nil) ? urlString : @""];
-    }
-}
 
+#pragma mark - Colors Methods
 
 + (UIColor *)colorWithHexString: (NSString *)hexString {
     NSString *colorString = [[hexString stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
@@ -222,6 +293,18 @@
     unsigned hexComponent;
     [[NSScanner scannerWithString: fullHex] scanHexInt: &hexComponent];
     return hexComponent / 255.0;
+}
+
+
+#pragma mark - Other Methods
+
+// Gets an URL NSString with the corresponding HTPP:// or HTPP:// initial substring
++ (NSString *)getHttpStringFromString:(NSString *)urlString {
+    if ([[urlString substringToIndex:7].lowercaseString isEqualToString:@"http://"] || [[urlString substringToIndex:8].lowercaseString isEqualToString:@"https://"]) {
+        return urlString;
+    } else {
+        return [@"http://" stringByAppendingString:(urlString != nil) ? urlString : @""];
+    }
 }
 
 

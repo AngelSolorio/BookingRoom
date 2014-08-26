@@ -76,6 +76,51 @@
     self.image = [self imageSnapshotFromView:tempView];
 }
 
+- (void)setImageWithString:(NSString *)string color:(UIColor *)color font:(UIFont *)font {
+    //
+    // Set up a temporary view to contain the text label
+    //
+    UIView *tempView = [[UIView alloc] initWithFrame:self.bounds];
+
+    UILabel *letterLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    letterLabel.textAlignment = NSTextAlignmentCenter;
+    letterLabel.backgroundColor = [UIColor clearColor];
+    letterLabel.textColor = [UIColor darkGrayColor];
+    letterLabel.adjustsFontSizeToFitWidth = YES;
+    letterLabel.minimumScaleFactor = 8.0f / 65.0f;
+    letterLabel.font = font;
+    [tempView addSubview:letterLabel];
+
+    NSMutableString *displayString = [NSMutableString stringWithString:@""];
+
+    NSArray *words = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+    if ([words count]) {
+        NSString *firstWord = words[0];
+        if ([firstWord length]) {
+            [displayString appendString:[firstWord substringWithRange:NSMakeRange(0, 1)]];
+        }
+
+        if ([words count] >= 2) {
+            NSString *lastWord = words[[words count] - 1];
+            if ([lastWord length]) {
+                [displayString appendString:[lastWord substringWithRange:NSMakeRange(0, 1)]];
+            }
+        }
+    }
+    letterLabel.text = [displayString uppercaseString];
+
+    //
+    // Set the background color
+    //
+    tempView.backgroundColor = color ? color : [self randomColor];
+
+    //
+    // Return an image instance of the temporary view
+    //
+    self.image = [self imageSnapshotFromView:tempView];
+}
+
 #pragma mark - Helpers
 
 - (UIFont *)fontForLetterLabel {
@@ -116,7 +161,7 @@
         size.height = floorf(size.height * scale) / scale;
     }
     
-    UIGraphicsBeginImageContextWithOptions(size, YES, scale);
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, -self.bounds.origin.x, -self.bounds.origin.y);
     

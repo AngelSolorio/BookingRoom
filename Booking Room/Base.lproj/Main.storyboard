@@ -318,7 +318,7 @@
             </objects>
             <point key="canvasLocation" x="765" y="-339"/>
         </scene>
-        <!--My Bookings View Controller - My Bookings-->
+        <!--My Bookings-->
         <scene sceneID="GrV-8w-fIk">
             <objects>
                 <viewController storyboardIdentifier="myBookingsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RAr-Xh-Agr" customClass="MyBookingsViewController" sceneMemberID="viewController">
@@ -445,7 +445,7 @@
             </objects>
             <point key="canvasLocation" x="1373" y="-725"/>
         </scene>
-        <!--Home View Controller - Home-->
+        <!--Home-->
         <scene sceneID="8yb-6n-g84">
             <objects>
                 <viewController storyboardIdentifier="homeController" extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2pB-5B-eWw" customClass="HomeViewController" sceneMemberID="viewController">
@@ -559,6 +559,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateLabel" destination="WQY-3f-aX5" id="EtH-7w-DuE"/>
+                        <outlet property="daysOfMonthCollection" destination="sYq-pL-vjX" id="ZLA-Gh-zbw"/>
                         <outlet property="meetingRoomsCollection" destination="Acc-L7-JRY" id="gaQ-mQ-LXy"/>
                     </connections>
                 </viewController>
