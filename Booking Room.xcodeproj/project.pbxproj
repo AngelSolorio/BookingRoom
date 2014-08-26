@@ -62,6 +62,14 @@
 		8D7EE9B319802889000878FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7EE9B519802889000878FD /* Localizable.strings */; };
 		8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */; };
 		8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EE9BE19805D6D000878FD /* MeetingRoom.m */; };
+		8D82ED9C19ABAA0000B4360D /* BookingStepsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82ED9B19ABAA0000B4360D /* BookingStepsViewController.m */; };
+		8D82ED9F19ABAF4F00B4360D /* BookingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */; };
+		8D82EDA219ABAFA200B4360D /* BookingAssistantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA119ABAFA200B4360D /* BookingAssistantsViewController.m */; };
+		8D82EDA519ABAFE100B4360D /* BookingRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA419ABAFE100B4360D /* BookingRoomViewController.m */; };
+		8D82EDA819ABDAAB00B4360D /* AssistantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA719ABDAAB00B4360D /* AssistantTableViewCell.m */; };
+		8D82EDAC19ABF6D100B4360D /* AddAssistentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDAB19ABF6D100B4360D /* AddAssistentViewController.m */; };
+		8D82EDB019AC0F4D00B4360D /* ExternalAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDAF19AC0F4D00B4360D /* ExternalAssistantViewController.m */; };
+		8D82EDB319AC162800B4360D /* InternalAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDB219AC162800B4360D /* InternalAssistantViewController.m */; };
 		8DA4867D1992CBFF00C350F1 /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4867C1992CBFF00C350F1 /* Booking.m */; };
 		8DA4F592199023E70082A5C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F591199023E70082A5C7 /* Social.framework */; };
 		8DA4F594199023ED0082A5C7 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F593199023ED0082A5C7 /* Twitter.framework */; };
@@ -182,6 +190,22 @@
 		8D7EE9BB19805C5A000878FD /* BookingRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingRoomTableViewCell.m; path = ViewControllers/BookingRoomTableViewCell.m; sourceTree = "<group>"; };
 		8D7EE9BD19805D6D000878FD /* MeetingRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRoom.h; path = Models/MeetingRoom.h; sourceTree = "<group>"; };
 		8D7EE9BE19805D6D000878FD /* MeetingRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRoom.m; path = Models/MeetingRoom.m; sourceTree = "<group>"; };
+		8D82ED9A19ABAA0000B4360D /* BookingStepsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingStepsViewController.h; path = ViewControllers/BookingStepsViewController.h; sourceTree = "<group>"; };
+		8D82ED9B19ABAA0000B4360D /* BookingStepsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingStepsViewController.m; path = ViewControllers/BookingStepsViewController.m; sourceTree = "<group>"; };
+		8D82ED9D19ABAF4F00B4360D /* BookingDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingDetailsViewController.h; path = ViewControllers/BookingDetailsViewController.h; sourceTree = "<group>"; };
+		8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingDetailsViewController.m; path = ViewControllers/BookingDetailsViewController.m; sourceTree = "<group>"; };
+		8D82EDA019ABAFA200B4360D /* BookingAssistantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingAssistantsViewController.h; path = ViewControllers/BookingAssistantsViewController.h; sourceTree = "<group>"; };
+		8D82EDA119ABAFA200B4360D /* BookingAssistantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingAssistantsViewController.m; path = ViewControllers/BookingAssistantsViewController.m; sourceTree = "<group>"; };
+		8D82EDA319ABAFE100B4360D /* BookingRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingRoomViewController.h; path = ViewControllers/BookingRoomViewController.h; sourceTree = "<group>"; };
+		8D82EDA419ABAFE100B4360D /* BookingRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingRoomViewController.m; path = ViewControllers/BookingRoomViewController.m; sourceTree = "<group>"; };
+		8D82EDA619ABDAAB00B4360D /* AssistantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssistantTableViewCell.h; path = ViewControllers/AssistantTableViewCell.h; sourceTree = "<group>"; };
+		8D82EDA719ABDAAB00B4360D /* AssistantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssistantTableViewCell.m; path = ViewControllers/AssistantTableViewCell.m; sourceTree = "<group>"; };
+		8D82EDAA19ABF6D100B4360D /* AddAssistentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAssistentViewController.h; path = ViewControllers/AddAssistentViewController.h; sourceTree = "<group>"; };
+		8D82EDAB19ABF6D100B4360D /* AddAssistentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAssistentViewController.m; path = ViewControllers/AddAssistentViewController.m; sourceTree = "<group>"; };
+		8D82EDAE19AC0F4D00B4360D /* ExternalAssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternalAssistantViewController.h; path = ViewControllers/ExternalAssistantViewController.h; sourceTree = "<group>"; };
+		8D82EDAF19AC0F4D00B4360D /* ExternalAssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExternalAssistantViewController.m; path = ViewControllers/ExternalAssistantViewController.m; sourceTree = "<group>"; };
+		8D82EDB119AC162800B4360D /* InternalAssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InternalAssistantViewController.h; path = ViewControllers/InternalAssistantViewController.h; sourceTree = "<group>"; };
+		8D82EDB219AC162800B4360D /* InternalAssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InternalAssistantViewController.m; path = ViewControllers/InternalAssistantViewController.m; sourceTree = "<group>"; };
 		8DA4867B1992CBFF00C350F1 /* Booking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Booking.h; path = Models/Booking.h; sourceTree = "<group>"; };
 		8DA4867C1992CBFF00C350F1 /* Booking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Booking.m; path = Models/Booking.m; sourceTree = "<group>"; };
 		8DA4F591199023E70082A5C7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -243,6 +267,13 @@
 				4FDB1ACA199170FD001601C6 /* HomeViewController.m */,
 				4F493E1D19A69152008DDD2D /* MeetingRoomCollectionViewCell.h */,
 				4F493E1E19A69152008DDD2D /* MeetingRoomCollectionViewCell.m */,
+				8D82ED9A19ABAA0000B4360D /* BookingStepsViewController.h */,
+				8D82ED9B19ABAA0000B4360D /* BookingStepsViewController.m */,
+				8D82ED9D19ABAF4F00B4360D /* BookingDetailsViewController.h */,
+				8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */,
+				8D82EDA319ABAFE100B4360D /* BookingRoomViewController.h */,
+				8D82EDA419ABAFE100B4360D /* BookingRoomViewController.m */,
+				8D82EDA919ABF1AC00B4360D /* BookingAssistants */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -534,6 +565,23 @@
 			name = MeetingRooms;
 			sourceTree = "<group>";
 		};
+		8D82EDA919ABF1AC00B4360D /* BookingAssistants */ = {
+			isa = PBXGroup;
+			children = (
+				8D82EDA019ABAFA200B4360D /* BookingAssistantsViewController.h */,
+				8D82EDA119ABAFA200B4360D /* BookingAssistantsViewController.m */,
+				8D82EDA619ABDAAB00B4360D /* AssistantTableViewCell.h */,
+				8D82EDA719ABDAAB00B4360D /* AssistantTableViewCell.m */,
+				8D82EDAA19ABF6D100B4360D /* AddAssistentViewController.h */,
+				8D82EDAB19ABF6D100B4360D /* AddAssistentViewController.m */,
+				8D82EDAE19AC0F4D00B4360D /* ExternalAssistantViewController.h */,
+				8D82EDAF19AC0F4D00B4360D /* ExternalAssistantViewController.m */,
+				8D82EDB119AC162800B4360D /* InternalAssistantViewController.h */,
+				8D82EDB219AC162800B4360D /* InternalAssistantViewController.m */,
+			);
+			name = BookingAssistants;
+			sourceTree = "<group>";
+		};
 		8DD128C7199160A500B0F435 /* FHSTwitterEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +762,7 @@
 				8DD6A785199C0FB5003074DA /* HFImageEditorFrameView.m in Sources */,
 				4F5E43901981866400E807ED /* UIColor+Hex.m in Sources */,
 				8D316C7619807F9200E4C21C /* RoomDetailsViewController.m in Sources */,
+				8D82EDB319AC162800B4360D /* InternalAssistantViewController.m in Sources */,
 				8D439B34199AB8A200D5249D /* Service.m in Sources */,
 				8DD6A789199C100B003074DA /* ImageEditorViewController.m in Sources */,
 				8D71E8E819A636790042349F /* DTCustomColoredAccessory.m in Sources */,
@@ -731,23 +780,30 @@
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
 				4F5E43911981866400E807ED /* Utility.m in Sources */,
 				4F9C455619913101006ABC19 /* WelcomeViewController.m in Sources */,
+				8D82EDA519ABAFE100B4360D /* BookingRoomViewController.m in Sources */,
 				8D439B31199AB8A200D5249D /* Car.m in Sources */,
 				4F7E0F611982B9D900B793FD /* User.m in Sources */,
+				8D82ED9F19ABAF4F00B4360D /* BookingDetailsViewController.m in Sources */,
 				4F9C4552199025D8006ABC19 /* MainNavigationController.m in Sources */,
 				4F7E0F5E1981D58400B793FD /* WebService.m in Sources */,
 				8D7EE9BF19805D6D000878FD /* MeetingRoom.m in Sources */,
+				8D82ED9C19ABAA0000B4360D /* BookingStepsViewController.m in Sources */,
+				8D82EDAC19ABF6D100B4360D /* AddAssistentViewController.m in Sources */,
 				8D7EE991197F25E5000878FD /* MenuTableViewCell.m in Sources */,
 				8D439B3A199AC52F00D5249D /* RoomDetailsCollectionViewCell.m in Sources */,
 				8DD128D0199160A500B0F435 /* FHSTwitterEngine.m in Sources */,
 				8D71E8E219A563140042349F /* RMDownloadIndicator.m in Sources */,
+				8D82EDB019AC0F4D00B4360D /* ExternalAssistantViewController.m in Sources */,
 				8D71E8E119A563140042349F /* RMDisplayLabel.m in Sources */,
 				4F8AB3B8197F010C00173E66 /* main.m in Sources */,
 				4F493E1F19A69152008DDD2D /* MeetingRoomCollectionViewCell.m in Sources */,
 				8D7EE99B19800585000878FD /* MyBookingsViewController.m in Sources */,
 				4F7E0F541981C7E200B793FD /* PPPinCircleView.m in Sources */,
 				8D439B32199AB8A200D5249D /* Person.m in Sources */,
+				8D82EDA819ABDAAB00B4360D /* AssistantTableViewCell.m in Sources */,
 				4FDB1ACB199170FD001601C6 /* HomeViewController.m in Sources */,
 				8DD6A786199C0FB5003074DA /* HFImageEditorViewController.m in Sources */,
+				8D82EDA219ABAFA200B4360D /* BookingAssistantsViewController.m in Sources */,
 				8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */,
 				8DD128CF199160A500B0F435 /* FHSStream.m in Sources */,
 				8D439B33199AB8A200D5249D /* Photo.m in Sources */,

@@ -1,17 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "acerca32.png"
+      "filename" : "close1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "acerca64.png"
+      "filename" : "close2.png"
     }
   ],
   "info" : {

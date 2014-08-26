@@ -114,6 +114,12 @@
 #define COCOAPODS_VERSION_MINOR_RESideMenu 0
 #define COCOAPODS_VERSION_PATCH_RESideMenu 6
 
+// RMStepsController
+#define COCOAPODS_POD_AVAILABLE_RMStepsController
+#define COCOAPODS_VERSION_MAJOR_RMStepsController 1
+#define COCOAPODS_VERSION_MINOR_RMStepsController 0
+#define COCOAPODS_VERSION_PATCH_RMStepsController 1
+
 // RNGridMenu
 #define COCOAPODS_POD_AVAILABLE_RNGridMenu
 #define COCOAPODS_VERSION_MAJOR_RNGridMenu 0

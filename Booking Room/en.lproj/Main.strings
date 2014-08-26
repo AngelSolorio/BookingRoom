@@ -68,3 +68,23 @@
 
 /* Class = "IBUIBarButtonItem"; title = "Usar"; ObjectID = "bqt-eA-3VH"; */
 "bqt-eA-3VH.title" = "Choose";
+
+// Home - BookingDetails
+/* Class = "IBUILabel"; text = "Titulo de la reunion"; ObjectID = "BQg-vV-60j"; */
+"BQg-vV-60j.text" = "Meeting title";
+
+/* Class = "UITextField"; placeholder = "Buscar"; ObjectID = "5Lf-7p-cpw"; */
+"Q44-pj-awX.placeholder" = "Title";
+
+/* Class = "IBUILabel"; text = "Hora inicial"; ObjectID = "Qra-S5-Rz5"; */
+"Qra-S5-Rz5.text" = "Start Date:";
+
+/* Class = "IBUILabel"; text = "Hora final"; ObjectID = "gZv-7f-Pya"; */
+"gZv-7f-Pya.text" = "End Date:";
+
+/* Class = "IBUILabel"; text = "Fecha"; ObjectID = "gGr-wh-r9V"; */
+"gGr-wh-r9V.text" = "Meeting Date:";
+
+// Home - BookingAssistants
+/* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "RP5-gl-lUD"; */
+"RP5-gl-lUD.placeholder" = "Search";
