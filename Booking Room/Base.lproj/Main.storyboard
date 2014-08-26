@@ -1066,7 +1066,7 @@
         <!--Booking Rooms View Controller - Salas-->
         <scene sceneID="LLJ-0x-ItK">
             <objects>
-                <viewController storyboardIdentifier="bookingRoomsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DSF-6p-yjw" customClass="BookingRoomsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meetingRoomsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DSF-6p-yjw" customClass="BookingRoomsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CZT-89-n7n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
