@@ -67,6 +67,11 @@
 // HOME
 "Home_Title" = "Reservaciones";
 
+// BOOKING STEPS
+"BookingSteps_Details" = "Detalles";
+"BookingSteps_Assistants" = "Asistentes";
+"BookingSteps_Rooms" = "Salas";
+
 // BOOKING ROOM
 "MeetingRoom1" = "Sala de Juntas 1";
 "MeetingRoom2" = "Sala de Juntas 2";

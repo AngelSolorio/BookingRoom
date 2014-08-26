@@ -67,6 +67,11 @@
 // HOME
 "Home_Title" = "Home";
 
+// BOOKING STEPS
+"BookingSteps_Details" = "Details";
+"BookingSteps_Assistants" = "Assistants";
+"BookingSteps_Rooms" = "Meeting Rooms";
+
 // BOOKING ROOM
 "MeetingRoom1" = "Meeting Room 1";
 "MeetingRoom2" = "Meeting Room 2";
