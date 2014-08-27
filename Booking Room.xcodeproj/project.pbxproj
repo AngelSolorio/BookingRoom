@@ -66,7 +66,7 @@
 		8D82ED9C19ABAA0000B4360D /* BookingStepsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82ED9B19ABAA0000B4360D /* BookingStepsViewController.m */; };
 		8D82ED9F19ABAF4F00B4360D /* BookingDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */; };
 		8D82EDA219ABAFA200B4360D /* BookingAssistantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA119ABAFA200B4360D /* BookingAssistantsViewController.m */; };
-		8D82EDA519ABAFE100B4360D /* BookingRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA419ABAFE100B4360D /* BookingRoomViewController.m */; };
+		8D82EDA519ABAFE100B4360D /* MeetingRoomsAvailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA419ABAFE100B4360D /* MeetingRoomsAvailableViewController.m */; };
 		8D82EDA819ABDAAB00B4360D /* AssistantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDA719ABDAAB00B4360D /* AssistantTableViewCell.m */; };
 		8D82EDAC19ABF6D100B4360D /* AddAssistentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82EDAB19ABF6D100B4360D /* AddAssistentViewController.m */; };
 		8DA4867D1992CBFF00C350F1 /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA4867C1992CBFF00C350F1 /* Booking.m */; };
@@ -197,8 +197,8 @@
 		8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingDetailsViewController.m; path = ViewControllers/BookingDetailsViewController.m; sourceTree = "<group>"; };
 		8D82EDA019ABAFA200B4360D /* BookingAssistantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingAssistantsViewController.h; path = ViewControllers/BookingAssistantsViewController.h; sourceTree = "<group>"; };
 		8D82EDA119ABAFA200B4360D /* BookingAssistantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingAssistantsViewController.m; path = ViewControllers/BookingAssistantsViewController.m; sourceTree = "<group>"; };
-		8D82EDA319ABAFE100B4360D /* BookingRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingRoomViewController.h; path = ViewControllers/BookingRoomViewController.h; sourceTree = "<group>"; };
-		8D82EDA419ABAFE100B4360D /* BookingRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingRoomViewController.m; path = ViewControllers/BookingRoomViewController.m; sourceTree = "<group>"; };
+		8D82EDA319ABAFE100B4360D /* MeetingRoomsAvailableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeetingRoomsAvailableViewController.h; path = ViewControllers/MeetingRoomsAvailableViewController.h; sourceTree = "<group>"; };
+		8D82EDA419ABAFE100B4360D /* MeetingRoomsAvailableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeetingRoomsAvailableViewController.m; path = ViewControllers/MeetingRoomsAvailableViewController.m; sourceTree = "<group>"; };
 		8D82EDA619ABDAAB00B4360D /* AssistantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssistantTableViewCell.h; path = ViewControllers/AssistantTableViewCell.h; sourceTree = "<group>"; };
 		8D82EDA719ABDAAB00B4360D /* AssistantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssistantTableViewCell.m; path = ViewControllers/AssistantTableViewCell.m; sourceTree = "<group>"; };
 		8D82EDAA19ABF6D100B4360D /* AddAssistentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAssistentViewController.h; path = ViewControllers/AddAssistentViewController.h; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 				8D82ED9B19ABAA0000B4360D /* BookingStepsViewController.m */,
 				8D82ED9D19ABAF4F00B4360D /* BookingDetailsViewController.h */,
 				8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */,
-				8D82EDA319ABAFE100B4360D /* BookingRoomViewController.h */,
-				8D82EDA419ABAFE100B4360D /* BookingRoomViewController.m */,
+				8D82EDA319ABAFE100B4360D /* MeetingRoomsAvailableViewController.h */,
+				8D82EDA419ABAFE100B4360D /* MeetingRoomsAvailableViewController.m */,
 				8D82EDA919ABF1AC00B4360D /* BookingAssistants */,
 			);
 			name = Home;
@@ -775,7 +775,7 @@
 				8D7EE98D197F1804000878FD /* LeftMenuViewController.m in Sources */,
 				4F5E43911981866400E807ED /* Utility.m in Sources */,
 				4F9C455619913101006ABC19 /* WelcomeViewController.m in Sources */,
-				8D82EDA519ABAFE100B4360D /* BookingRoomViewController.m in Sources */,
+				8D82EDA519ABAFE100B4360D /* MeetingRoomsAvailableViewController.m in Sources */,
 				8D439B31199AB8A200D5249D /* Car.m in Sources */,
 				4F7E0F611982B9D900B793FD /* User.m in Sources */,
 				8D82ED9F19ABAF4F00B4360D /* BookingDetailsViewController.m in Sources */,

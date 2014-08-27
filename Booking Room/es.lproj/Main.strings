@@ -127,3 +127,7 @@
 /* Class = "UITextField"; placeholder = "Matrícula"; ObjectID = "xEq-H0-ijO"; */
 "xEq-H0-ijO.placeholder" = "Matrícula";
 
+// Meeting Room Available
+/* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "0xe-ec-yjg"; */
+"0xe-ec-yjg.placeholder" = "Buscar";
+
