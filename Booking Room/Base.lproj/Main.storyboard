@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="mFe-Px-e3f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="mFe-Px-e3f">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -319,7 +319,7 @@
             </objects>
             <point key="canvasLocation" x="765" y="-339"/>
         </scene>
-        <!--My Bookings View Controller - My Bookings-->
+        <!--My Bookings-->
         <scene sceneID="GrV-8w-fIk">
             <objects>
                 <viewController storyboardIdentifier="myBookingsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RAr-Xh-Agr" customClass="MyBookingsViewController" sceneMemberID="viewController">
@@ -446,7 +446,7 @@
             </objects>
             <point key="canvasLocation" x="1373" y="-725"/>
         </scene>
-        <!--Home View Controller - Home-->
+        <!--Home-->
         <scene sceneID="8yb-6n-g84">
             <objects>
                 <viewController storyboardIdentifier="homeController" extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2pB-5B-eWw" customClass="HomeViewController" sceneMemberID="viewController">
@@ -625,7 +625,7 @@
             </objects>
             <point key="canvasLocation" x="1373" y="-1439"/>
         </scene>
-        <!--Booking Steps View Controller - Booking-->
+        <!--Booking-->
         <scene sceneID="JRL-lg-wsu">
             <objects>
                 <viewController id="T9s-oe-R64" customClass="BookingStepsViewController" sceneMemberID="viewController">
@@ -1139,62 +1139,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bof-ax-M4G">
-                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                            <view contentMode="scaleToFill" id="yyS-dd-Y5G">
+                                <rect key="frame" x="16" y="281" width="288" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="dNO-uX-Vfn">
-                                <rect key="frame" x="16" y="518" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ghA-5A-HHI">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="229"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione fecha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4wC-cV-rzh">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.29926658160000003" green="0.29926658160000003" blue="0.29926658160000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="q82-Oj-wrg">
+                                        <rect key="frame" x="0.0" y="43" width="288" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="430685588.44546098">
+                                            <!--2014-08-25 18:53:08 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="pub-Of-aOq">
+                                        <rect key="frame" x="0.0" y="199" width="288" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Aceptar">
+                                            <color key="titleColor" red="0.10788917786208241" green="0.49489672905024107" blue="0.74404097576530615" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectedDatePicker:" destination="mJb-nW-hcn" eventType="touchUpInside" id="z7r-5A-Lf5"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bof-ax-M4G">
+                                        <rect key="frame" x="0.0" y="237" width="288" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="dNO-uX-Vfn">
+                                        <rect key="frame" x="0.0" y="237" width="288" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Cancelar">
+                                            <color key="titleColor" red="0.80787627549999996" green="0.12651779660000001" blue="0.16184145080000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closePicker:" destination="mJb-nW-hcn" eventType="touchUpInside" id="fVX-pT-5qg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Cancelar">
-                                    <color key="titleColor" red="0.80787627549999996" green="0.12651779660000001" blue="0.16184145080000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closePicker:" destination="mJb-nW-hcn" eventType="touchUpInside" id="fVX-pT-5qg"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ghA-5A-HHI">
-                                <rect key="frame" x="16" y="281" width="288" height="229"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="pub-Of-aOq">
-                                <rect key="frame" x="16" y="480" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Aceptar">
-                                    <color key="titleColor" red="0.10788917786208241" green="0.49489672905024107" blue="0.74404097576530615" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectedDatePicker:" destination="mJb-nW-hcn" eventType="touchUpInside" id="z7r-5A-Lf5"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione fecha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4wC-cV-rzh">
-                                <rect key="frame" x="16" y="281" width="288" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.29926658160000003" green="0.29926658160000003" blue="0.29926658160000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="q82-Oj-wrg">
-                                <rect key="frame" x="16" y="321" width="288" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <date key="date" timeIntervalSinceReferenceDate="430685588.44546098">
-                                    <!--2014-08-25 18:53:08 +0000-->
-                                </date>
-                            </datePicker>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="background" destination="ghA-5A-HHI" id="4Hz-eP-SKV"/>
                         <outlet property="backgroundButton" destination="bof-ax-M4G" id="wm6-dg-O8Q"/>
+                        <outlet property="contentView" destination="yyS-dd-Y5G" id="iUX-E7-7Zr"/>
                         <outlet property="datePicker" destination="q82-Oj-wrg" id="Q67-gh-mKX"/>
                         <outlet property="selectedButton" destination="pub-Of-aOq" id="BHS-Wb-rcQ"/>
                         <outlet property="titleCalendar" destination="4wC-cV-rzh" id="yvf-vD-fC8"/>
@@ -1225,7 +1232,7 @@
             </objects>
             <point key="canvasLocation" x="-315" y="-331"/>
         </scene>
-        <!--Booking Rooms View Controller - Salas-->
+        <!--Salas-->
         <scene sceneID="LLJ-0x-ItK">
             <objects>
                 <viewController storyboardIdentifier="meetingRoomsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DSF-6p-yjw" customClass="BookingRoomsViewController" sceneMemberID="viewController">
@@ -1350,7 +1357,7 @@
             </objects>
             <point key="canvasLocation" x="1373" y="-15"/>
         </scene>
-        <!--Room Details View Controller - Detalles Sala-->
+        <!--Detalles Sala-->
         <scene sceneID="T7x-3D-4Wy">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="aEO-kC-4Gd" customClass="RoomDetailsViewController" sceneMemberID="viewController">
@@ -1580,7 +1587,7 @@
             </objects>
             <point key="canvasLocation" x="2968" y="-1439"/>
         </scene>
-        <!--Suggestions View Controller - Sugerencias-->
+        <!--Sugerencias-->
         <scene sceneID="XC8-xx-w07">
             <objects>
                 <viewController storyboardIdentifier="suggestionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hwX-qE-Xge" customClass="SuggestionsViewController" sceneMemberID="viewController">
@@ -1714,6 +1721,19 @@
             </objects>
             <point key="canvasLocation" x="221" y="669"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="jaS-b0-03V">
+            <objects>
+                <viewController id="UZr-2F-dVl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bKQ-0X-8QG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eKy-hM-jUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="AppLogo" width="114" height="114"/>
@@ -1729,13 +1749,16 @@
         <image name="PhotoProfile" width="60" height="60"/>
         <image name="Room4" width="56" height="56"/>
     </resources>
-    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="feO-5l-VRN"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
 </document>

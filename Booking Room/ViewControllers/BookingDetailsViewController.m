@@ -60,9 +60,9 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ActionSheetCalendarViewController *modalVC = [storyboard instantiateViewControllerWithIdentifier:@"ActionSheetCalendarView"];
     modalVC.delegate = self;
-    modalVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    UIView *rootView = UIApplication.sharedApplication.delegate.window.rootViewController.view;
+    [modalVC setBackgroundImage:[Utility getScreenshot:rootView]];
     modalVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
     [self presentViewController:modalVC animated:NO completion:NULL];
 }
 

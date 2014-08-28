@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.modalPresentationStyle = UIModalPresentationFormSheet;
     // Applies the blur effect to the background
-    _backgroundImage = [UIImage imageNamed:@"BackgroundGeneral"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[_backgroundImage applyBlurWithRadius:2 tintColor:[UIColor colorWithRed:32.0/255.0f green:32.0/255.0f blue:32.0/255.0f alpha:0.5] saturationDeltaFactor:1 maskImage:_backgroundImage]];
+    _backgroundImage = [UIImage imageNamed:@"BackgroundMenu"];
     _background.image = [_backgroundImage applyExtraLightEffect];
     _background.layer.masksToBounds = YES;
     _background.layer.cornerRadius = 5.0f;
@@ -39,6 +39,26 @@
     _selectedButton.layer.cornerRadius = 5.0f;
     _selectedButton.layer.borderWidth = 0.3f;
     _selectedButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    _contentView.frame = CGRectMake(_contentView.frame.origin.x, self.view.frame.size.height, _contentView.frame.size.width, _contentView.frame.size.width);
+    
+    // Dismiss view with touch outside picker
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(closePicker:)];
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration: 0.2 animations:^{
+        _contentView.frame = CGRectMake(_contentView.frame.origin.x, self.view.frame.size.height -  (_contentView.frame.size.width + 10), _contentView.frame.size.width, _contentView.frame.size.height);
+    }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [UIView animateWithDuration: 0.2 animations:^{
+        _contentView.frame = CGRectMake(_contentView.frame.origin.x,  self.view.frame.size.height, _contentView.frame.size.width, _contentView.frame.size.height);
+    }];
 }
 
 - (void)setTitlePicker:(NSString *)title {

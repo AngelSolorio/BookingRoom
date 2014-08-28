@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *titleCalendar;
 @property (weak, nonatomic) IBOutlet UIButton *selectedButton;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 - (IBAction)closePicker:(id)sender;
 - (IBAction)selectedDatePicker:(id)sender;

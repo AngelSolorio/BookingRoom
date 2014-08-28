@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RMStepsController.h"
 #import "ActionSheetCalendarViewController.h"
+#import "Utility.h"
 
 @interface BookingDetailsViewController : UIViewController <UITextFieldDelegate, ActionSheetCalendarDelegate> {
     NSInteger optionSelected;

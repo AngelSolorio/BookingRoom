@@ -46,7 +46,8 @@
 - (IBAction)addAssistant:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AddAssistentViewController *modalVC = [storyboard instantiateViewControllerWithIdentifier:@"AddAssistantView"];
-    [modalVC setBackgroundImage:[Utility getScreenshot:self.parentViewController.view]];
+    UIView *rootView = UIApplication.sharedApplication.delegate.window.rootViewController.view;
+    [modalVC setBackgroundImage:[Utility getScreenshot:rootView]];
     [self presentViewController:modalVC animated:NO completion:NULL];
 }
 
