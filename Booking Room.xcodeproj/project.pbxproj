@@ -73,6 +73,7 @@
 		8DA4F592199023E70082A5C7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F591199023E70082A5C7 /* Social.framework */; };
 		8DA4F594199023ED0082A5C7 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F593199023ED0082A5C7 /* Twitter.framework */; };
 		8DA4F596199024B40082A5C7 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA4F595199024B40082A5C7 /* Accounts.framework */; };
+		8DB9662F19AE6130009BB830 /* ActionSheetCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9662E19AE6130009BB830 /* ActionSheetCalendarViewController.m */; };
 		8DD128C61991608900B0F435 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD128C51991608900B0F435 /* FacebookSDK.framework */; };
 		8DD128CF199160A500B0F435 /* FHSStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128C9199160A500B0F435 /* FHSStream.m */; };
 		8DD128D0199160A500B0F435 /* FHSTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD128CB199160A500B0F435 /* FHSTwitterEngine.m */; };
@@ -208,6 +209,8 @@
 		8DA4F591199023E70082A5C7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8DA4F593199023ED0082A5C7 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		8DA4F595199024B40082A5C7 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		8DB9662D19AE6130009BB830 /* ActionSheetCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSheetCalendarViewController.h; path = ViewControllers/ActionSheetCalendarViewController.h; sourceTree = "<group>"; };
+		8DB9662E19AE6130009BB830 /* ActionSheetCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionSheetCalendarViewController.m; path = ViewControllers/ActionSheetCalendarViewController.m; sourceTree = "<group>"; };
 		8DD128C51991608900B0F435 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		8DD128C8199160A500B0F435 /* FHSStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FHSStream.h; sourceTree = "<group>"; };
 		8DD128C9199160A500B0F435 /* FHSStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FHSStream.m; sourceTree = "<group>"; };
@@ -268,10 +271,9 @@
 				4F493E1E19A69152008DDD2D /* MeetingRoomCollectionViewCell.m */,
 				8D82ED9A19ABAA0000B4360D /* BookingStepsViewController.h */,
 				8D82ED9B19ABAA0000B4360D /* BookingStepsViewController.m */,
-				8D82ED9D19ABAF4F00B4360D /* BookingDetailsViewController.h */,
-				8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */,
-				8D82EDA319ABAFE100B4360D /* MeetingRoomsAvailableViewController.h */,
 				8D82EDA419ABAFE100B4360D /* MeetingRoomsAvailableViewController.m */,
+				8D82EDA319ABAFE100B4360D /* MeetingRoomsAvailableViewController.h */,
+				8DB9662C19AE60ED009BB830 /* BookingDetails */,
 				8D82EDA919ABF1AC00B4360D /* BookingAssistants */,
 			);
 			name = Home;
@@ -577,6 +579,17 @@
 			name = BookingAssistants;
 			sourceTree = "<group>";
 		};
+		8DB9662C19AE60ED009BB830 /* BookingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8D82ED9D19ABAF4F00B4360D /* BookingDetailsViewController.h */,
+				8D82ED9E19ABAF4F00B4360D /* BookingDetailsViewController.m */,
+				8DB9662D19AE6130009BB830 /* ActionSheetCalendarViewController.h */,
+				8DB9662E19AE6130009BB830 /* ActionSheetCalendarViewController.m */,
+			);
+			name = BookingDetails;
+			sourceTree = "<group>";
+		};
 		8DD128C7199160A500B0F435 /* FHSTwitterEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +814,7 @@
 				8D7EE9BC19805C5A000878FD /* BookingRoomTableViewCell.m in Sources */,
 				8DD128CF199160A500B0F435 /* FHSStream.m in Sources */,
 				8D439B33199AB8A200D5249D /* Photo.m in Sources */,
+				8DB9662F19AE6130009BB830 /* ActionSheetCalendarViewController.m in Sources */,
 				8D7EE99E1980059E000878FD /* BookingRoomsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -964,7 +978,7 @@
 					SystemConfiguration,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1305868-7228-4583-9e33-e58e0cc45de1";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1000,7 +1014,7 @@
 					SystemConfiguration,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1305868-7228-4583-9e33-e58e0cc45de1";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

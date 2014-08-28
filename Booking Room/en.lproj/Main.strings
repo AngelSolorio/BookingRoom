@@ -126,3 +126,23 @@
 // Meeting Room Available
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "0xe-ec-yjg"; */
 "0xe-ec-yjg.placeholder" = "Search";
+
+// BookingDetails
+/* Class = "UITextField"; placeholder = "Hora inicial"; ObjectID = "PTs-CM-jnl"; */
+"PTs-CM-jnl.placeholder" = "Start date";
+
+/* Class = "UITextField"; placeholder = "Hora final"; ObjectID = "CYx-Ek-xe6"; */
+"CYx-Ek-xe6.placeholder" = "End date";
+
+/* Class = "UITextField"; placeholder = "Fecha"; ObjectID = "m9z-FM-q8I"; */
+"m9z-FM-q8I.placeholder" = "Date";
+
+// ActionSheetCalendar
+/* Class = "IBUILabel"; text = "Seleccione fecha"; ObjectID = "4wC-cV-rzh"; */
+"4wC-cV-rzh.text" = "Choose date";
+
+/* Class = "IBUIButton"; text = "Cancelar"; ObjectID = "dNO-uX-Vfn"; */
+"dNO-uX-Vfn.normalTitle" = "Cancel";
+
+/* Class = "IBUIButton"; text = "Aceptar"; ObjectID = "pub-Of-aOq"; */
+"pub-Of-aOq.normalTitle" = "Ok";

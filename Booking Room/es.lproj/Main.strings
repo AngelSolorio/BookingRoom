@@ -131,3 +131,22 @@
 /* Class = "IBUISearchBar"; placeholder = "Buscar"; ObjectID = "0xe-ec-yjg"; */
 "0xe-ec-yjg.placeholder" = "Buscar";
 
+// BookingDetails
+/* Class = "UITextField"; placeholder = "Hora inicial"; ObjectID = "PTs-CM-jnl"; */
+"PTs-CM-jnl.placeholder" = "Hora inicial";
+
+/* Class = "UITextField"; placeholder = "Hora final"; ObjectID = "CYx-Ek-xe6"; */
+"CYx-Ek-xe6.placeholder" = "Hora final";
+
+/* Class = "UITextField"; placeholder = "Fecha"; ObjectID = "m9z-FM-q8I"; */
+"m9z-FM-q8I.placeholder" = "Fecha";
+
+// ActionSheetCalendar
+/* Class = "IBUILabel"; text = "Seleccione fecha"; ObjectID = "4wC-cV-rzh"; */
+"4wC-cV-rzh.text" = "Seleccione fecha";
+
+/* Class = "IBUIButton"; text = "Cancelar"; ObjectID = "dNO-uX-Vfn"; */
+"dNO-uX-Vfn.normalTitle" = "Cancelar";
+
+/* Class = "IBUIButton"; text = "Aceptar"; ObjectID = "pub-Of-aOq"; */
+"pub-Of-aOq.normalTitle" = "Aceptar";
